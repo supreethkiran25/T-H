@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
-import logoUrl from "../assets/Trust & Hope_Logo_Round_Transparent.webp";
+import { brandLogos, BRAND_FONTS_HREF } from "@/lib/brand";
 import teamImgUrl from "../assets/team.webp";
 import { useStats } from "@/lib/stats-store";
-import { getBreadcrumbSchema, SITE_URL } from "@/lib/seo-schemas";
+import { getBreadcrumbSchema, getWebPageSchema, ORGANIZATION_SCHEMA, SITE_URL } from "@/lib/seo-schemas";
+
+const logoPrimaryWhite = brandLogos.primary.white;
+const logoIconWhite = brandLogos.icon.white;
 
 export const Route = createFileRoute("/our-team")({
   head: () => ({
@@ -27,8 +30,12 @@ export const Route = createFileRoute("/our-team")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/our-team` },
-      { property: "og:image", content: `${SITE_URL}/Trust%20&%20Hope_Logo_Round_Transparent.webp` },
+      { property: "og:image", content: `${SITE_URL}/tahrad-logo.png` },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Our Radiologist Panel & Leadership Team | Trust and Hope Rad Pvt. Ltd." },
+      { name: "twitter:description", content: "140+ fellowship-trained radiologists delivering high-accuracy reporting 24/7/365 across hospitals in India." },
+      { name: "twitter:image", content: `${SITE_URL}/tahrad-logo.png` },
+      { name: "robots", content: "index, follow" },
     ],
     links: [
       { rel: "canonical", href: `${SITE_URL}/our-team` },
@@ -40,11 +47,27 @@ export const Route = createFileRoute("/our-team")({
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
+        href: BRAND_FONTS_HREF,
       },
       { rel: "stylesheet", href: "/tah.css" },
     ],
     scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(ORGANIZATION_SCHEMA),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          getWebPageSchema({
+            name: "Our Radiologist Panel & Leadership Team | Trust and Hope Rad Pvt. Ltd.",
+            description:
+              "Meet the clinical leadership and 140+ fellowship-trained radiologists at Trust and Hope Rad Pvt. Ltd. Subspecialty expertise across CT, MRI, Neuro, MSK & Cardiac radiology.",
+            path: "/our-team",
+            type: "AboutPage",
+          })
+        ),
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify(
@@ -108,11 +131,9 @@ function OurTeam() {
       <header className="nav">
         <div className="container">
           <div className="nav-wrap">
-            <Link to="/" className="brand">
-              <img src={logoUrl} alt="Trust and Hope Rad logo" />
-              <span>
-                TAH RAD<small>Trust and Hope Rad Pvt. Ltd.</small>
-              </span>
+            <Link to="/" className="brand" aria-label="TAHRAD">
+              <img className="brand-logo brand-logo--primary" src={logoPrimaryWhite} alt="TAHRAD" />
+              <img className="brand-logo brand-logo--icon" src={logoIconWhite} alt="TAHRAD" />
             </Link>
             <nav className="links">
               <Link to="/">Home</Link>
@@ -173,16 +194,16 @@ function OurTeam() {
             <div className="row g-4 g-lg-5 align-items-center">
               {/* LEFT CONTENT COLUMN */}
               <div className="col-12 col-lg-6">
-                <span className="eyebrow mb-3" style={{ color: "var(--sky-blue)" }}>
+                <span className="eyebrow mb-3" style={{ color: "var(--brand-blue)" }}>
                   OUR TEAM
                 </span>
                 <h1
                   style={{
-                    color: "var(--deep-navy)",
+                    color: "var(--brand-blue)",
                     fontSize: "clamp(32px, 3.8vw, 50px)",
                     fontWeight: 700,
                     lineHeight: 1.18,
-                    letterSpacing: "-0.02em",
+                    letterSpacing: "-0.01em",
                     marginBottom: "20px",
                   }}
                 >
@@ -191,7 +212,7 @@ function OurTeam() {
                 <p
                   style={{
                     fontSize: "16.5px",
-                    color: "#4A627D",
+                    color: "var(--brand-gray)",
                     lineHeight: 1.68,
                     marginBottom: "32px",
                     maxWidth: "580px",
@@ -252,9 +273,9 @@ function OurTeam() {
         <div className="container">
           <div className="row g-4 g-lg-5">
             <div className="col-12 col-lg-4 pe-lg-4">
-              <Link to="/" className="brand">
-                <img src={logoUrl} alt="Trust and Hope Rad logo" />
-                <span>TAH RAD</span>
+              <Link to="/" className="brand" aria-label="TAHRAD">
+                <img className="brand-logo brand-logo--primary" src={logoPrimaryWhite} alt="TAHRAD" />
+                <img className="brand-logo brand-logo--icon" src={logoIconWhite} alt="TAHRAD" />
               </Link>
               <p data-stat-summary>
                 Trust and Hope Rad Pvt. Ltd. | 24×7 teleradiology services serving {stats.centres}{stats.centresSuffix} centres, {stats.studies}{stats.studiesSuffix} new

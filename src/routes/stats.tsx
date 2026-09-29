@@ -2,7 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { toast, Toaster } from "sonner";
 import { getStats, saveStats, resetStats, DEFAULT_STATS, StatsData } from "@/lib/stats-store";
-import logoUrl from "../assets/Trust & Hope_Logo_Round_Transparent.webp";
+import { brandLogos, BRAND_FONTS_HREF } from "@/lib/brand";
+
+const logoUrl = brandLogos.primary.white;
 
 export const Route = createFileRoute("/stats")({
   head: () => ({
@@ -24,7 +26,7 @@ export const Route = createFileRoute("/stats")({
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
+        href: BRAND_FONTS_HREF,
       },
       { rel: "stylesheet", href: "/tah.css" },
     ],
@@ -51,7 +53,7 @@ function StatsCMS() {
 
     // Override tah.css default body padding-top (80px) and paper background
     document.body.style.paddingTop = "0px";
-    document.body.style.backgroundColor = "#081424";
+    document.body.style.backgroundColor = "#0028FA";
     return () => {
       document.body.style.paddingTop = "";
       document.body.style.backgroundColor = "";
@@ -122,16 +124,16 @@ function StatsCMS() {
       <div
         style={{
           minHeight: "100vh",
-          background: "radial-gradient(1000px 500px at 50% 20%, rgba(43, 168, 183, 0.15), transparent 70%), #081424",
+          background: "radial-gradient(1000px 500px at 50% 20%, rgba(43, 168, 183, 0.15), transparent 70%), #0028FA",
           color: "#E6EDF5",
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           padding: "16px",
         }}
       >
-        <style>{`body { padding-top: 0 !important; background-color: #081424 !important; }`}</style>
+        <style>{`body { padding-top: 0 !important; background-color: #0028FA !important; }`}</style>
         <Toaster position="top-right" richColors theme="dark" />
 
         <div
@@ -149,7 +151,7 @@ function StatsCMS() {
           <div className="text-center mb-4">
             <img
               src={logoUrl}
-              alt="Trust & Hope Rad Logo"
+              alt="TAHRAD"
               style={{ height: "clamp(48px, 8vw, 64px)", width: "auto", margin: "0 auto 16px auto" }}
             />
             <h1 style={{ fontSize: "clamp(20px, 4.5vw, 24px)", fontWeight: 700, color: "#FFFFFF", marginBottom: "6px" }}>
@@ -181,7 +183,7 @@ function StatsCMS() {
             )}
 
             <div className="mb-3">
-              <label style={{ fontSize: "13px", fontWeight: 600, color: "#20B7E5", marginBottom: "6px", display: "block" }}>
+              <label style={{ fontSize: "13px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
                 Username / Email
               </label>
               <input
@@ -192,7 +194,7 @@ function StatsCMS() {
                 autoComplete="username"
                 className="form-control"
                 style={{
-                  background: "#081424",
+                  background: "#0028FA",
                   border: "1px solid rgba(32, 183, 229, 0.3)",
                   color: "#FFFFFF",
                   padding: "12px 14px",
@@ -204,7 +206,7 @@ function StatsCMS() {
             </div>
 
             <div className="mb-4">
-              <label style={{ fontSize: "13px", fontWeight: 600, color: "#20B7E5", marginBottom: "6px", display: "block" }}>
+              <label style={{ fontSize: "13px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
                 Password
               </label>
               <div className="position-relative">
@@ -216,7 +218,7 @@ function StatsCMS() {
                   autoComplete="current-password"
                   className="form-control"
                   style={{
-                    background: "#081424",
+                    background: "#0028FA",
                     border: "1px solid rgba(32, 183, 229, 0.3)",
                     color: "#FFFFFF",
                     padding: "12px 55px 12px 14px",
@@ -251,7 +253,7 @@ function StatsCMS() {
               type="submit"
               className="btn w-100 mb-3"
               style={{
-                background: "linear-gradient(90deg, #00BCEB 0%, #14B8DD 35%, #22B69E 65%, #2BB560 85%, #32B43C 100%)",
+                background: "#5CD94A",
                 color: "#FFFFFF",
                 fontWeight: 600,
                 padding: "12px",
@@ -289,12 +291,12 @@ function StatsCMS() {
     <div
       style={{
         minHeight: "100vh",
-        background: "#081424",
+        background: "#0028FA",
         color: "#E6EDF5",
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
       }}
     >
-      <style>{`body { padding-top: 0 !important; background-color: #081424 !important; }`}</style>
+      <style>{`body { padding-top: 0 !important; background-color: #0028FA !important; }`}</style>
       <Toaster position="top-right" richColors theme="dark" />
 
       {/* ADMIN HEADER — RESPONSIVE WRAP & GAP */}
@@ -316,7 +318,7 @@ function StatsCMS() {
               <Link to="/" className="d-flex align-items-center text-decoration-none">
                 <img
                   src={logoUrl}
-                  alt="TAH RAD Logo"
+                  alt="TAHRAD"
                   style={{ height: "36px", width: "auto", marginRight: "10px" }}
                 />
                 <span
@@ -333,7 +335,7 @@ function StatsCMS() {
               <span
                 style={{
                   background: "rgba(32, 183, 229, 0.15)",
-                  color: "#20B7E5",
+                  color: "#0028FA",
                   border: "1px solid rgba(32, 183, 229, 0.3)",
                   fontSize: "11px",
                   fontWeight: 600,
@@ -363,9 +365,9 @@ function StatsCMS() {
                     width: "8px",
                     height: "8px",
                     borderRadius: "50%",
-                    backgroundColor: "#32B43C",
+                    backgroundColor: "#5CD94A",
                     display: "inline-block",
-                    boxShadow: "0 0 8px #32B43C",
+                    boxShadow: "0 0 8px #5CD94A",
                   }}
                 />
                 Admin Active
@@ -413,7 +415,7 @@ function StatsCMS() {
           <div className="mb-4 mb-md-5 text-center text-md-start">
             <span
               style={{
-                color: "#20B7E5",
+                color: "#0028FA",
                 fontSize: "12px",
                 fontWeight: 600,
                 letterSpacing: "0.12em",
@@ -444,7 +446,7 @@ function StatsCMS() {
             <div className="col-12 col-lg-6">
               <div
                 style={{
-                  background: "#071A3A",
+                  background: "#0028FA",
                   border: "1px solid rgba(32, 183, 229, 0.25)",
                   borderRadius: "16px",
                   padding: "clamp(20px, 4vw, 32px)",
@@ -465,7 +467,7 @@ function StatsCMS() {
 
                   {/* STAT 1: CENTRES SERVED */}
                   <div className="mb-4">
-                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#20B7E5", marginBottom: "6px", display: "block" }}>
+                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
                       1. Centres Served
                     </label>
                     <div className="row g-2">
@@ -476,7 +478,7 @@ function StatsCMS() {
                           onChange={(e) => handleChange("centres", e.target.value)}
                           className="form-control"
                           style={{
-                            background: "#081424",
+                            background: "#0028FA",
                             border: "1px solid rgba(32, 183, 229, 0.3)",
                             color: "#FFFFFF",
                             padding: "10px 12px",
@@ -495,9 +497,9 @@ function StatsCMS() {
                           placeholder="Suffix (+)"
                           className="form-control"
                           style={{
-                            background: "#081424",
+                            background: "#0028FA",
                             border: "1px solid rgba(32, 183, 229, 0.3)",
-                            color: "#20B7E5",
+                            color: "#0028FA",
                             padding: "10px 8px",
                             borderRadius: "8px",
                             fontSize: "15px",
@@ -514,7 +516,7 @@ function StatsCMS() {
 
                   {/* STAT 2: NEW STUDIES DAILY */}
                   <div className="mb-4">
-                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#20B7E5", marginBottom: "6px", display: "block" }}>
+                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
                       2. New Studies Uploaded Daily to PACS
                     </label>
                     <div className="row g-2">
@@ -525,7 +527,7 @@ function StatsCMS() {
                           onChange={(e) => handleChange("studies", e.target.value)}
                           className="form-control"
                           style={{
-                            background: "#081424",
+                            background: "#0028FA",
                             border: "1px solid rgba(32, 183, 229, 0.3)",
                             color: "#FFFFFF",
                             padding: "10px 12px",
@@ -544,9 +546,9 @@ function StatsCMS() {
                           placeholder="Suffix (+)"
                           className="form-control"
                           style={{
-                            background: "#081424",
+                            background: "#0028FA",
                             border: "1px solid rgba(32, 183, 229, 0.3)",
-                            color: "#20B7E5",
+                            color: "#0028FA",
                             padding: "10px 8px",
                             borderRadius: "8px",
                             fontSize: "15px",
@@ -563,7 +565,7 @@ function StatsCMS() {
 
                   {/* STAT 3: RADIOLOGISTS */}
                   <div className="mb-4">
-                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#20B7E5", marginBottom: "6px", display: "block" }}>
+                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
                       3. Radiologists Across Specialisations
                     </label>
                     <div className="row g-2">
@@ -574,7 +576,7 @@ function StatsCMS() {
                           onChange={(e) => handleChange("radiologists", e.target.value)}
                           className="form-control"
                           style={{
-                            background: "#081424",
+                            background: "#0028FA",
                             border: "1px solid rgba(32, 183, 229, 0.3)",
                             color: "#FFFFFF",
                             padding: "10px 12px",
@@ -593,9 +595,9 @@ function StatsCMS() {
                           placeholder="Suffix (+)"
                           className="form-control"
                           style={{
-                            background: "#081424",
+                            background: "#0028FA",
                             border: "1px solid rgba(32, 183, 229, 0.3)",
-                            color: "#20B7E5",
+                            color: "#0028FA",
                             padding: "10px 8px",
                             borderRadius: "8px",
                             fontSize: "15px",
@@ -612,7 +614,7 @@ function StatsCMS() {
 
                   {/* STAT 4: STATES COVERED */}
                   <div className="mb-4">
-                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#20B7E5", marginBottom: "6px", display: "block" }}>
+                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
                       4. States Covered in India
                     </label>
                     <div className="row g-2">
@@ -623,7 +625,7 @@ function StatsCMS() {
                           onChange={(e) => handleChange("states", e.target.value)}
                           className="form-control"
                           style={{
-                            background: "#081424",
+                            background: "#0028FA",
                             border: "1px solid rgba(32, 183, 229, 0.3)",
                             color: "#FFFFFF",
                             padding: "10px 12px",
@@ -642,9 +644,9 @@ function StatsCMS() {
                           placeholder="Suffix (+)"
                           className="form-control"
                           style={{
-                            background: "#081424",
+                            background: "#0028FA",
                             border: "1px solid rgba(32, 183, 229, 0.3)",
-                            color: "#20B7E5",
+                            color: "#0028FA",
                             padding: "10px 8px",
                             borderRadius: "8px",
                             fontSize: "15px",
@@ -665,7 +667,7 @@ function StatsCMS() {
                       type="submit"
                       className="btn flex-fill"
                       style={{
-                        background: "linear-gradient(90deg, #00BCEB 0%, #14B8DD 35%, #22B69E 65%, #2BB560 85%, #32B43C 100%)",
+                        background: "#5CD94A",
                         color: "#FFFFFF",
                         fontWeight: 600,
                         padding: "11px 18px",
@@ -703,7 +705,7 @@ function StatsCMS() {
               {/* LIVE PREVIEW CONTAINER */}
               <div
                 style={{
-                  background: "#071A3A",
+                  background: "#0028FA",
                   border: "1px solid rgba(32, 183, 229, 0.25)",
                   borderRadius: "16px",
                   padding: "clamp(20px, 4vw, 32px)",
@@ -718,7 +720,7 @@ function StatsCMS() {
                   <span
                     style={{
                       background: "rgba(50, 180, 60, 0.15)",
-                      color: "#32B43C",
+                      color: "#5CD94A",
                       fontSize: "11px",
                       fontWeight: 600,
                       padding: "3px 8px",
@@ -735,7 +737,7 @@ function StatsCMS() {
                   <div className="col-6 col-sm-6">
                     <div
                       style={{
-                        background: "#081424",
+                        background: "#0028FA",
                         border: "1px solid rgba(32, 183, 229, 0.2)",
                         borderRadius: "12px",
                         padding: "clamp(14px, 3vw, 20px)",
@@ -749,12 +751,12 @@ function StatsCMS() {
                           color: "#FFFFFF",
                           lineHeight: 1,
                           marginBottom: "6px",
-                          fontFamily: "'IBM Plex Mono', monospace",
+                          fontFamily: "'Plus Jakarta Sans', monospace",
                           wordBreak: "break-word",
                         }}
                       >
                         {formData.centres}
-                        <span style={{ color: "#20B7E5" }}>{formData.centresSuffix}</span>
+                        <span style={{ color: "#0028FA" }}>{formData.centresSuffix}</span>
                       </div>
                       <div style={{ fontSize: "clamp(10.5px, 2.5vw, 11.5px)", color: "#8DA5C4", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
                         Centres Served
@@ -765,7 +767,7 @@ function StatsCMS() {
                   <div className="col-6 col-sm-6">
                     <div
                       style={{
-                        background: "#081424",
+                        background: "#0028FA",
                         border: "1px solid rgba(32, 183, 229, 0.2)",
                         borderRadius: "12px",
                         padding: "clamp(14px, 3vw, 20px)",
@@ -779,12 +781,12 @@ function StatsCMS() {
                           color: "#FFFFFF",
                           lineHeight: 1,
                           marginBottom: "6px",
-                          fontFamily: "'IBM Plex Mono', monospace",
+                          fontFamily: "'Plus Jakarta Sans', monospace",
                           wordBreak: "break-word",
                         }}
                       >
                         {formData.studies}
-                        <span style={{ color: "#20B7E5" }}>{formData.studiesSuffix}</span>
+                        <span style={{ color: "#0028FA" }}>{formData.studiesSuffix}</span>
                       </div>
                       <div style={{ fontSize: "clamp(10.5px, 2.5vw, 11.5px)", color: "#8DA5C4", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
                         New Studies Daily
@@ -795,7 +797,7 @@ function StatsCMS() {
                   <div className="col-6 col-sm-6">
                     <div
                       style={{
-                        background: "#081424",
+                        background: "#0028FA",
                         border: "1px solid rgba(32, 183, 229, 0.2)",
                         borderRadius: "12px",
                         padding: "clamp(14px, 3vw, 20px)",
@@ -809,12 +811,12 @@ function StatsCMS() {
                           color: "#FFFFFF",
                           lineHeight: 1,
                           marginBottom: "6px",
-                          fontFamily: "'IBM Plex Mono', monospace",
+                          fontFamily: "'Plus Jakarta Sans', monospace",
                           wordBreak: "break-word",
                         }}
                       >
                         {formData.radiologists}
-                        <span style={{ color: "#20B7E5" }}>{formData.radiologistsSuffix}</span>
+                        <span style={{ color: "#0028FA" }}>{formData.radiologistsSuffix}</span>
                       </div>
                       <div style={{ fontSize: "clamp(10.5px, 2.5vw, 11.5px)", color: "#8DA5C4", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
                         Radiologists Panel
@@ -825,7 +827,7 @@ function StatsCMS() {
                   <div className="col-6 col-sm-6">
                     <div
                       style={{
-                        background: "#081424",
+                        background: "#0028FA",
                         border: "1px solid rgba(32, 183, 229, 0.2)",
                         borderRadius: "12px",
                         padding: "clamp(14px, 3vw, 20px)",
@@ -839,12 +841,12 @@ function StatsCMS() {
                           color: "#FFFFFF",
                           lineHeight: 1,
                           marginBottom: "6px",
-                          fontFamily: "'IBM Plex Mono', monospace",
+                          fontFamily: "'Plus Jakarta Sans', monospace",
                           wordBreak: "break-word",
                         }}
                       >
                         {formData.states}
-                        <span style={{ color: "#20B7E5" }}>{formData.statesSuffix}</span>
+                        <span style={{ color: "#0028FA" }}>{formData.statesSuffix}</span>
                       </div>
                       <div style={{ fontSize: "clamp(10.5px, 2.5vw, 11.5px)", color: "#8DA5C4", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
                         States Covered
@@ -857,7 +859,7 @@ function StatsCMS() {
               {/* FOOTER TEXT PREVIEW */}
               <div
                 style={{
-                  background: "#071A3A",
+                  background: "#0028FA",
                   border: "1px solid rgba(255, 255, 255, 0.1)",
                   borderRadius: "16px",
                   padding: "clamp(16px, 3vw, 24px)",
@@ -868,13 +870,13 @@ function StatsCMS() {
                 </div>
                 <div
                   style={{
-                    background: "#081424",
+                    background: "#0028FA",
                     padding: "14px 16px",
                     borderRadius: "10px",
                     fontSize: "13px",
                     color: "#C5D6EA",
                     lineHeight: 1.65,
-                    borderLeft: "3px solid #20B7E5",
+                    borderLeft: "3px solid #0028FA",
                     wordBreak: "break-word",
                   }}
                 >
@@ -899,7 +901,7 @@ function StatsCMS() {
                   wordBreak: "break-word",
                 }}
               >
-                <div className="d-flex align-items-center gap-2 mb-1" style={{ color: "#20B7E5", fontWeight: 600 }}>
+                <div className="d-flex align-items-center gap-2 mb-1" style={{ color: "#0028FA", fontWeight: 600 }}>
                   🔒 Admin Security & SEO Status
                 </div>
                 <ul className="mb-0 ps-3 style-disc" style={{ lineHeight: 1.6 }}>

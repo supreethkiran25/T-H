@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { tahMarkup } from "@/lib/tah-markup";
-import { ORGANIZATION_SCHEMA, FAQ_SCHEMA, getBreadcrumbSchema, SITE_URL } from "@/lib/seo-schemas";
+import { BRAND_FONTS_HREF } from "@/lib/brand";
+import { ORGANIZATION_SCHEMA, getBreadcrumbSchema, getWebPageSchema, SITE_URL } from "@/lib/seo-schemas";
 import { updateStatsInDOM, STATS_UPDATED_EVENT } from "@/lib/stats-store";
 
 export const Route = createFileRoute("/")({
@@ -27,10 +28,12 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
       { property: "og:site_name", content: "Trust and Hope Rad Pvt. Ltd." },
-      { property: "og:image", content: `${SITE_URL}/Trust%20&%20Hope_Logo_Round_Transparent.webp` },
+      { property: "og:image", content: `${SITE_URL}/tahrad-logo.png` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services" },
       { name: "twitter:description", content: "24x7 remote radiology reporting for CT, MRI, X-Ray & emergency reads across India." },
+      { name: "twitter:image", content: `${SITE_URL}/tahrad-logo.png` },
+      { name: "robots", content: "index, follow" },
     ],
     links: [
       { rel: "canonical", href: `${SITE_URL}/` },
@@ -42,7 +45,7 @@ export const Route = createFileRoute("/")({
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
+        href: BRAND_FONTS_HREF,
       },
       { rel: "stylesheet", href: "/tah.css" },
     ],
@@ -53,7 +56,14 @@ export const Route = createFileRoute("/")({
       },
       {
         type: "application/ld+json",
-        children: JSON.stringify(FAQ_SCHEMA),
+        children: JSON.stringify(
+          getWebPageSchema({
+            name: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services India",
+            description:
+              "India's premier 24x7 teleradiology reporting service for hospitals and diagnostic centres. High-accuracy CT, MRI, X-Ray & subspecialty reporting with 15-30 min emergency TAT.",
+            path: "/",
+          })
+        ),
       },
       {
         type: "application/ld+json",

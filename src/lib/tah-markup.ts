@@ -1,17 +1,20 @@
-import logoUrl from "../assets/Trust & Hope_Logo_Round_Transparent.webp";
+import { brandLogos } from "@/lib/brand";
 import indianMapUrl from "../assets/Indian map.webp";
 import heroVideo1Url from "../assets/watermarked_preview (1).webm";
 import heroVideo2Url from "../assets/WhatsApp_Video_2026-07-31_at_5.47.27_PM.webm";
 import whoWeAreImgUrl from "../assets/image.webp";
+
+const logoPrimaryWhite = brandLogos.primary.white;
+const logoIconWhite = brandLogos.icon.white;
 
 export const tahMarkup = `
 
 <header class="nav">
   <div class="container">
     <div class="nav-wrap">
-      <a href="#hero" class="brand">
-        <img src="${logoUrl}" alt="Trust and Hope Rad logo">
-        <span>TAH RAD<small>Trust and Hope Rad Pvt. Ltd.</small></span>
+      <a href="#hero" class="brand" aria-label="TAHRAD">
+        <img class="brand-logo brand-logo--primary" src="${logoPrimaryWhite}" alt="TAHRAD">
+        <img class="brand-logo brand-logo--icon" src="${logoIconWhite}" alt="TAHRAD">
       </a>
       <nav class="links">
         <a href="#hero" class="nav-home-btn" id="nav-home-btn">Home</a>
@@ -159,7 +162,7 @@ export const tahMarkup = `
             <div class="icon-badge">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <span class="eyebrow mb-2" style="color:var(--teal);">OUR VISION</span>
+            <span class="eyebrow mb-2" style="color:var(--brand-yellow);">OUR VISION</span>
             <h3>A global leader in tele-radiology</h3>
             <p>Become a global leader in tele-radiology by fostering innovation, trust, and diagnostic excellence.</p>
           </div>
@@ -305,13 +308,13 @@ export const tahMarkup = `
           <div class="step-card-col">
             <div class="step-flip-card" tabindex="0">
               <div class="step-flip-inner">
-                <div class="step-flip-front" style="background: linear-gradient(135deg, #071A3A 0%, #0D3B8E 100%); color: #FFFFFF;">
+                <div class="step-flip-front" style="background: var(--brand-blue); color: #FFFFFF;">
                   <span class="step-num-badge" style="background: rgba(255,255,255,0.15); color: #FFFFFF;" title="Report Delivery">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
                   </span>
                   <div class="flip-title" style="color: #FFFFFF;">Report Delivery</div>
                 </div>
-                <div class="step-flip-back step-detail-card" style="background: linear-gradient(135deg, #071A3A 0%, #0D3B8E 100%); color: #FFFFFF;">
+                <div class="step-flip-back step-detail-card" style="background: var(--brand-blue); color: #FFFFFF;">
                   <span class="step-num-badge" style="background: rgba(255,255,255,0.15); color: #FFFFFF;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
                   </span>
@@ -569,7 +572,7 @@ export const tahMarkup = `
       <!-- WHY US — ASYMMETRIC HERO -->
       <div class="why-top reveal">
         <div class="why-top-left">
-          <span class="eyebrow" style="color:var(--teal);">WHY US</span>
+          <span class="eyebrow">WHY US</span>
           <h2 class="why-headline">HOSPITALS WHO WORK WITH US<br><em class="why-em">ALWAYS GET A CALL BACK.</em></h2>
           <div class="why-divider"></div>
           <p class="lead-why">Ask any radiology coordinator what the biggest disconnect is with teleradiology. The answer is almost always the silence that occurs within the process. There is no one to contact if there are questions, and the response deadlines for the reports come and go without an explanation. These issues are what we aim to address with Trust and Hope Rad Pvt Ltd.</p>
@@ -687,7 +690,7 @@ export const tahMarkup = `
       <!-- MAP SHOWCASE BANNER -->
       <div class="row mt-5 reveal" id="where-we-work">
         <div class="col-12">
-          <div style="background: radial-gradient(circle at 80% 50%, rgba(32, 183, 229, 0.2), transparent 65%), linear-gradient(135deg, #071A3A 0%, #0D3B8E 100%); border: 1px solid rgba(32, 183, 229, 0.35); border-radius: 24px; padding: clamp(28px, 4vw, 48px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px); position: relative; overflow: hidden;">
+          <div style="background: var(--brand-blue); border: 1px solid rgba(0, 40, 250, 0.35); border-radius: 24px; padding: clamp(28px, 4vw, 48px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px); position: relative; overflow: hidden;">
             
             <!-- NEWS CHANNEL TICKER MARQUEE -->
             <div class="news-ticker-container">
@@ -740,7 +743,7 @@ export const tahMarkup = `
             <div class="row align-items-center g-4 g-lg-5">
               <div class="col-12 col-lg-6">
                 <div class="d-flex align-items-center gap-2 mb-2">
-                  <span class="eyebrow" style="color:var(--sky-blue); margin: 0;">PAN-INDIA COVERAGE</span>
+                  <span class="eyebrow" style="margin: 0;">PAN-INDIA COVERAGE</span>
                 </div>
 
                 <h3 style="font-size: clamp(26px, 3vw, 38px); color: #FFFFFF; font-weight: 700; margin-top: 8px; line-height: 1.25;">
@@ -754,21 +757,21 @@ export const tahMarkup = `
                 <!-- MAP BANNER METRIC MINI BADGES -->
                 <div class="row g-2 mb-4">
                   <div class="col-4">
-                    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(32, 183, 229, 0.2); border-radius: 12px; padding: 12px 10px; text-align: center;">
-                      <div style="font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: #FFFFFF; line-height: 1;"><span data-stat-val="centres">350+</span></div>
-                      <div style="font-size: 11px; color: #8DA5C4; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600;">Centres</div>
+                    <div class="map-metric-card">
+                      <div style="font-family: var(--font-body); font-size: 20px; font-weight: 700; color: #FFFFFF; line-height: 1;"><span data-stat-val="centres">350+</span></div>
+                      <div class="map-metric-label">Centres</div>
                     </div>
                   </div>
                   <div class="col-4">
-                    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(32, 183, 229, 0.2); border-radius: 12px; padding: 12px 10px; text-align: center;">
-                      <div style="font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: #FFFFFF; line-height: 1;"><span data-stat-val="radiologists">140+</span></div>
-                      <div style="font-size: 11px; color: #8DA5C4; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600;">Doctors</div>
+                    <div class="map-metric-card">
+                      <div style="font-family: var(--font-body); font-size: 20px; font-weight: 700; color: #FFFFFF; line-height: 1;"><span data-stat-val="radiologists">140+</span></div>
+                      <div class="map-metric-label">Doctors</div>
                     </div>
                   </div>
                   <div class="col-4">
-                    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(32, 183, 229, 0.2); border-radius: 12px; padding: 12px 10px; text-align: center;">
-                      <div style="font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: #20B7E5; line-height: 1;">15-30m</div>
-                      <div style="font-size: 11px; color: #8DA5C4; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600;">Emergency TAT</div>
+                    <div class="map-metric-card">
+                      <div style="font-family: var(--font-body); font-size: 20px; font-weight: 700; color: var(--brand-yellow); line-height: 1;">15-30m</div>
+                      <div class="map-metric-label">Emergency TAT</div>
                     </div>
                   </div>
                 </div>
@@ -784,7 +787,7 @@ export const tahMarkup = `
               <!-- RIGHT MAP GRAPHIC -->
               <div class="col-12 col-lg-6 text-center">
                 <div style="position: relative; display: inline-block; width: 100%;">
-                  <img src="${indianMapUrl}" alt="Pan India Teleradiology Reporting Map" style="max-height: 440px; width: 100%; object-fit: contain; border-radius: 16px; filter: drop-shadow(0 0 35px rgba(32, 183, 229, 0.45)); transition: transform 0.3s ease;">
+                  <img src="${indianMapUrl}" alt="Pan India Teleradiology Reporting Map" style="max-height: 440px; width: 100%; object-fit: contain; border-radius: 16px; filter: drop-shadow(0 0 35px rgba(0, 40, 250, 0.45)); transition: transform 0.3s ease;">
                 </div>
               </div>
             </div>
@@ -866,9 +869,9 @@ export const tahMarkup = `
   <div class="container">
     <div class="row g-4 g-lg-5">
       <div class="col-12 col-lg-4 pe-lg-4">
-        <a href="#hero" class="brand">
-          <img src="${logoUrl}" alt="Trust and Hope Rad logo">
-          <span>TAH RAD</span>
+        <a href="#hero" class="brand" aria-label="TAHRAD">
+          <img class="brand-logo brand-logo--primary" src="${logoPrimaryWhite}" alt="TAHRAD">
+          <img class="brand-logo brand-logo--icon" src="${logoIconWhite}" alt="TAHRAD">
         </a>
         <p data-stat-summary>Trust and Hope Rad Pvt. Ltd. | 24×7 teleradiology services serving 350+ centres, 1000+ new studies uploaded daily to PACS, 140+ radiologists across specialisations, 15+ states covered in India.</p>
       </div>

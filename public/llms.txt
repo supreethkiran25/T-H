@@ -1,18 +1,23 @@
-# Trust and Hope Rad Pvt. Ltd. (TAH RAD)
+# Trust and Hope Rad Pvt. Ltd. (TAHRAD)
 
-> Trust and Hope Rad Pvt. Ltd. (TAH RAD) is a premier 24x7 teleradiology reporting service provider in India. We empower hospitals, diagnostic centres, and clinical teams across India with remote diagnostic interpretations, fast turnaround times, and multi-level quality assurance.
+> Trust and Hope Rad Pvt. Ltd. (TAHRAD / TAH RAD) is a 24x7 teleradiology reporting service provider in India. We empower hospitals, diagnostic centres, and clinical teams with remote diagnostic interpretations, fast turnaround times, and multi-level quality assurance.
 
 ## Core Capabilities
-- **24/7/365 Teleradiology Reporting**: Continuous coverage for routine and emergency radiology reporting without radio silence.
-- **Emergency Stat & Nighthawk Reads**: Rapid turnaround time (15–30 minutes) for critical trauma, stroke, and ICU cases, accompanied by direct radiologist callbacks.
+- **24/7/365 Teleradiology Reporting**: Continuous coverage for routine and emergency radiology reporting.
+- **Emergency Stat & Nighthawk Reads**: Rapid turnaround (15–30 minutes) for critical trauma, stroke, and ICU cases, with direct radiologist callbacks.
 - **Subspecialty Radiologist Panel**: Network of over 140 fellowship-trained radiologists covering Neuroradiology, MSK, Oncology, Cardiac, Pediatric, and Abdominal imaging.
 - **Modalities Covered**: Full-spectrum reporting for CT, MRI, Digital X-Ray, Ultrasound, Mammography, PET-CT, and Nuclear Medicine.
-- **Pan-India Network**: Trusted partner for 350+ diagnostic centres across 15+ states in India.
-- **Seamless PACS Integration**: Cloud-based PACS workflow supporting DICOM image transmission and instant digital report delivery.
+- **Pan-India Network**: Partner for 350+ diagnostic centres across 15+ states in India.
+- **Seamless PACS Integration**: Cloud-based PACS workflow supporting DICOM image transmission and digital report delivery.
 
 ## Key Website Pages
-- [Home Page](https://trustandhoperad.com/): Teleradiology reporting overview, 5-step reporting workflow, pan-India coverage, service modalities, and callback request.
+- [Home Page](https://trustandhoperad.com/): Teleradiology reporting overview, reporting workflow, pan-India coverage, service modalities, and partnership callback form.
 - [Our Team](https://trustandhoperad.com/our-team): Clinical operations, radiologist credentials, and quality assurance framework.
 
+## Contact
+- Email: admin@trustandhoperad.com
+- Phone / WhatsApp: +91 81233 88860
+- Address: #1035, 4th 'M' Block, Dr. Rajkumar Road, Rajajinagar, Bangalore – 560010
+
 ## Full Knowledge Base
-- [Full LLM Specification](https://trustandhoperad.com/llms-full.txt): In-depth clinical workflow specification, service-level agreements (SLAs), and contact details.
+- [Full LLM Specification](https://trustandhoperad.com/llms-full.txt): In-depth clinical workflow specification, SLAs, and contact details.

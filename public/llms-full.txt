@@ -1,8 +1,8 @@
-# Trust and Hope Rad Pvt. Ltd. (TAH RAD) | Full Specification
+# Trust and Hope Rad Pvt. Ltd. (TAHRAD) | Full Specification
 
 ## Company Overview
 - **Legal Entity Name**: Trust and Hope Rad Pvt. Ltd.
-- **Brand Name**: TAH RAD
+- **Brand Name**: TAHRAD / TAH RAD
 - **Official Website**: https://trustandhoperad.com
 - **Industry**: Healthcare, Medical Imaging, Teleradiology
 - **Primary Market**: India (Pan-India Coverage)
@@ -13,7 +13,7 @@
 - **Daily PACS Studies Uploaded**: 1,000+ New Scans Daily
 - **Radiologist Panel Size**: 140+ Fellowship-Trained & Board-Certified Radiologists
 - **Geographic Footprint**: 15+ States Covered in India
-- **Availability**: 24 hours a day, 365 days a year (Zero Radio Silence Policy)
+- **Availability**: 24 hours a day, 365 days a year
 
 ## Services Offered
 1. **CT Scan Reporting**: Head CT, Chest CT, Abdominopelvic CT, CT Angiographies, HRCT Thorax, Trauma CTs.
@@ -24,10 +24,12 @@
 6. **Second Opinions & Quality Assurance**: Independent subspecialty review and peer QA audits.
 
 ## Technology & Infrastructure
-- **PACS/RIS**: Compatible with all DICOM-compliant modalities and PACS systems (Orthanc, dcm4chee, GE, Siemens, Philips, Fuji, etc.).
-- **Data Security & Privacy**: Secure encrypted channels (SSL/TLS, VPN) for DICOM transmission meeting NABL/NABH data standards.
+- **PACS/RIS**: Compatible with DICOM-compliant modalities and PACS systems.
+- **Data Security & Privacy**: Encrypted channels for DICOM transmission.
 
 ## Contact Information
 - **Website**: https://trustandhoperad.com
-- **Email**: contact@tahrad.com
-- **Partnership Enquiries**: Contact form available at https://trustandhoperad.com/#contact
+- **Email**: admin@trustandhoperad.com
+- **Phone / WhatsApp**: +91 81233 88860
+- **Address**: #1035, 4th 'M' Block, Dr. Rajkumar Road, Rajajinagar, Bangalore – 560010
+- **Partnership Enquiries**: https://trustandhoperad.com/#contact
