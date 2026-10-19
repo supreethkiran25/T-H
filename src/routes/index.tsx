@@ -530,7 +530,7 @@ function Index() {
             }
           });
         },
-        { threshold: 0.12 },
+        { threshold: 0.05, rootMargin: "0px 0px -20px 0px" },
       );
       revealEls.forEach((el) => {
         const rect = el.getBoundingClientRect();
