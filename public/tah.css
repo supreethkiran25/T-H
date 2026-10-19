@@ -5067,18 +5067,18 @@ svg {
 
   /* 3. Header & Navigation */
   header.nav {
-    height: 72px !important;
+    height: 60px !important;
     padding: 0 !important;
     background: #ffffff !important;
     border-bottom: 1px solid rgba(0, 40, 250, 0.1) !important;
   }
 
   body {
-    padding-top: 72px !important;
+    padding-top: 60px !important;
   }
 
   .nav-wrap {
-    height: 72px !important;
+    height: 60px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -5155,81 +5155,145 @@ svg {
 
   /* 4. Hero Section */
   .hero-redesign {
-    padding: 32px 0 40px 0 !important;
+    padding: 16px 0 24px 0 !important;
   }
 
-  .eyebrow-badge {
-    max-width: 100% !important;
-    white-space: normal !important;
-    font-size: 10.5px !important;
+  .hero-eyebrow-badge {
+    padding: 4px 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .hero-eyebrow-text {
+    font-size: 9.5px !important;
     letter-spacing: 0.08em !important;
-    padding: 5px 12px !important;
-    margin-bottom: 14px !important;
-    text-align: center !important;
   }
 
-  .hero-headline {
-    font-size: clamp(26px, 7.8vw, 38px) !important;
-    line-height: 1.15 !important;
+  .hero-redesign-title {
+    font-size: clamp(24px, 7vw, 32px) !important;
+    line-height: 1.14 !important;
+    margin-bottom: 12px !important;
     letter-spacing: -0.02em !important;
-    margin-bottom: 14px !important;
-    word-break: break-word !important;
   }
 
-  .hero-subhead {
-    font-size: 14.5px !important;
-    line-height: 1.5 !important;
-    margin-bottom: 22px !important;
+  .hero-redesign-lead {
+    font-size: 13.5px !important;
+    line-height: 1.45 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-proof-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-proof-pill {
+    padding: 4px 9px !important;
+    font-size: 11px !important;
+    gap: 5px !important;
   }
 
   .hero-cta-group {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
+    gap: 8px !important;
     width: 100% !important;
-    gap: 10px !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 8px !important;
   }
 
   .hero-cta-group .btn-tah-primary,
   .hero-cta-group .btn-tah-secondary {
-    width: 100% !important;
+    flex: 1 1 0% !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    border-radius: 9999px !important;
     text-align: center !important;
     justify-content: center !important;
-    padding: 12px 20px !important;
-    font-size: 15px !important;
-    box-sizing: border-box !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-trial-note {
+    font-size: 11px !important;
+    margin-bottom: 16px !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
   .hero-live-card {
-    margin-top: 16px !important;
     border-radius: 16px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+    margin-top: 2px !important;
   }
 
   .hero-live-card-header {
-    padding: 14px 16px !important;
+    padding: 12px 14px 10px 14px !important;
+  }
+
+  .hero-live-card-title {
+    font-size: 13px !important;
+  }
+
+  .hero-live-badge-stat {
+    font-size: 9px !important;
+    padding: 2px 7px !important;
+  }
+
+  .hero-modality-tabs {
+    padding: 8px 14px 4px 14px !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .hero-mod-tab {
+    padding: 3px 10px !important;
+    font-size: 10.5px !important;
+    flex-shrink: 0 !important;
   }
 
   .hero-live-card-body {
-    padding: 14px !important;
-    gap: 10px !important;
-  }
-
-  .hero-live-row {
     padding: 10px 12px !important;
     gap: 8px !important;
   }
 
+  .hero-live-row {
+    padding: 10px 12px !important;
+    border-radius: 10px !important;
+  }
+
   .hero-live-name {
-    font-size: 13px !important;
+    font-size: 12.5px !important;
+  }
+
+  .hero-live-sub {
+    font-size: 10.5px !important;
   }
 
   .pill-reading-minimal,
   .pill-assigned-minimal,
   .pill-delivered-minimal {
     font-size: 11px !important;
-    padding: 3px 9px !important;
+    padding: 4px 10px !important;
+  }
+
+  .live-mono-timer {
+    font-size: 11.5px !important;
+    min-width: 36px !important;
+  }
+
+  .hero-live-card-footer {
+    padding: 8px 12px !important;
+  }
+
+  .hero-live-kpi-val {
+    font-size: 13px !important;
+  }
+
+  .hero-live-kpi-lbl {
+    font-size: 9px !important;
   }
 
   /* 5. Stats Strip */

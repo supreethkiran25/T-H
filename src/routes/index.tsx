@@ -125,6 +125,96 @@ function Index() {
       });
     }
 
+    // 2b. Hero Live Ops Deck: Ticking clock & interactive modality tabs
+    let clockEl = document.getElementById("hero-clock-display");
+    let seconds = 12 * 60 + 34;
+    const updateClock = () => {
+      if (clockEl) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        clockEl.textContent = `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+      }
+    };
+
+    if (clockEl) {
+      const timerInterval = setInterval(() => {
+        seconds--;
+        if (seconds < 120) seconds = 15 * 60;
+        updateClock();
+      }, 1000);
+      cleanups.push(() => clearInterval(timerInterval));
+    }
+
+    const modalityData: Record<string, Array<{ name: string; stat?: boolean; sub: string; status: string; pillClass: string; val: string; isTimer?: boolean }>> = {
+      ct: [
+        { name: "CT Brain", stat: true, sub: "Acute Stroke · Dr. R. Menon (Neuro)", status: "Reading", pillClass: "pill-reading-minimal", val: "12:34", isTimer: true },
+        { name: "MRI Lumbar Spine", stat: false, sub: "Spine Protocol · Dr. S. Iyer (MSK)", status: "Assigned", pillClass: "pill-assigned-minimal", val: "24:18", isTimer: true },
+        { name: "CT Angio Neck", stat: false, sub: "Carotid Protocol · Dr. P. Nair (Body)", status: "Delivered", pillClass: "pill-delivered-minimal", val: "19m TAT", isTimer: false },
+      ],
+      mri: [
+        { name: "MRI Knee 3T", stat: true, sub: "ACL / Meniscal Protocol · Dr. S. Iyer (MSK)", status: "Reading", pillClass: "pill-reading-minimal", val: "09:12", isTimer: true },
+        { name: "MRI Brain Stroke", stat: false, sub: "Diffusion / Perfusion · Dr. R. Menon (Neuro)", status: "Assigned", pillClass: "pill-assigned-minimal", val: "18:45", isTimer: true },
+        { name: "MRI Cervical Spine", stat: false, sub: "Cord Compression · Dr. K. Sharma (MSK)", status: "Delivered", pillClass: "pill-delivered-minimal", val: "27m TAT", isTimer: false },
+      ],
+      xr: [
+        { name: "Chest PA View", stat: true, sub: "Tension Pneumothorax · Dr. A. Verma (Chest)", status: "Reading", pillClass: "pill-reading-minimal", val: "04:18", isTimer: true },
+        { name: "Abdomen Erect", stat: false, sub: "Acute Abdomen · Dr. P. Nair (Body)", status: "Assigned", pillClass: "pill-assigned-minimal", val: "08:50", isTimer: true },
+        { name: "Pelvis / Hip Trauma", stat: false, sub: "Orthopedic Protocol · Dr. S. Iyer (MSK)", status: "Delivered", pillClass: "pill-delivered-minimal", val: "11m TAT", isTimer: false },
+      ],
+      pet: [
+        { name: "Whole Body 18F-FDG", stat: true, sub: "Lymphoma Restaging · Dr. M. Kulkarni (Nuclear)", status: "Reading", pillClass: "pill-reading-minimal", val: "15:20", isTimer: true },
+        { name: "PSMA PET-CT", stat: false, sub: "Prostate Evaluation · Dr. V. Rao (Onco)", status: "Assigned", pillClass: "pill-assigned-minimal", val: "29:40", isTimer: true },
+        { name: "DOTA-TOC PET", stat: false, sub: "Neuroendocrine Protocol · Dr. M. Kulkarni (Nuclear)", status: "Delivered", pillClass: "pill-delivered-minimal", val: "38m TAT", isTimer: false },
+      ],
+    };
+
+    const modTabs = document.querySelectorAll<HTMLButtonElement>(".hero-mod-tab");
+    const studyListContainer = document.getElementById("hero-live-study-list");
+
+    const renderModality = (modKey: string) => {
+      const items = modalityData[modKey] || modalityData.ct;
+      if (!studyListContainer) return;
+
+      studyListContainer.innerHTML = items
+        .map(
+          (item, idx) => `
+        <div class="hero-live-row card-row-turning ${idx === 0 ? "hero-live-row--active" : ""}" style="animation-delay: ${idx * 0.06}s;">
+          <div class="hero-live-row-info">
+            <div class="hero-live-name">
+              ${item.name} ${item.stat ? '<span class="badge-stat">STAT</span>' : ""}
+            </div>
+            <div class="hero-live-sub">${item.sub}</div>
+          </div>
+          <div class="hero-live-status-pill">
+            <span class="pill-badge ${item.pillClass}">${item.status}</span>
+            ${
+              item.isTimer
+                ? idx === 0
+                  ? `<span class="live-mono-timer" id="hero-clock-display">12:34</span>`
+                  : `<span class="live-mono-timer">${item.val}</span>`
+                : `<span class="live-tat-badge">${item.val}</span>`
+            }
+          </div>
+        </div>
+      `,
+        )
+        .join("");
+
+      clockEl = document.getElementById("hero-clock-display");
+      updateClock();
+    };
+
+    modTabs.forEach((tab) => {
+      const clickHandler = () => {
+        modTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        const targetMod = tab.getAttribute("data-mod") ?? "ct";
+        renderModality(targetMod);
+      };
+      tab.addEventListener("click", clickHandler);
+      cleanups.push(() => tab.removeEventListener("click", clickHandler));
+    });
+
     // 3. Dynamic Home button in nav: appears after scrolling past hero
     const heroSection = document.getElementById("hero");
     const navHomeBtn = document.getElementById("nav-home-btn");

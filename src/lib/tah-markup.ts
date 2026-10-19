@@ -11,8 +11,7 @@ export const tahMarkup = `
   <div class="container">
     <div class="nav-wrap">
       <a href="#hero" class="brand" aria-label="TAHRAD">
-        <img class="brand-logo brand-logo--primary" src="${logoPrimaryBlue}" alt="TAHRAD">
-        <img class="brand-logo brand-logo--icon" src="${logoIconBlue}" alt="TAHRAD">
+        <img class="brand-logo brand-logo--primary" src="${logoPrimaryBlue}" alt="TAHRAD" style="height: 28px; width: auto; max-width: 120px; object-fit: contain;">
       </a>
       <nav class="links">
         <a href="#hero" class="nav-home-btn" id="nav-home-btn">Home</a>
@@ -23,10 +22,12 @@ export const tahMarkup = `
         <a href="#for-radiologists">For radiologists</a>
       </nav>
       <div class="nav-actions">
-        <a href="https://pacs.trustandhoperad.com/login" target="_blank" rel="noopener noreferrer" class="nav-login-link">Hospital login</a>
-        <a href="#pilot" class="btn-tah-primary btn-nav-pilot">Request a pilot →</a>
-        <button class="burger" id="burger-btn" aria-label="Toggle navigation menu">
-          <span></span><span></span><span></span>
+        <a href="https://pacs.trustandhoperad.com/login" target="_blank" rel="noopener noreferrer" class="nav-login-link d-none d-lg-inline-flex">Hospital login</a>
+        <a href="#pilot" class="btn-tah-primary btn-nav-pilot"><span class="d-none d-sm-inline">Request a&nbsp;</span>pilot →</a>
+        <button class="burger d-inline-flex d-lg-none" id="burger-btn" aria-label="Toggle navigation menu" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 38px; height: 38px; padding: 6px; background: transparent; border: none; cursor: pointer;">
+          <span style="display: block; width: 20px; height: 2.2px; background: #0028FA; margin: 2.5px 0; border-radius: 2px;"></span>
+          <span style="display: block; width: 20px; height: 2.2px; background: #0028FA; margin: 2.5px 0; border-radius: 2px;"></span>
+          <span style="display: block; width: 20px; height: 2.2px; background: #0028FA; margin: 2.5px 0; border-radius: 2px;"></span>
         </button>
       </div>
     </div>
@@ -51,74 +52,139 @@ export const tahMarkup = `
 </div>
 
 <main>
-  <!-- 01 HERO SECTION (Minimal with Exact Content Approved by Client - Review Page 2) -->
+  <!-- 01 HERO SECTION: Creative, Minimal & High-Impact Clinical Ops Deck -->
   <section class="hero-redesign" id="hero">
     <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-12 col-lg-7 reveal">
-          <div class="eyebrow-badge mb-3">
+      <div class="row align-items-center g-3 g-lg-5">
+        
+        <!-- HERO LEFT: Strong Punchy Content & Value Proof -->
+        <div class="col-12 col-lg-7">
+          <div class="hero-eyebrow-badge mb-2 mb-md-3">
             <span class="live-pulse-dot" style="background: var(--brand-green);"></span>
-            <span class="eyebrow-text">TELERADIOLOGY · 24/7/365 · PAN-INDIA</span>
+            <span class="hero-eyebrow-text">LIVE CLINICAL DESK · 24/7/365 · PAN-INDIA</span>
           </div>
           
           <h1 class="hero-redesign-title">
-            Every scan read. Every<br>
-            report <mark class="tah-highlight-yellow">on the clock.</mark>
+            Every scan read. Every report <mark class="tah-highlight-yellow">on the clock.</mark>
           </h1>
           
           <p class="hero-redesign-lead">
-            Subspecialty radiologists for CT, MRI, X-ray and PET. Emergency reads in 15–30 minutes, 24/7/365.
+            Subspecialty teleradiology for hospitals & diagnostic centres across India. 140+ fellowship-trained radiologists delivering emergency reads in 15–30 minutes, 24/7/365.
           </p>
+
+          <!-- Sleek Horizontal Telemetry Proof Strip -->
+          <div class="hero-proof-pills mb-3 mb-md-4">
+            <div class="hero-proof-pill">
+              <span class="proof-icon">⚡</span>
+              <span class="proof-text"><strong>15–30 min</strong> Emergency TAT</span>
+            </div>
+            <div class="hero-proof-pill">
+              <span class="proof-icon">🔬</span>
+              <span class="proof-text"><strong>140+</strong> Subspecialists</span>
+            </div>
+            <div class="hero-proof-pill">
+              <span class="proof-icon">⏱️</span>
+              <span class="proof-text"><strong>Live Clock</strong> on Every Scan</span>
+            </div>
+          </div>
 
           <div class="hero-cta-group">
             <a href="#pilot" class="btn-tah-primary btn-hero-primary">Request a pilot →</a>
             <a href="#how-it-works" class="btn-tah-secondary btn-hero-secondary">How it works</a>
           </div>
+
+          <div class="hero-trial-note">
+            <span class="trial-check-icon">✓</span> Free 14-day clinical pilot · Zero IT friction · Direct radiologist phone access
+          </div>
         </div>
 
-        <!-- HERO RIGHT: MINIMAL LIVE STUDY PROGRESSION CARD (Exact to Review Page 2) -->
-        <div class="col-12 col-lg-5 reveal">
-          <div class="hero-live-card hero-live-card--minimal">
+        <!-- HERO RIGHT: Creative Minimal Interactive Live Ops Card -->
+        <div class="col-12 col-lg-5">
+          <div class="hero-live-card hero-live-card--creative" id="hero-live-cockpit">
+            
+            <!-- Card Header with Live Indicator -->
             <div class="hero-live-card-header">
               <div class="d-flex align-items-center gap-2">
                 <span class="live-pulse-dot" style="background: var(--brand-green);"></span>
                 <span class="hero-live-card-title">How your study moves</span>
               </div>
+              <span class="hero-live-badge-stat">24/7 STAT Active</span>
             </div>
 
-            <div class="hero-live-card-body">
-              <!-- Item 1 -->
-              <div class="hero-live-row">
-                <div class="hero-live-name">
-                  CT Brain · <span class="badge-stat">STAT</span>
+            <!-- Modality Filter / Switcher Pills -->
+            <div class="hero-modality-tabs" id="hero-modality-tabs">
+              <button type="button" class="hero-mod-tab active" data-mod="ct">CT</button>
+              <button type="button" class="hero-mod-tab" data-mod="mri">MRI</button>
+              <button type="button" class="hero-mod-tab" data-mod="xr">X-Ray</button>
+              <button type="button" class="hero-mod-tab" data-mod="pet">PET-CT</button>
+            </div>
+
+            <!-- Live Studies Rows (Dynamic 3D perspective flip container) -->
+            <div class="hero-live-card-body" id="hero-live-study-list">
+              <!-- Item 1: STAT (Reading) -->
+              <div class="hero-live-row hero-live-row--active" data-mod-row="ct">
+                <div class="hero-live-row-info">
+                  <div class="hero-live-name">
+                    CT Brain <span class="badge-stat">STAT</span>
+                  </div>
+                  <div class="hero-live-sub">Acute Stroke · Dr. R. Menon (Neuro)</div>
                 </div>
                 <div class="hero-live-status-pill">
                   <span class="pill-badge pill-reading-minimal">Reading</span>
+                  <span class="live-mono-timer" id="hero-clock-display">12:34</span>
                 </div>
               </div>
 
-              <!-- Item 2 -->
-              <div class="hero-live-row">
-                <div class="hero-live-name">
-                  MRI Lumbar Spine
+              <!-- Item 2: Routine (Assigned) -->
+              <div class="hero-live-row" data-mod-row="mri">
+                <div class="hero-live-row-info">
+                  <div class="hero-live-name">
+                    MRI Lumbar Spine
+                  </div>
+                  <div class="hero-live-sub">Spine Protocol · Dr. S. Iyer (MSK)</div>
                 </div>
                 <div class="hero-live-status-pill">
                   <span class="pill-badge pill-assigned-minimal">Assigned</span>
+                  <span class="live-mono-timer">24:18</span>
                 </div>
               </div>
 
-              <!-- Item 3 -->
-              <div class="hero-live-row">
-                <div class="hero-live-name">
-                  CT Angio Neck
+              <!-- Item 3: STAT (Delivered) -->
+              <div class="hero-live-row" data-mod-row="xr">
+                <div class="hero-live-row-info">
+                  <div class="hero-live-name">
+                    CT Angio Neck
+                  </div>
+                  <div class="hero-live-sub">Carotid Protocol · Dr. P. Nair (Body)</div>
                 </div>
                 <div class="hero-live-status-pill">
                   <span class="pill-badge pill-delivered-minimal">Delivered</span>
+                  <span class="live-tat-badge">19m TAT</span>
                 </div>
               </div>
             </div>
+
+            <!-- Footer: Live Clinical Ops SLA bar -->
+            <div class="hero-live-card-footer">
+              <div class="hero-live-kpi">
+                <span class="hero-live-kpi-val">18m</span>
+                <span class="hero-live-kpi-lbl">Avg STAT</span>
+              </div>
+              <div class="hero-live-kpi-divider"></div>
+              <div class="hero-live-kpi">
+                <span class="hero-live-kpi-val">99.4%</span>
+                <span class="hero-live-kpi-lbl">On-Time SLA</span>
+              </div>
+              <div class="hero-live-kpi-divider"></div>
+              <div class="hero-live-kpi">
+                <span class="hero-live-kpi-val">140+</span>
+                <span class="hero-live-kpi-lbl">Specialists</span>
+              </div>
+            </div>
+
           </div>
         </div>
+
       </div>
     </div>
   </section>
