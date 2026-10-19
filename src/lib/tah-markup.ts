@@ -1,199 +1,297 @@
 import { brandLogos } from "@/lib/brand";
-import indianMapUrl from "../assets/Indian map.webp";
-import heroVideo1Url from "../assets/watermarked_preview (1).webm";
-import heroVideo2Url from "../assets/WhatsApp_Video_2026-07-31_at_5.47.27_PM.webm";
 import whoWeAreImgUrl from "../assets/image.webp";
 
-const logoPrimaryWhite = brandLogos.primary.white;
-const logoIconWhite = brandLogos.icon.white;
+const logoPrimaryBlue = "/brand/tahrad-logo-primary-blue.png";
+const logoPrimaryWhite = "/brand/tahrad-logo-primary-white.png";
+const logoIconBlue = "/brand/tahrad-icon-blue.png";
 
 export const tahMarkup = `
-
-<header class="nav">
+<!-- HEADER / NAVIGATION (Clean White Ground, Primary Blue Links & Pill Button) -->
+<header class="nav" id="top-nav">
   <div class="container">
     <div class="nav-wrap">
       <a href="#hero" class="brand" aria-label="TAHRAD">
-        <img class="brand-logo brand-logo--primary" src="${logoPrimaryWhite}" alt="TAHRAD">
-        <img class="brand-logo brand-logo--icon" src="${logoIconWhite}" alt="TAHRAD">
+        <img class="brand-logo brand-logo--primary" src="${logoPrimaryBlue}" alt="TAHRAD">
+        <img class="brand-logo brand-logo--icon" src="${logoIconBlue}" alt="TAHRAD">
       </a>
       <nav class="links">
         <a href="#hero" class="nav-home-btn" id="nav-home-btn">Home</a>
-        <a href="#who-we-are">About Us</a>
-        <a href="#how-reporting-works">How It Works</a>
         <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#reporting-desk">Reporting desk</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#for-radiologists">For radiologists</a>
       </nav>
-      <div class="d-flex align-items-center gap-3">
-        <a href="https://pacs.trustandhoperad.com/login" target="_blank" rel="noopener noreferrer" class="nav-cta nav-cta-desktop">Login</a>
-        <button class="burger" id="burger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-actions">
+        <a href="https://pacs.trustandhoperad.com/login" target="_blank" rel="noopener noreferrer" class="nav-login-link">Hospital login</a>
+        <a href="#pilot" class="btn-tah-primary btn-nav-pilot">Request a pilot →</a>
+        <button class="burger" id="burger-btn" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </div>
 </header>
 
+<!-- MOBILE DRAWER -->
 <div class="mobile-drawer" id="mobile-drawer">
-  <a href="#hero" class="mobile-home-btn" id="mobile-home-btn">Home</a>
-  <a href="#who-we-are">About Us</a>
-  <a href="/our-team">Our Team</a>
-  <a href="#where-we-work">Pan India Coverage</a>
-  <a href="#how-reporting-works">How It Works</a>
-  <a href="#services">Services</a>
-  <a href="#why-us">Why Us</a>
-  <a href="#contact">Contact</a>
-  <a href="https://pacs.trustandhoperad.com/login" target="_blank" rel="noopener noreferrer" class="nav-cta btn-glow mb-2">Login</a>
-  <a href="#contact" class="nav-cta btn-glow">Partner With Us</a>
+  <div class="mobile-drawer-inner">
+    <a href="#hero" class="mobile-home-btn" id="mobile-home-btn">Home</a>
+    <a href="#services">Services</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#reporting-desk">Reporting desk</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#for-radiologists">For radiologists</a>
+    <a href="/our-team">Our Team</a>
+    <div class="mobile-drawer-cta mt-3 pt-2">
+      <a href="https://pacs.trustandhoperad.com/login" target="_blank" rel="noopener noreferrer" class="btn-tah-secondary w-100 mb-2 text-center">Hospital login</a>
+      <a href="#pilot" class="btn-tah-primary w-100 text-center">Request a pilot →</a>
+    </div>
+  </div>
 </div>
 
 <main>
-  <!-- HERO SECTION -->
-  <section class="hero" id="hero">
-    <video id="hero-bg-video" src="${heroVideo1Url}" data-next-src="${heroVideo2Url}" autoplay muted playsinline class="hero-bg-video"></video>
-    <div class="hero-video-overlay"></div>
-
+  <!-- 01 HERO SECTION (Minimal with Exact Content Approved by Client - Review Page 2) -->
+  <section class="hero-redesign" id="hero">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-12 col-lg-10 col-xl-9 reveal">
-          <span class="eyebrow"><span class="highlight-247-badge">24×7</span> Teleradiology Reporting</span>
-          <h1 class="hero-main-title">
-            <span class="hero-title-white">FULL-SPECTRUM<br>TELERADIOLOGY,</span><br>
-            <span class="hero-title-gradient-wrap">
-              <span class="hero-title-gradient">ONE REPORTING PARTNER</span>
-              <span class="hero-title-light-streak"></span>
-            </span>
-          </h1>
-          <p class="lead">Fast, subspecialty-backed reporting across all modalities—24/7/365. Eliminate coverage gaps and streamline your clinical workflow.</p>
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-7 reveal">
+          <div class="eyebrow-badge mb-3">
+            <span class="live-pulse-dot" style="background: var(--brand-green);"></span>
+            <span class="eyebrow-text">TELERADIOLOGY · 24/7/365 · PAN-INDIA</span>
+          </div>
           
-          <div class="hero-quick-nav mt-3 pt-2 d-flex flex-wrap gap-3">
-            <a href="#services" class="hero-btn-services">Services →</a>
-            <a href="#contact" class="hero-btn-contact">Contact Us →</a>
+          <h1 class="hero-redesign-title">
+            Every scan read. Every<br>
+            report <mark class="tah-highlight-yellow">on the clock.</mark>
+          </h1>
+          
+          <p class="hero-redesign-lead">
+            Subspecialty radiologists for CT, MRI, X-ray and PET. Emergency reads in 15–30 minutes, 24/7/365.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#pilot" class="btn-tah-primary btn-hero-primary">Request a pilot →</a>
+            <a href="#how-it-works" class="btn-tah-secondary btn-hero-secondary">How it works</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- STATS COUNTER BAR -->
-  <section class="impact" id="stats">
-    <div class="container">
-      <div class="row g-3 text-center reveal-stagger">
-        <div class="col-6 col-md-3 item">
-          <div class="num"><span class="counter" data-stat-counter="centres" data-target="350">0</span><span class="suffix" data-stat-suffix="centres">+</span></div>
-          <span class="impact-label">Centres Served</span>
-        </div>
-        <div class="col-6 col-md-3 item">
-          <div class="num"><span class="counter" data-stat-counter="studies" data-target="1000">0</span><span class="suffix" data-stat-suffix="studies">+</span></div>
-          <span class="impact-label">New Studies Uploaded Daily to PACS</span>
-        </div>
-        <div class="col-6 col-md-3 item">
-          <div class="num"><span class="counter" data-stat-counter="radiologists" data-target="140">0</span><span class="suffix" data-stat-suffix="radiologists">+</span></div>
-          <span class="impact-label">Radiologists Across Specialisations</span>
-        </div>
-        <div class="col-6 col-md-3 item">
-          <div class="num"><span class="counter" data-stat-counter="states" data-target="15">0</span><span class="suffix" data-stat-suffix="states">+</span></div>
-          <span class="impact-label">States Covered in India</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHO WE ARE SECTION -->
-  <section class="who-we-are" id="who-we-are">
-    <div class="container">
-      <div class="row g-4 g-lg-5 align-items-center">
+        <!-- HERO RIGHT: MINIMAL LIVE STUDY PROGRESSION CARD (Exact to Review Page 2) -->
         <div class="col-12 col-lg-5 reveal">
-          <div class="who-we-are-image-card scroll-expand scroll-expand--who" id="who-image-card">
-            <div class="scroll-expand__frame who-image-frame" id="who-image-frame">
-              <img src="${whoWeAreImgUrl}" alt="Trust & Hope Radiologists Consulting CT & MRI Diagnostic Scans" class="who-we-are-img scroll-expand__media" id="who-image-media">
-              <div class="scroll-expand__scrim who-image-scrim" id="who-image-scrim"></div>
-              <div class="who-we-are-img-overlay scroll-expand__overlay" id="who-image-overlay">
-                <span class="badge-tag">🔬 Expert Consultation</span>
-                <p class="overlay-caption">Board-certified radiologists reviewing live diagnostic studies</p>
+          <div class="hero-live-card hero-live-card--minimal">
+            <div class="hero-live-card-header">
+              <div class="d-flex align-items-center gap-2">
+                <span class="live-pulse-dot" style="background: var(--brand-green);"></span>
+                <span class="hero-live-card-title">How your study moves</span>
+              </div>
+            </div>
+
+            <div class="hero-live-card-body">
+              <!-- Item 1 -->
+              <div class="hero-live-row">
+                <div class="hero-live-name">
+                  CT Brain · <span class="badge-stat">STAT</span>
+                </div>
+                <div class="hero-live-status-pill">
+                  <span class="pill-badge pill-reading-minimal">Reading</span>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="hero-live-row">
+                <div class="hero-live-name">
+                  MRI Lumbar Spine
+                </div>
+                <div class="hero-live-status-pill">
+                  <span class="pill-badge pill-assigned-minimal">Assigned</span>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="hero-live-row">
+                <div class="hero-live-name">
+                  CT Angio Neck
+                </div>
+                <div class="hero-live-status-pill">
+                  <span class="pill-badge pill-delivered-minimal">Delivered</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="col-12 col-lg-7 reveal">
-          <span class="eyebrow">WHO WE ARE</span>
-          <h2 class="who-title">Direct Radiologist Communication, Zero Disconnect</h2>
-          
-          <p class="who-text mb-3">Every scan request means there’s a patient on the line. Patients experiencing everything from strokes to CT traumas to anxious patients waiting for follow-up MRIs and more. Our workflow deliberately adopts this level of pressure.</p>
-          
-          <div class="quote-box my-3">
-            <p>“We don’t just read scans, we remain accessible before, during and after the report is signed.”</p>
+  <!-- STATS COUNTER STRIP (White Ground with Thin Blue Dividers - Redesign Page 1) -->
+  <section class="stats-strip" id="stats">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-num">
+            <span class="counter" data-stat-counter="centres" data-target="350">350</span><span class="suffix" data-stat-suffix="centres">+</span>
           </div>
-
-          <p class="who-text mb-0">The main differentiator for us, is our extensive network of Radiologists as well as our communication with our clients. Our clients don’t have to rely on ticket systems with no information related to the request, or approximate time frames. Our clients can expect direct communication with the radiologist, clear paths for escalation, and reporting turnaround times we are actually accountable to.</p>
-          
-          <div class="d-flex flex-wrap gap-2 mt-4 btn-swap-group">
-            <a href="/our-team" class="btn-custom btn-custom-primary">Meet Our Radiologists Panel →</a>
-            <a href="#why-us" class="btn-custom btn-custom-ghost">Why Choose TAH RAD →</a>
-            <a href="#where-we-work" class="btn-custom btn-custom-ghost">Pan India Coverage →</a>
+          <div class="stat-label">Hospitals & diagnostic centres served</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-num">
+            <span class="counter" data-stat-counter="studies" data-target="1000">1,000</span><span class="suffix" data-stat-suffix="studies">+</span>
           </div>
+          <div class="stat-label">New studies reported every day</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-num">
+            <span class="counter" data-stat-counter="radiologists" data-target="140">140</span><span class="suffix" data-stat-suffix="radiologists">+</span>
+          </div>
+          <div class="stat-label">Radiologists across subspecialties</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-num">
+            <span class="counter" data-stat-counter="states" data-target="15">15</span><span class="suffix" data-stat-suffix="states">+</span>
+          </div>
+          <div class="stat-label">States covered across India</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MISSION & VISION SECTION -->
-  <section class="mission-vision" id="mission-vision">
+  <!-- BUILT AROUND HOW YOU WORK (2-Column Header, 3 Cards with Green Tiles - Redesign Page 1) -->
+  <section class="plug-in-section" id="plug-in">
     <div class="container">
-      <div class="row justify-content-center text-center mb-4 reveal">
-        <div class="col-12 col-lg-8">
-          <h2>Improving the speed and quality of clinical decisions</h2>
-          <p style="color:var(--muted-slate); font-size:16px;">We empower hospitals, diagnostic centres, and clinical teams across India with remote diagnostic interpretations that you can trust implicitly.</p>
+      <div class="row align-items-end mb-4 pb-2 reveal">
+        <div class="col-12 col-lg-7">
+          <span class="eyebrow">BUILT AROUND HOW YOU WORK</span>
+          <h2 class="section-h2 mb-0">One partner. Three ways to plug us in.</h2>
+        </div>
+        <div class="col-12 col-lg-5 text-lg-start mt-3 mt-lg-0">
+          <p class="section-lead-subcopy mb-0">
+            Pick the setup that matches your centre. The radiologists, quality checks and reporting desk stay the same.
+          </p>
         </div>
       </div>
 
       <div class="row g-4 reveal-stagger">
-        <div class="col-12 col-md-6">
-          <div class="mv-card mission">
-            <div class="icon-badge">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <!-- Card 1: Hospitals & trauma centres -->
+        <div class="col-12 col-md-4">
+          <div class="plug-card">
+            <div class="plug-icon-tile">⚡</div>
+            <h3 class="plug-card-title">Hospitals & trauma centres</h3>
+            <p class="plug-card-body">
+              Night and weekend cover, stat reads for stroke and trauma, and a radiologist who picks up when your ER calls.
+            </p>
+            <div class="plug-card-action">
+              <a href="#pilot" class="plug-card-link">Emergency & night cover →</a>
             </div>
-            <span class="eyebrow mb-2">OUR MISSION</span>
-            <h3>Timely, precise, high-quality reporting</h3>
-            <p>Enhance healthcare delivery through timely, precise, and high-quality tele-radiology services.</p>
           </div>
         </div>
 
-        <div class="col-12 col-md-6">
-          <div class="mv-card vision">
-            <div class="icon-badge">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <!-- Card 2: Diagnostic centres -->
+        <div class="col-12 col-md-4">
+          <div class="plug-card">
+            <div class="plug-icon-tile">⛶</div>
+            <h3 class="plug-card-title">Diagnostic centres</h3>
+            <p class="plug-card-body">
+              Add CT and MRI without hiring. Routine and subspecialty reads with predictable turnaround and one monthly invoice.
+            </p>
+            <div class="plug-card-action">
+              <a href="#pilot" class="plug-card-link">Full-service reporting →</a>
             </div>
-            <span class="eyebrow mb-2" style="color:var(--brand-yellow);">OUR VISION</span>
-            <h3>A global leader in tele-radiology</h3>
-            <p>Become a global leader in tele-radiology by fostering innovation, trust, and diagnostic excellence.</p>
           </div>
         </div>
-      </div>
 
-      <div class="philosophy-bar reveal">
-        <h5>SERVICE PHILOSOPHY</h5>
-        <div class="philosophy-pills">
-          <span class="philosophy-pill"><span class="pill-dot"></span> Accuracy</span>
-          <span class="philosophy-pill"><span class="pill-dot"></span> Speed</span>
-          <span class="philosophy-pill"><span class="pill-dot"></span> Reliability</span>
-          <span class="philosophy-pill"><span class="pill-dot"></span> Workflow Optimization</span>
-          <span class="philosophy-pill"><span class="pill-dot"></span> Patient Care</span>
+        <!-- Card 3: Imaging chains & groups -->
+        <div class="col-12 col-md-4">
+          <div class="plug-card">
+            <div class="plug-icon-tile">≡</div>
+            <h3 class="plug-card-title">Imaging chains & groups</h3>
+            <p class="plug-card-body">
+              One reporting desk across every branch. Centre-wise turnaround, volume and quality reports for your leadership.
+            </p>
+            <div class="plug-card-action">
+              <a href="#pilot" class="plug-card-link">Multi-centre setup →</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW TELERADIOLOGY WORKS SECTION -->
-  <section class="how-reporting-works" id="how-reporting-works" style="padding: 16px 0 30px 0; background: var(--paper); border-bottom: 1px solid var(--line);">
+  <!-- 02 WHO WE ARE (Direct Radiologist Access Promise - Review Page 3) -->
+  <section class="who-we-are-redesign" id="who-we-are">
     <div class="container">
-      <div class="row justify-content-center text-center mb-3 reveal">
+      <div class="row g-5 align-items-center">
+        <div class="col-12 col-lg-6 reveal">
+          <span class="eyebrow">WHO WE ARE</span>
+          <h2 class="section-h2 mb-3">
+            A radiologist who <mark class="tah-highlight-yellow">picks</mark><br>
+            <mark class="tah-highlight-yellow">up.</mark>
+          </h2>
+          <p class="who-lead-text mb-4">
+            Every study has a patient waiting on it. So every TAHRAD client gets a named radiologist, a direct line, and turnaround times we're accountable to.
+          </p>
+
+          <div class="who-cards-stack mb-4">
+            <!-- Card 1 -->
+            <div class="who-proof-card">
+              <div class="who-proof-icon-tile">👤</div>
+              <div>
+                <h4 class="who-proof-card-title">A named lead radiologist</h4>
+                <p class="who-proof-card-desc">Not a ticket queue or a shared inbox.</p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="who-proof-card">
+              <div class="who-proof-icon-tile">💬</div>
+              <div>
+                <h4 class="who-proof-card-title">Direct line and WhatsApp</h4>
+                <p class="who-proof-card-desc">Questions before, during and after the report.</p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="who-proof-card">
+              <div class="who-proof-icon-tile">⚡</div>
+              <div>
+                <h4 class="who-proof-card-title">Critical findings phoned in</h4>
+                <p class="who-proof-card-desc">A clear escalation path, written down.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="/our-team" class="btn-tah-primary">Meet the radiologists →</a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6 reveal">
+          <div class="who-we-are-image-card scroll-expand scroll-expand--who" id="who-image-card">
+            <div class="scroll-expand__frame who-image-frame" id="who-image-frame">
+              <img src="${whoWeAreImgUrl}" alt="TAHRAD Board-Certified Fellowship Radiologists" class="who-we-are-img scroll-expand__media" id="who-image-media">
+              <div class="scroll-expand__scrim who-image-scrim" id="who-image-scrim"></div>
+              <div class="who-we-are-img-overlay scroll-expand__overlay" id="who-image-overlay">
+                <span class="badge-tag">🔬 Fellowship Trained Panel</span>
+                <p class="overlay-caption">Accessible before, during and after the report</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 HOW IT WORKS (From Scan to Signed Report - Turnover Transition Flow) -->
+  <section class="how-reporting-works" id="how-it-works" style="padding: 60px 0 68px 0; background: var(--paper); border-bottom: 1px solid var(--line);">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-4 reveal">
         <div class="col-12 col-lg-9">
           <span class="eyebrow mb-1">FROM SCAN TO SIGNED REPORT</span>
-          <h2 style="font-size: clamp(26px, 3.5vw, 40px); margin-top: 6px; margin-bottom: 6px;">How Teleradiology Works</h2>
-          <p style="color: var(--muted-slate); font-size: 16px; max-width: 750px; margin: 0 auto;">Each of these steps is designed to facilitate the process of getting reports done, and is fully integrated with PACS.</p>
+          <h2 style="font-size: clamp(26px, 3.5vw, 40px); margin-top: 6px; margin-bottom: 10px; font-family: var(--font-heading); color: var(--brand-blue);">How Teleradiology Works</h2>
+          <p style="color: var(--brand-gray); font-size: 16px; max-width: 750px; margin: 0 auto;">Each of these steps is designed to facilitate the process of getting reports done, and is fully integrated with PACS.</p>
         </div>
       </div>
 
-      <!-- DETAILED PROCESS FLOW GRID (SINGLE LINE LAYOUT) -->
+      <!-- DETAILED PROCESS FLOW GRID (SINGLE LINE LAYOUT WITH 3D TURNOVER TRANSITION) -->
       <div class="steps-flow-container reveal-stagger">
         <div class="steps-flow-row">
           <!-- STEP 1 -->
@@ -201,18 +299,22 @@ export const tahMarkup = `
             <div class="step-flip-card" tabindex="0">
               <div class="step-flip-inner">
                 <div class="step-flip-front">
-                  <span class="step-num-badge" title="Image acquisition">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 2 14.9"></path><rect x="9" y="13" width="6" height="5" rx="1"></rect><path d="M10 13v-1.5a2 2 0 0 1 4 0V13"></path></svg>
-                  </span>
+                  <div class="flip-badge-row">
+                    <span class="step-num-badge" title="Image acquisition">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 2 14.9"></path><rect x="9" y="13" width="6" height="5" rx="1"></rect><path d="M10 13v-1.5a2 2 0 0 1 4 0V13"></path></svg>
+                    </span>
+                    <span class="step-mini-num">01</span>
+                  </div>
                   <div class="flip-title">Image acquisition</div>
+                  <div class="flip-hint">Flip for details ↻</div>
                 </div>
                 <div class="step-flip-back step-detail-card">
                   <span class="step-num-badge">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 2 14.9"></path><rect x="9" y="13" width="6" height="5" rx="1"></rect><path d="M10 13v-1.5a2 2 0 0 1 4 0V13"></path></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 2 14.9"></path><rect x="9" y="13" width="6" height="5" rx="1"></rect><path d="M10 13v-1.5a2 2 0 0 1 4 0V13"></path></svg>
                   </span>
                   <h3>Image acquisition</h3>
-                  <p class="step-text">A technologist at the hospital or diagnostic centre acquires the scan using standard imaging equipment (X-ray, CT, MRI, or mammography machine).</p>
-                  <div class="step-highlight">The images are stored in DICOM format, the universal standard for medical imaging.</div>
+                  <p class="step-text">A technologist at the hospital or diagnostic centre acquires the scan using standard imaging equipment (X-ray, CT, MRI, or PET).</p>
+                  <div class="step-highlight">Images stored in DICOM format, the universal standard for medical imaging.</div>
                 </div>
               </div>
             </div>
@@ -228,17 +330,21 @@ export const tahMarkup = `
             <div class="step-flip-card" tabindex="0">
               <div class="step-flip-inner">
                 <div class="step-flip-front">
-                  <span class="step-num-badge" title="Secure transmission">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                  </span>
+                  <div class="flip-badge-row">
+                    <span class="step-num-badge" title="Secure transmission">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </span>
+                    <span class="step-mini-num">02</span>
+                  </div>
                   <div class="flip-title">Secure transmission</div>
+                  <div class="flip-hint">Flip for details ↻</div>
                 </div>
                 <div class="step-flip-back step-detail-card">
                   <span class="step-num-badge">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                   </span>
                   <h3>Secure transmission</h3>
-                  <p class="step-text">The DICOM images are transmitted securely from the facility's PACS (Picture Archiving and Communication System) to the teleradiology platform.</p>
+                  <p class="step-text">The DICOM images are transmitted securely from your facility's PACS to ours through encrypted channels.</p>
                   <div class="step-highlight">Transmission uses encrypted channels compliant with healthcare data standards.</div>
                 </div>
               </div>
@@ -255,14 +361,18 @@ export const tahMarkup = `
             <div class="step-flip-card" tabindex="0">
               <div class="step-flip-inner">
                 <div class="step-flip-front">
-                  <span class="step-num-badge" title="Radiologist interpretation">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"></circle><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path></svg>
-                  </span>
+                  <div class="flip-badge-row">
+                    <span class="step-num-badge" title="Radiologist interpretation">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"></circle><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path></svg>
+                    </span>
+                    <span class="step-mini-num">03</span>
+                  </div>
                   <div class="flip-title">Radiologist interpretation</div>
+                  <div class="flip-hint">Flip for details ↻</div>
                 </div>
                 <div class="step-flip-back step-detail-card">
                   <span class="step-num-badge">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"></circle><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"></circle><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path></svg>
                   </span>
                   <h3>Radiologist interpretation</h3>
                   <p class="step-text">A board-certified radiologist reviews the images, identifies pathologies, and generates the draft report.</p>
@@ -282,14 +392,18 @@ export const tahMarkup = `
             <div class="step-flip-card" tabindex="0">
               <div class="step-flip-inner">
                 <div class="step-flip-front">
-                  <span class="step-num-badge" title="Quality Check">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                  </span>
+                  <div class="flip-badge-row">
+                    <span class="step-num-badge" title="Quality Check">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    </span>
+                    <span class="step-mini-num">04</span>
+                  </div>
                   <div class="flip-title">Quality Check</div>
+                  <div class="flip-hint">Flip for details ↻</div>
                 </div>
                 <div class="step-flip-back step-detail-card">
                   <span class="step-num-badge">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
                   </span>
                   <h3>Quality Check</h3>
                   <p class="step-text">They validate correct findings, correct any errors, add clinical context, and finalise the report.</p>
@@ -299,28 +413,32 @@ export const tahMarkup = `
             </div>
           </div>
 
-          <!-- ARROW 4 -> PACS -->
+          <!-- ARROW 4 -> 5 -->
           <div class="step-arrow-inline" title="Next Step">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </div>
 
-          <!-- STEP 5: REPORT DELIVERY -->
+          <!-- STEP 5: REPORT DELIVERY (Solid Brand Blue as in user screenshot) -->
           <div class="step-card-col">
             <div class="step-flip-card" tabindex="0">
               <div class="step-flip-inner">
-                <div class="step-flip-front" style="background: var(--brand-blue); color: #FFFFFF;">
-                  <span class="step-num-badge" style="background: rgba(255,255,255,0.15); color: #FFFFFF;" title="Report Delivery">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
-                  </span>
+                <div class="step-flip-front" style="background: var(--brand-blue); color: #FFFFFF; border-color: var(--brand-blue);">
+                  <div class="flip-badge-row">
+                    <span class="step-num-badge" style="background: rgba(255,255,255,0.18); color: #FFFFFF;" title="Report Delivery">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
+                    </span>
+                    <span class="step-mini-num" style="color: rgba(255,255,255,0.8);">05</span>
+                  </div>
                   <div class="flip-title" style="color: #FFFFFF;">Report Delivery</div>
+                  <div class="flip-hint" style="background: rgba(255,255,255,0.18); color: #FFFFFF;">Flip for details ↻</div>
                 </div>
-                <div class="step-flip-back step-detail-card" style="background: var(--brand-blue); color: #FFFFFF;">
-                  <span class="step-num-badge" style="background: rgba(255,255,255,0.15); color: #FFFFFF;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
+                <div class="step-flip-back step-detail-card" style="background: var(--brand-blue); color: #FFFFFF; border-color: var(--brand-blue);">
+                  <span class="step-num-badge" style="background: rgba(255,255,255,0.18); color: #FFFFFF;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>
                   </span>
                   <h3 style="color: #FFFFFF;">Report Delivery</h3>
-                  <p class="step-text" style="color: #D0DCED;">The finalised report is delivered directly to the referring clinician via the integrated PACS or secure portal — fast, accurate, and actionable.</p>
-                  <div class="step-highlight" style="background: rgba(255,255,255,0.08); border-color: var(--teal); color: #E6EDF5;">Zero technical friction with IT support.</div>
+                  <p class="step-text" style="color: #E2E8F0;">The finalised report is delivered directly to referring clinicians via integrated PACS or secure portal.</p>
+                  <div class="step-highlight" style="background: rgba(255,255,255,0.12); border-left-color: var(--brand-green); color: #FFFFFF;">Zero technical friction with IT support.</div>
                 </div>
               </div>
             </div>
@@ -330,602 +448,607 @@ export const tahMarkup = `
     </div>
   </section>
 
-  <!-- WHAT WE REPORT / SERVICES SECTION -->
-  <section class="services" id="services">
+  <!-- 04 SERVICES (Full-Spectrum Reporting, All 8 Modalities Visible as Cards - Redesign Page 2) -->
+  <section class="services-redesign" id="services">
     <div class="container">
-      <div class="row mb-5 reveal text-center justify-content-center">
-        <div class="col-12 col-lg-9">
-          <span class="eyebrow">WHAT WE DO</span>
-          <h2 style="font-size:clamp(30px, 4vw, 48px); margin-top:10px;">FULL-SPECTRUM TELERADIOLOGY,<br><em style="font-style:normal; color:var(--teal);">ONE REPORTING PARTNER</em></h2>
-          <p style="color:var(--navy-blue); font-size:16px; margin-top:14px; max-width:620px; margin-left:auto; margin-right:auto;">From X-Rays to specialty MRIs, we cover the entire diagnostic imaging spectrum so you don't have to work with multiple vendors for different modalities.</p>
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 reveal">
+        <div>
+          <span class="eyebrow">FULL-SPECTRUM REPORTING</span>
+          <h2 class="section-h2 mb-1">Every modality. One reporting partner.</h2>
+        </div>
+        <div class="mt-2 mt-md-0">
+          <a href="#pilot" class="link-styled-action">Ask for a modality we don't list →</a>
         </div>
       </div>
 
-      <!-- SPLIT-PANEL SERVICES EXPLORER -->
-      <div class="svc-explorer reveal" id="svc-explorer">
-
-        <!-- LEFT: Service Nav Sidebar -->
-        <div class="svc-nav" id="svc-nav">
-          <div class="svc-nav-header">
-            <span class="svc-nav-badge">24/7 Active</span>
-          </div>
-          <div class="svc-nav-list">
-            <button class="svc-pill active" data-svc="ct">
-              <span class="svc-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" y1="12" x2="17" y2="12"/></svg></span>
-              <span class="svc-pill-name">CT Reporting</span>
-            </button>
-            <button class="svc-pill" data-svc="mri">
-              <span class="svc-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M12 5v13"/></svg></span>
-              <span class="svc-pill-name">MRI Reporting</span>
-            </button>
-            <button class="svc-pill" data-svc="xray">
-              <span class="svc-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 8V1"/><path d="M12 16v7"/><path d="m15.5 10 6-3.5"/><path d="m8.5 14-6 3.5"/><path d="m15.5 14 6 3.5"/><path d="m8.5 10-6-3.5"/></svg></span>
-              <span class="svc-pill-name">X-Ray Reporting</span>
-            </button>
-            <button class="svc-pill" data-svc="pet">
-              <span class="svc-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><ellipse cx="12" cy="12" rx="9" ry="3"/><ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(120 12 12)"/></svg></span>
-              <span class="svc-pill-name">PET Reporting</span>
-            </button>
-            <button class="svc-pill" data-svc="usg">
-              <span class="svc-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
-              <span class="svc-pill-name">USG Reporting</span>
-            </button>
-            <button class="svc-pill" data-svc="subspecialty">
-              <span class="svc-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.3.3 0 1 0 .2.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></span>
-              <span class="svc-pill-name">Subspecialty Reads</span>
-            </button>
-            <button class="svc-pill" data-svc="nighthawk">
-              <span class="svc-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
-              <span class="svc-pill-name">Nighthawk &amp; Stat</span>
-            </button>
-            <button class="svc-pill" data-svc="second">
-              <span class="svc-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>
-              <span class="svc-pill-name">Second Opinions</span>
-            </button>
-
-          </div>
+      <div class="row g-4 reveal-stagger">
+        <!-- CT -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="/services/ct" class="modality-card-link">
+            <div class="modality-card">
+              <div class="modality-card-top">
+                <span class="modality-abbr">CT</span>
+                <span class="modality-arrow">↗</span>
+              </div>
+              <h3 class="modality-title">CT reporting</h3>
+              <p class="modality-desc">Trauma, stroke, oncology and routine CT, including angiography.</p>
+              <div class="modality-tags">Emergency · Angio · Oncology</div>
+            </div>
+          </a>
         </div>
 
-        <!-- RIGHT: Detail Panel -->
-        <div class="svc-detail-panel" id="svc-detail-panel">
-
-          <!-- CT -->
-          <div class="svc-panel active" id="svc-ct">
-            <div class="svc-panel-header">
-              <div class="svc-panel-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" y1="12" x2="17" y2="12"/></svg></div>
-              <div>
-                <span class="svc-panel-cat">Emergency &amp; Cross-Sectional</span>
-                <h3 class="svc-panel-title">CT Reporting</h3>
-                <p class="svc-panel-sub">Fast &amp; Accurate Computed Tomography</p>
+        <!-- MRI -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="/services/mri" class="modality-card-link">
+            <div class="modality-card">
+              <div class="modality-card-top">
+                <span class="modality-abbr">MRI</span>
+                <span class="modality-arrow">↗</span>
               </div>
+              <h3 class="modality-title">MRI reporting</h3>
+              <p class="modality-desc">Neuro, MSK, spine, body and cardiac MRI by subspecialists.</p>
+              <div class="modality-tags">Neuro · MSK · Body</div>
             </div>
-            <p class="svc-panel-desc">High-speed CT reporting for head, chest, abdomen, angiography, and polytrauma emergencies with sub-hour stat delivery.</p>
-            <div class="svc-panel-bullets">
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Trauma &amp; Stroke Emergency Reads</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>3D Angiography &amp; Vessel Analysis</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Routine Abdominal &amp; Chest Scans</strong></div></div>
-            </div>
-            <div class="svc-panel-footer">
-              <span class="svc-footer-chip">Head CT</span><span class="svc-footer-chip">Chest CT</span><span class="svc-footer-chip">CTA</span><span class="svc-footer-chip">Polytrauma</span><span class="svc-footer-chip">Abdominal CT</span>
-            </div>
-          </div>
-
-          <!-- MRI -->
-          <div class="svc-panel" id="svc-mri">
-            <div class="svc-panel-header">
-              <div class="svc-panel-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M12 5v13"/></svg></div>
-              <div>
-                <span class="svc-panel-cat">Subspecialty</span>
-                <h3 class="svc-panel-title">MRI Reporting</h3>
-                <p class="svc-panel-sub">High-Resolution Soft Tissue Diagnostic</p>
-              </div>
-            </div>
-            <p class="svc-panel-desc">Comprehensive MRI interpretations covering neuroradiology, spine, musculoskeletal joints, pelvic, and cardiac studies.</p>
-            <div class="svc-panel-bullets">
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Neurology &amp; Spine</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>MSK Joint &amp; Cartilage Imaging</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Multiparametric Prostate &amp; Abdomen</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Cardiac</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Special Studies</strong></div></div>
-            </div>
-            <div class="svc-panel-footer">
-              <span class="svc-footer-chip">Neuro MRI</span><span class="svc-footer-chip">Spine MRI</span><span class="svc-footer-chip">MSK</span><span class="svc-footer-chip">Cardiac MRI</span><span class="svc-footer-chip">MultiParameticMRI</span>
-            </div>
-          </div>
-
-          <!-- X-Ray -->
-          <div class="svc-panel" id="svc-xray">
-            <div class="svc-panel-header">
-              <div class="svc-panel-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 8V1"/><path d="M12 16v7"/><path d="m15.5 10 6-3.5"/><path d="m8.5 14-6 3.5"/><path d="m15.5 14 6 3.5"/><path d="m8.5 10-6-3.5"/></svg></div>
-              <div>
-                <span class="svc-panel-cat">Routine &amp; High-Volume</span>
-                <h3 class="svc-panel-title">X-Ray Reporting</h3>
-                <p class="svc-panel-sub">24/7 Digital Radiography</p>
-              </div>
-            </div>
-            <p class="svc-panel-desc">Rapid turnaround for high-volume plain radiography, chest X-rays, trauma skeletal series, and routine screening.</p>
-            <div class="svc-panel-bullets">
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Chest Radiography</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Orthopedic Skeletal Series</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>High-Volume Batch Reporting</strong></div></div>
-            </div>
-            <div class="svc-panel-footer">
-              <span class="svc-footer-chip">Chest X-Ray</span><span class="svc-footer-chip">Skeletal</span><span class="svc-footer-chip">Trauma</span><span class="svc-footer-chip">Screening</span><span class="svc-footer-chip">Batch</span>
-            </div>
-          </div>
-
-          <!-- PET -->
-          <div class="svc-panel" id="svc-pet">
-            <div class="svc-panel-header">
-              <div class="svc-panel-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><ellipse cx="12" cy="12" rx="9" ry="3"/><ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(120 12 12)"/></svg></div>
-              <div>
-                <span class="svc-panel-cat">Subspecialty &amp; Advanced</span>
-                <h3 class="svc-panel-title">PET Reporting</h3>
-                <p class="svc-panel-sub">Oncology &amp; Metabolic Imaging</p>
-              </div>
-            </div>
-            <p class="svc-panel-desc">Specialized PET/CT molecular imaging reads for cancer staging, therapy evaluation, and metabolic lesion tracking.</p>
-            <div class="svc-panel-bullets">
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Oncology Staging &amp; Restaging</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>FDG Whole-Body Scans</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Radiotracer Uptake Quantification</strong></div></div>
-            </div>
-            <div class="svc-panel-footer">
-              <span class="svc-footer-chip">PET/CT</span><span class="svc-footer-chip">FDG</span><span class="svc-footer-chip">Oncology</span><span class="svc-footer-chip">PERCIST</span><span class="svc-footer-chip">SUVmax</span>
-            </div>
-          </div>
-
-          <!-- USG -->
-          <div class="svc-panel" id="svc-usg">
-            <div class="svc-panel-header">
-              <div class="svc-panel-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-              <div>
-                <span class="svc-panel-cat">Routine</span>
-                <h3 class="svc-panel-title">USG Reporting</h3>
-                <p class="svc-panel-sub">Ultrasonography &amp; Color Doppler</p>
-              </div>
-            </div>
-            <p class="svc-panel-desc">Expert review for general ultrasound, Doppler vascular studies, and pelvic diagnostic imagery.</p>
-            <div class="svc-panel-bullets">
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Color Doppler Vascular Reads</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Abdominal &amp; Small Parts Review</strong></div></div>
-            </div>
-            <div class="svc-panel-footer">
-              <span class="svc-footer-chip">Doppler</span><span class="svc-footer-chip">Pelvic</span><span class="svc-footer-chip">Abdomen USG</span><span class="svc-footer-chip">Thyroid</span><span class="svc-footer-chip">Scrotal</span>
-            </div>
-          </div>
-
-          <!-- Subspecialty -->
-          <div class="svc-panel" id="svc-subspecialty">
-            <div class="svc-panel-header">
-              <div class="svc-panel-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.3.3 0 1 0 .2.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
-              <div>
-                <span class="svc-panel-cat">Expert Interpretation</span>
-                <h3 class="svc-panel-title">Subspecialty Reads</h3>
-                <p class="svc-panel-sub">Domain-Specific Expert Interpretations</p>
-              </div>
-            </div>
-            <p class="svc-panel-desc">Domain-specific imaging reads are reported by radiologists trained in Neuroradiology, Musculoskeletal Imaging, Cardiothoracic Imaging, Oncology and Obstetric Imaging.</p>
-            <div class="svc-panel-bullets">
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Neuro &amp; MSK Board Radiologists</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Cardiothoracic &amp; Vascular Specialists</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Oncology &amp; Obstetric Imaging</strong></div></div>
-            </div>
-            <div class="svc-panel-footer">
-              <span class="svc-footer-chip">Neuro</span><span class="svc-footer-chip">MSK</span><span class="svc-footer-chip">Cardiothoracic</span><span class="svc-footer-chip">Oncology</span><span class="svc-footer-chip">Obstetric</span>
-            </div>
-          </div>
-
-          <!-- Nighthawk -->
-          <div class="svc-panel" id="svc-nighthawk">
-            <div class="svc-panel-header">
-              <div class="svc-panel-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></div>
-              <div>
-                <span class="svc-panel-cat">Emergency</span>
-                <h3 class="svc-panel-title">Nighthawk &amp; Stat Reads</h3>
-                <p class="svc-panel-sub">Nighttime Radiology Coverage, Daytime Peace of Mind</p>
-              </div>
-            </div>
-            <p class="svc-panel-desc">Overnight and emergency reads are reported so your nightshift won't be unproductive, leaving undetermined cases for the morning hours.</p>
-            <div class="svc-panel-bullets">
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Rapid Access to Radiologists</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Expedited Reporting for Decisive Action</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Uninterrupted Expert Care Around the Clock</strong></div></div>
-            </div>
-            <div class="svc-panel-footer">
-              <span class="svc-footer-chip">Overnight</span><span class="svc-footer-chip">Emergency</span><span class="svc-footer-chip">ED Coverage</span><span class="svc-footer-chip">ICU</span><span class="svc-footer-chip">Prelim Reads</span>
-            </div>
-          </div>
-
-          <!-- Second Opinions -->
-          <div class="svc-panel" id="svc-second">
-            <div class="svc-panel-header">
-              <div class="svc-panel-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
-              <div>
-                <span class="svc-panel-cat">Peer Review &amp; QA</span>
-                <h3 class="svc-panel-title">Second Opinions</h3>
-                <p class="svc-panel-sub">Clinical Certainty for Complex Cases</p>
-              </div>
-            </div>
-            <p class="svc-panel-desc">For your complex and/or conflicting cases, we provide an additional clinical level of certainty through independent subspecialty reviews.</p>
-            <div class="svc-panel-bullets">
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Independent Quality Assurance Review</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Detailed Peer Audit Reports</strong></div></div>
-              <div class="svc-bullet"><span class="svc-bullet-dot"></span><div><strong>Conflict Resolution &amp; Expert Consensus</strong></div></div>
-            </div>
-            <div class="svc-panel-footer">
-              <span class="svc-footer-chip">Blinded Review</span><span class="svc-footer-chip">Discrepancy</span><span class="svc-footer-chip">Medico-legal</span><span class="svc-footer-chip">Consensus</span><span class="svc-footer-chip">Complex Cases</span>
-            </div>
-          </div>
-
-
-        </div><!-- /svc-detail-panel -->
-
-      </div><!-- /svc-explorer -->
-    </div>
-  </section>
-
-  <!-- WHY US SECTION -->
-  <section class="why-us" id="why-us">
-    <div class="container" style="position:relative; z-index:2;">
-
-      <!-- WHY US — ASYMMETRIC HERO -->
-      <div class="why-top reveal">
-        <div class="why-top-left">
-          <span class="eyebrow">WHY US</span>
-          <h2 class="why-headline">HOSPITALS WHO WORK WITH US<br><em class="why-em">ALWAYS GET A CALL BACK.</em></h2>
-          <div class="why-divider"></div>
-          <p class="lead-why">Ask any radiology coordinator what the biggest disconnect is with teleradiology. The answer is almost always the silence that occurs within the process. There is no one to contact if there are questions, and the response deadlines for the reports come and go without an explanation. These issues are what we aim to address with Trust and Hope Rad Pvt Ltd.</p>
-        </div>
-        <div class="why-top-right">
-          <div class="why-pull-quote">
-            <span class="why-quote-mark">&ldquo;</span>
-            <p>Radio silence is the enemy of good patient care. We built our entire operation around the belief that a radiologist should be reachable, always.</p>
-            <cite>- TAH Rad, Clinical Operations</cite>
-          </div>
-        </div>
-      </div>
-
-      <!-- WHY US — 3 COLUMN FEATURE GRID (2 IN A ROW PER CONTAINER) -->
-      <div class="row g-4 why-features-grid reveal-stagger">
-        <div class="col-12 col-lg-4">
-          <div class="why-features h-100">
-            <div class="why-feature-row">
-              <div class="why-feature-icon-col">
-                <div class="why-feature-icon">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </div>
-              </div>
-              <div class="why-feature-body">
-                <h4>Avoiding Queue Theory</h4>
-                <p>Your team has a dedicated contact for communication, not an ever-changing support inbox. Connect with radiologists when every minute matters.</p>
-              </div>
-            </div>
-
-            <div class="why-feature-divider"></div>
-
-            <div class="why-feature-row why-feature-row--alt">
-              <div class="why-feature-icon-col">
-                <div class="why-feature-icon">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-              </div>
-              <div class="why-feature-body">
-                <h4>We&rsquo;ve Got Your Back</h4>
-                <p>We hold ourselves accountable for our promises. Disciplined turnaround times with dependable report delivery.</p>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
 
-        <div class="col-12 col-lg-4">
-          <div class="why-features h-100">
-            <div class="why-feature-row">
-              <div class="why-feature-icon-col">
-                <div class="why-feature-icon">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
+        <!-- XR -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="/services/x-ray" class="modality-card-link">
+            <div class="modality-card">
+              <div class="modality-card-top">
+                <span class="modality-abbr">XR</span>
+                <span class="modality-arrow">↗</span>
               </div>
-              <div class="why-feature-body">
-                <h4>Large Radiology Network</h4>
-                <p>Your reports will not be delayed because of the unavailability of one radiologist. <span data-stat-val="radiologists">140+</span> subspecialty radiologists on call 24/7/365.</p>
-              </div>
+              <h3 class="modality-title">X-Ray & DR</h3>
+              <p class="modality-desc">High-volume chest and skeletal reads with fast turnaround.</p>
+              <div class="modality-tags">Chest · Skeletal · Paeds</div>
             </div>
-
-            <div class="why-feature-divider"></div>
-
-            <div class="why-feature-row why-feature-row--alt">
-              <div class="why-feature-icon-col">
-                <div class="why-feature-icon">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-              </div>
-              <div class="why-feature-body">
-                <h4>Lots of Volume, Still Personal</h4>
-                <p>We have a responsive and dedicated team, and have reported over a million studies, with more to come while maintaining personal doctor rapport.</p>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
 
-        <div class="col-12 col-lg-4">
-          <div class="why-features h-100">
-            <div class="why-feature-row">
-              <div class="why-feature-icon-col">
-                <div class="why-feature-icon">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                </div>
+        <!-- PET -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="/services/pet-ct" class="modality-card-link">
+            <div class="modality-card">
+              <div class="modality-card-top">
+                <span class="modality-abbr">PET</span>
+                <span class="modality-arrow">↗</span>
               </div>
-              <div class="why-feature-body">
-                <h4>Pioneer in Teleradiology</h4>
-                <p>Trusted partner for hospitals and imaging centers across India with multi-level quality assurance and cloud PACS workflow.</p>
-              </div>
+              <h3 class="modality-title">PET-CT reporting</h3>
+              <p class="modality-desc">Oncology staging and response reads by nuclear medicine experts.</p>
+              <div class="modality-tags">Oncology · Nuclear</div>
             </div>
-
-            <div class="why-feature-divider"></div>
-
-            <div class="why-feature-row why-feature-row--alt">
-              <div class="why-feature-icon-col">
-                <div class="why-feature-icon">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                </div>
-              </div>
-              <div class="why-feature-body">
-                <h4>24/7 Direct Customer Support</h4>
-                <p>Never experience radio silence. Immediate escalation pathways and doctor-to-doctor consultation whenever critical findings emerge.</p>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
-      </div>
 
-      <div class="text-center mt-4 pt-3 reveal">
-        <div class="d-inline-flex flex-wrap gap-2 justify-content-center btn-swap-group">
-          <a href="/our-team" class="btn-custom btn-custom-primary">Meet Our 140+ Radiologists →</a>
-          <a href="#how-reporting-works" class="btn-custom btn-custom-ghost">How Teleradiology Works →</a>
-          <a href="#where-we-work" class="btn-custom btn-custom-ghost">Pan India Coverage →</a>
+        <!-- SUB -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="/services/subspecialty" class="modality-card-link">
+            <div class="modality-card">
+              <div class="modality-card-top">
+                <span class="modality-abbr">SUB</span>
+                <span class="modality-arrow">↗</span>
+              </div>
+              <h3 class="modality-title">Subspecialty reads</h3>
+              <p class="modality-desc">Neuro, MSK, cardiac, paediatric and women’s imaging.</p>
+              <div class="modality-tags">Matched by case</div>
+            </div>
+          </a>
         </div>
-      </div>
 
-      <!-- MAP SHOWCASE BANNER -->
-      <div class="row mt-5 reveal" id="where-we-work">
-        <div class="col-12">
-          <div style="background: var(--brand-blue); border: 1px solid rgba(0, 40, 250, 0.35); border-radius: 24px; padding: clamp(28px, 4vw, 48px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px); position: relative; overflow: hidden;">
-            
-            <!-- NEWS CHANNEL TICKER MARQUEE -->
-            <div class="news-ticker-container">
-              <div class="news-ticker-wrapper">
-                <div class="news-ticker-track">
-                  <span class="news-ticker-item">MAHARASHTRA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">UTTAR PRADESH <span class="dot">•</span></span>
-                  <span class="news-ticker-item">DELHI NCR <span class="dot">•</span></span>
-                  <span class="news-ticker-item">KARNATAKA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">TAMIL NADU <span class="dot">•</span></span>
-                  <span class="news-ticker-item">KERALA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">GUJARAT <span class="dot">•</span></span>
-                  <span class="news-ticker-item">RAJASTHAN <span class="dot">•</span></span>
-                  <span class="news-ticker-item">WEST BENGAL <span class="dot">•</span></span>
-                  <span class="news-ticker-item">MADHYA PRADESH <span class="dot">•</span></span>
-                  <span class="news-ticker-item">ANDHRA PRADESH <span class="dot">•</span></span>
-                  <span class="news-ticker-item">TELANGANA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">BIHAR <span class="dot">•</span></span>
-                  <span class="news-ticker-item">ODISHA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">PUNJAB <span class="dot">•</span></span>
-                  <span class="news-ticker-item">HARYANA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">ASSAM <span class="dot">•</span></span>
-                  <span class="news-ticker-item">CHHATTISGARH <span class="dot">•</span></span>
-                  <span class="news-ticker-item">JHARKHAND <span class="dot">•</span></span>
-
-                  <!-- DUPLICATE FOR INFINITE LOOP -->
-                  <span class="news-ticker-item">MAHARASHTRA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">UTTAR PRADESH <span class="dot">•</span></span>
-                  <span class="news-ticker-item">DELHI NCR <span class="dot">•</span></span>
-                  <span class="news-ticker-item">KARNATAKA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">TAMIL NADU <span class="dot">•</span></span>
-                  <span class="news-ticker-item">KERALA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">GUJARAT <span class="dot">•</span></span>
-                  <span class="news-ticker-item">RAJASTHAN <span class="dot">•</span></span>
-                  <span class="news-ticker-item">WEST BENGAL <span class="dot">•</span></span>
-                  <span class="news-ticker-item">MADHYA PRADESH <span class="dot">•</span></span>
-                  <span class="news-ticker-item">ANDHRA PRADESH <span class="dot">•</span></span>
-                  <span class="news-ticker-item">TELANGANA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">BIHAR <span class="dot">•</span></span>
-                  <span class="news-ticker-item">ODISHA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">PUNJAB <span class="dot">•</span></span>
-                  <span class="news-ticker-item">HARYANA <span class="dot">•</span></span>
-                  <span class="news-ticker-item">ASSAM <span class="dot">•</span></span>
-                  <span class="news-ticker-item">CHHATTISGARH <span class="dot">•</span></span>
-                  <span class="news-ticker-item">JHARKHAND <span class="dot">•</span></span>
-                </div>
+        <!-- 24/7 -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="/services/nighthawk" class="modality-card-link">
+            <div class="modality-card">
+              <div class="modality-card-top">
+                <span class="modality-abbr">24/7</span>
+                <span class="modality-arrow">↗</span>
               </div>
+              <h3 class="modality-title">Nighthawk & stat</h3>
+              <p class="modality-desc">Overnight and weekend cover with stat escalation for emergencies.</p>
+              <div class="modality-tags">Night · Weekend · Stat</div>
             </div>
+          </a>
+        </div>
 
-            <div class="row align-items-center g-4 g-lg-5">
-              <div class="col-12 col-lg-6">
-                <div class="d-flex align-items-center gap-2 mb-2">
-                  <span class="eyebrow" style="margin: 0;">PAN-INDIA COVERAGE</span>
-                </div>
-
-                <h3 style="font-size: clamp(26px, 3vw, 38px); color: #FFFFFF; font-weight: 700; margin-top: 8px; line-height: 1.25;">
-                  <span data-stat-val="states">15+</span> States Covered in India
-                </h3>
-
-                <p style="color: #C3D5EB; font-size: 15.5px; margin: 16px 0 24px 0; line-height: 1.65; text-align: left !important;">
-                  From major city trauma centers to regional diagnostic clinics, our network of <span data-stat-val="radiologists" style="color: #FFFFFF; font-weight: 600;">140+</span> board-certified radiologists delivers 24x7 teleradiology reporting across India.
-                </p>
-
-                <!-- MAP BANNER METRIC MINI BADGES -->
-                <div class="row g-2 mb-4">
-                  <div class="col-4">
-                    <div class="map-metric-card">
-                      <div style="font-family: var(--font-body); font-size: 20px; font-weight: 700; color: #FFFFFF; line-height: 1;"><span data-stat-val="centres">350+</span></div>
-                      <div class="map-metric-label">Centres</div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="map-metric-card">
-                      <div style="font-family: var(--font-body); font-size: 20px; font-weight: 700; color: #FFFFFF; line-height: 1;"><span data-stat-val="radiologists">140+</span></div>
-                      <div class="map-metric-label">Doctors</div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="map-metric-card">
-                      <div style="font-family: var(--font-body); font-size: 20px; font-weight: 700; color: var(--brand-yellow); line-height: 1;">15-30m</div>
-                      <div class="map-metric-label">Emergency TAT</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- CTA BUTTON ROW -->
-                <div class="d-flex flex-wrap align-items-center gap-2 pt-1 btn-swap-group btn-swap-group-dark">
-                  <a href="#contact" class="btn-custom btn-custom-primary" style="padding: 12px 22px; font-size: 14px;">Partner With Us &rarr;</a>
-                  <a href="/our-team" class="btn-custom btn-custom-ghost" style="padding: 12px 18px; font-size: 14px;">Our Team &rarr;</a>
-                  <a href="#how-reporting-works" class="btn-custom btn-custom-ghost" style="padding: 12px 18px; font-size: 14px;">How It Works &rarr;</a>
-                </div>
+        <!-- 2nd -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="/services/second-opinion" class="modality-card-link">
+            <div class="modality-card">
+              <div class="modality-card-top">
+                <span class="modality-abbr">2nd</span>
+                <span class="modality-arrow">↗</span>
               </div>
-
-              <!-- RIGHT MAP GRAPHIC -->
-              <div class="col-12 col-lg-6 text-center">
-                <div style="position: relative; display: inline-block; width: 100%;">
-                  <img src="${indianMapUrl}" alt="Pan India Teleradiology Reporting Map" style="max-height: 440px; width: 100%; object-fit: contain; border-radius: 16px; filter: drop-shadow(0 0 35px rgba(0, 40, 250, 0.45)); transition: transform 0.3s ease;">
-                </div>
-              </div>
+              <h3 class="modality-title">Second opinion</h3>
+              <p class="modality-desc">Independent review for complex or disputed cases.</p>
+              <div class="modality-tags">Complex cases</div>
             </div>
-          </div>
+          </a>
+        </div>
+
+        <!-- MMG -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="/services/mammography" class="modality-card-link">
+            <div class="modality-card">
+              <div class="modality-card-top">
+                <span class="modality-abbr">MMG</span>
+                <span class="modality-arrow">↗</span>
+              </div>
+              <h3 class="modality-title">Mammography</h3>
+              <p class="modality-desc">Screening and diagnostic mammography by breast imaging specialists.</p>
+              <div class="modality-tags">Screening · Diagnostic</div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact" id="contact">
+  <!-- 05 REPORTING DESK (Interactive Control Room - Redesign Page 2 & 3) -->
+  <section class="reporting-desk-section" id="reporting-desk">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-12 col-lg-6 contact-info reveal">
-          <span class="eyebrow">GET IN TOUCH</span>
-          <h2>Partner with Trust &amp; Hope Rad Today</h2>
-          <p>Ready to eliminate radiology reporting delays and empower your clinical team with responsive teleradiology? Reach out to schedule a demo or set up your hospital workflow.</p>
-          
-          <div class="office">
-            <h4>REGISTERED OFFICE &amp; CONTACT</h4>
-            <p>Trust and Hope Rad Pvt. Ltd.<br>#1035, 4th 'M' Block, Dr. Rajkumar Road, Rajajinagar, Bangalore – 560010</p>
-            <p style="margin-bottom:12px;">
-              <strong>Call / Helpline:</strong> <a href="tel:+918123388860" style="color:var(--teal); font-weight:600; text-decoration:none;">+91 81233 88860</a><br>
-              <strong>WhatsApp:</strong> <a href="https://wa.me/918123388860" target="_blank" rel="noopener noreferrer" style="color:#25D366; font-weight:600; text-decoration:none;">+91 81233 88860 (Chat Now &rarr;)</a><br>
-              <strong>Email:</strong> <a href="mailto:admin@trustandhoperad.com" style="color:var(--teal); font-weight:600; text-decoration:none;">admin@trustandhoperad.com</a>
-            </p>
-            <div class="contact-social-buttons d-flex flex-wrap gap-2 mt-3 btn-swap-group">
-              <a href="https://wa.me/918123388860" target="_blank" rel="noopener noreferrer" class="btn-custom btn-swap-default" style="background:#25D366; color:#fff; padding:7px 16px; font-size:13px; border-radius:30px; text-decoration:none;">WhatsApp</a>
-              <a href="https://in.linkedin.com/company/trust-and-hope-rad?trk=public_post_feed-actor-name" target="_blank" rel="noopener noreferrer" class="btn-custom btn-custom-ghost" style="padding:7px 16px; font-size:13px; border-radius:30px; text-decoration:none;">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
+      <div class="row g-5 align-items-center mb-5">
         <div class="col-12 col-lg-6 reveal">
-          <form id="contact-form" class="contact-form">
-            <h3 style="font-size:19px; margin-bottom:14px; color:var(--deep-navy);">Request a Partnership Callback</h3>
-            <div class="row g-2">
-              <div class="col-12 col-md-6 field">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" required placeholder="Dr. / Mr. / Ms. Name" autocomplete="name">
-              </div>
-              <div class="col-12 col-md-6 field">
-                <label for="hospital">Hospital / Center Name</label>
-                <input type="text" id="hospital" required placeholder="Hospital / Diagnostic Name" autocomplete="organization">
-              </div>
-              <div class="col-12 col-md-6 field">
-                <label for="email">Work Email</label>
-                <input type="email" id="email" required placeholder="name@hospital.com" autocomplete="email">
-              </div>
-              <div class="col-12 col-md-6 field">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" required placeholder="+91 98765 43210" autocomplete="tel">
-              </div>
-              <div class="col-12 field">
-                <label for="modality">Primary Modality Needs</label>
-                <select id="modality">
-                  <option value="Full-Spectrum">Full-Spectrum (CT, MRI, X-Ray, PET, USG)</option>
-                  <option value="CT-MRI">CT &amp; MRI Reporting</option>
-                  <option value="Nighthawk">Nighthawk &amp; Emergency Stat Reads</option>
-                  <option value="Subspecialty">Subspecialty Reads</option>
-                  <option value="Second-Opinion">Second Opinions &amp; QA</option>
-                </select>
-              </div>
-              <div class="col-12 field">
-                <label for="message">Message / Daily Scan Volume</label>
-                <textarea id="message" rows="2" placeholder="Tell us about your daily scan volume and reporting requirements..."></textarea>
+          <span class="eyebrow">THE TAHRAD REPORTING DESK</span>
+          <h2 class="section-h2 mb-3">
+            Not an inbox. <mark class="tah-highlight-yellow">A control room</mark><br>
+            for your reports.
+          </h2>
+          <p class="section-lead-subcopy mb-4">
+            Most teleradiology ends at "upload and wait". With TAHRAD your team logs into one desk to track, prioritise and talk about every study.
+          </p>
+
+          <div class="desk-features-stack">
+            <!-- Feat 1 -->
+            <div class="desk-feature-row">
+              <div class="desk-feat-icon-tile">⏱️</div>
+              <div>
+                <h4 class="desk-feat-heading">Live status on every study</h4>
+                <p class="desk-feat-desc">Uploaded, assigned, reading, QC, delivered — with a running clock.</p>
               </div>
             </div>
-            <button type="submit" class="submit-btn mt-2">Submit Request →</button>
-            <div id="form-msg">Thank you! Your request has been submitted. Our team will call you back shortly.</div>
-          </form>
+
+            <!-- Feat 2 -->
+            <div class="desk-feature-row">
+              <div class="desk-feat-icon-tile">💬</div>
+              <div>
+                <h4 class="desk-feat-heading">Talk to the reading radiologist</h4>
+                <p class="desk-feat-desc">Message or call from the case itself. No switchboard, no waiting.</p>
+              </div>
+            </div>
+
+            <!-- Feat 3 -->
+            <div class="desk-feature-row">
+              <div class="desk-feat-icon-tile">⚡</div>
+              <div>
+                <h4 class="desk-feat-heading">One tap to mark stat</h4>
+                <p class="desk-feat-desc">Escalate a case and watch it jump the queue in real time.</p>
+              </div>
+            </div>
+
+            <!-- Feat 4 -->
+            <div class="desk-feature-row">
+              <div class="desk-feat-icon-tile">📈</div>
+              <div>
+                <h4 class="desk-feat-heading">Reports your leadership can read</h4>
+                <p class="desk-feat-desc">Turnaround, volume and quality by centre, modality and shift.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <a href="#pilot" class="btn-tah-primary">Take the desk tour →</a>
+          </div>
+        </div>
+
+        <!-- Right: Desk Preview Table & Drawer Mockup -->
+        <div class="col-12 col-lg-6 reveal">
+          <div class="desk-workspace-card">
+            <!-- Top Bar -->
+            <div class="desk-topbar">
+              <div class="d-flex align-items-center gap-2">
+                <img src="${logoPrimaryBlue}" alt="TAHRAD" style="height: 24px; width: auto;">
+              </div>
+              <div class="desk-center-name">[Your Centre] · Bengaluru</div>
+            </div>
+
+            <!-- KPI Strip -->
+            <div class="desk-kpi-bar">
+              <div class="desk-kpi-item">
+                <span class="desk-kpi-label">Studies today</span>
+                <span class="desk-kpi-val">48</span>
+              </div>
+              <div class="desk-kpi-item">
+                <span class="desk-kpi-label">In reading</span>
+                <span class="desk-kpi-val">7</span>
+              </div>
+              <div class="desk-kpi-item stat-open-highlight">
+                <span class="desk-kpi-label">Stat open</span>
+                <span class="desk-kpi-val stat-chip-yellow">2</span>
+              </div>
+              <div class="desk-kpi-item">
+                <span class="desk-kpi-label">Delivered</span>
+                <span class="desk-kpi-val">39</span>
+              </div>
+            </div>
+
+            <!-- Desk Table -->
+            <div class="desk-table-container">
+              <!-- Case 1 -->
+              <div class="desk-row active-selected" data-status="stat reading" data-id="PT-20418" data-mod="CT" data-title="CT Head — Trauma STAT" data-doc="Dr. R. Menon" data-sub="Neuroradiology" data-time="06:12" data-stage="Reading" data-upload="CT-1 · Uploaded from your PACS">
+                <div class="desk-cell-study">
+                  <div class="study-title">CT Head — Trauma <span class="badge-stat">STAT</span></div>
+                </div>
+                <div class="desk-cell-doc">Dr. R. Menon</div>
+                <div class="desk-cell-stage"><span class="badge-stage-reading">Reading</span></div>
+                <div class="desk-cell-time live-tick-time" data-seconds="372">06:12</div>
+              </div>
+
+              <!-- Case 2 -->
+              <div class="desk-row" data-status="assigned" data-id="PT-20402" data-mod="MRI" data-title="MRI Knee — Right" data-doc="Dr. S. Iyer" data-sub="MSK Radiology" data-time="14:40" data-stage="Assigned" data-upload="MRI-1 · Uploaded from your PACS">
+                <div class="desk-cell-study">
+                  <div class="study-title">MRI Knee — Right</div>
+                </div>
+                <div class="desk-cell-doc">Dr. S. Iyer</div>
+                <div class="desk-cell-stage"><span class="badge-stage-assigned">Assigned</span></div>
+                <div class="desk-cell-time live-tick-time" data-seconds="880">14:40</div>
+              </div>
+
+              <!-- Case 3 -->
+              <div class="desk-row" data-status="qc" data-id="PT-20399" data-mod="X-Ray" data-title="X-Ray Chest PA" data-doc="Dr. A. Khan" data-sub="Chest & Skeletal" data-time="03:05" data-stage="QC review" data-upload="XR-1 · Uploaded from your PACS">
+                <div class="desk-cell-study">
+                  <div class="study-title">X-Ray Chest PA</div>
+                </div>
+                <div class="desk-cell-doc">Dr. A. Khan</div>
+                <div class="desk-cell-stage"><span class="badge-stage-qc">QC review</span></div>
+                <div class="desk-cell-time live-tick-time" data-seconds="185">03:05</div>
+              </div>
+
+              <!-- Case 4 -->
+              <div class="desk-row" data-status="delivered" data-id="PT-20388" data-mod="CT" data-title="CT Abdomen — Contrast" data-doc="Dr. P. Nair" data-sub="Body Imaging" data-time="Delivered" data-stage="Delivered" data-upload="CT-1 · Signed & in PACS">
+                <div class="desk-cell-study">
+                  <div class="study-title">CT Abdomen — Contrast</div>
+                </div>
+                <div class="desk-cell-doc">Dr. P. Nair</div>
+                <div class="desk-cell-stage"><span class="badge-stage-delivered">Delivered ✓</span></div>
+                <div class="desk-cell-time">✓</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 WHY CENTRES SWITCH TO TAHRAD (Redesign Page 3 & Review Page 6) -->
+  <section class="why-us-redesign" id="why-us">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 reveal">
+        <div>
+          <span class="eyebrow">WHY CENTRES SWITCH TO TAHRAD</span>
+          <h2 class="section-h2 mb-1">Hospitals that work with us always get a call back.</h2>
+        </div>
+        <div class="mt-2 mt-md-0">
+          <a href="#pilot" class="btn-tah-primary btn-sm">Request a pilot →</a>
+        </div>
+      </div>
+
+      <div class="row g-4 reveal-stagger">
+        <!-- Comparison 01 -->
+        <div class="col-12 col-md-4">
+          <div class="compare-card">
+            <div class="compare-before">
+              <span class="compare-tag-before">BEFORE</span>
+              <p class="compare-text-before">Upload and hope. No idea who has the study or when it will come back.</p>
+            </div>
+            <div class="compare-divider"></div>
+            <div class="compare-after">
+              <span class="compare-tag-after">WITH TAHRAD</span>
+              <h4 class="compare-title-after">A live clock on every study</h4>
+              <p class="compare-text-after">See the stage, the radiologist and the time elapsed — for every scan, from any device.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison 02 -->
+        <div class="col-12 col-md-4">
+          <div class="compare-card">
+            <div class="compare-before">
+              <span class="compare-tag-before">BEFORE</span>
+              <p class="compare-text-before">Queue roulette. Whoever is free reads your neuro case.</p>
+            </div>
+            <div class="compare-divider"></div>
+            <div class="compare-after">
+              <span class="compare-tag-after">WITH TAHRAD</span>
+              <h4 class="compare-title-after">Subspecialists, not whoever is free</h4>
+              <p class="compare-text-after">Cases are routed by modality and body region to the right radiologist, every time.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison 03 -->
+        <div class="col-12 col-md-4">
+          <div class="compare-card">
+            <div class="compare-before">
+              <span class="compare-tag-before">BEFORE</span>
+              <p class="compare-text-before">Calls that go to voicemail when your ER needs answers.</p>
+            </div>
+            <div class="compare-divider"></div>
+            <div class="compare-after">
+              <span class="compare-tag-after">WITH TAHRAD</span>
+              <h4 class="compare-title-after">A radiologist who picks up</h4>
+              <p class="compare-text-after">Direct line and in-case chat to the reading radiologist, with escalation built in.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dedicated Full-Width Solid Brand Blue Quote Banner (Redesign Page 3) -->
+  <section class="clinical-ops-banner">
+    <div class="container">
+      <div class="clinical-ops-inner reveal text-center">
+        <div class="clinical-ops-quote-mark">“</div>
+        <blockquote class="clinical-ops-quote-text">
+          Radio silence is the enemy of good patient care. We built our entire operation around the belief that a radiologist should be reachable, always.
+        </blockquote>
+        <div class="clinical-ops-author">TAHRAD CLINICAL OPERATIONS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 PAN-INDIA COVERAGE (Redesign Page 4) -->
+  <section class="coverage-redesign" id="coverage">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-12 col-lg-6 reveal">
+          <span class="eyebrow">PAN-INDIA COVERAGE</span>
+          <h2 class="section-h2 mb-3">From metro trauma centres to district diagnostic labs.</h2>
+          <p class="section-lead-text mb-4">
+            Radiologists across 15+ states, reading in shifts so your night is someone's morning.
+          </p>
+
+          <div class="coverage-tat-box mb-4">
+            <div class="coverage-tat-number">
+              <mark class="tah-highlight-yellow">15–30 min</mark>
+            </div>
+            <div class="coverage-tat-sub">emergency turnaround, 24/7/365</div>
+          </div>
+
+          <div>
+            <button class="btn-tah-secondary" id="check-city-coverage-btn">Check coverage for your city →</button>
+          </div>
+        </div>
+
+        <!-- Static State Chips (Right column) -->
+        <div class="col-12 col-lg-6 reveal">
+          <div class="state-chips-cloud">
+            <span class="state-chip">Karnataka</span>
+            <span class="state-chip">Tamil Nadu</span>
+            <span class="state-chip">Kerala</span>
+            <span class="state-chip">Andhra Pradesh</span>
+            <span class="state-chip">Telangana</span>
+            <span class="state-chip">Gujarat</span>
+            <span class="state-chip">Rajasthan</span>
+            <span class="state-chip">Madhya Pradesh</span>
+            <span class="state-chip">West Bengal</span>
+            <span class="state-chip">Odisha</span>
+            <span class="state-chip">Bihar</span>
+            <span class="state-chip">Punjab</span>
+            <span class="state-chip highlight-chip">+ more states</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Radiologist Recruitment Full-Width White Strip (Redesign Page 4) -->
+  <section class="rad-recruit-strip" id="for-radiologists">
+    <div class="container">
+      <div class="rad-recruit-wrap reveal">
+        <div class="rad-recruit-left">
+          <img src="${logoIconBlue}" alt="TAHRAD" class="rad-recruit-icon">
+          <div>
+            <h3 class="rad-recruit-title">Radiologist? Read with TAHRAD.</h3>
+            <p class="rad-recruit-sub">Flexible shifts, subspecialty-matched studies, and a team that has your back on every call.</p>
+          </div>
+        </div>
+        <div class="rad-recruit-right">
+          <a href="#pilot" class="btn-tah-secondary btn-join-panel">Join the panel</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 START WITH A PILOT (Unified Split Card - Redesign Page 4) -->
+  <section class="pilot-section" id="pilot">
+    <div class="container">
+      <div class="pilot-split-card reveal">
+        <div class="row g-0">
+          <!-- Left: Solid Brand Blue Panel -->
+          <div class="col-12 col-lg-5 pilot-blue-panel">
+            <span class="eyebrow" style="color: rgba(255, 255, 255, 0.75);">START WITH A PILOT</span>
+            <h2 class="pilot-heading-white">Send us your next batch of studies. Judge us on the reports.</h2>
+
+            <div class="pilot-steps-list">
+              <div class="pilot-step-item">
+                <span class="pilot-step-num">01</span>
+                <span class="pilot-step-text">We call you back within one working hour.</span>
+              </div>
+              <div class="pilot-step-item">
+                <span class="pilot-step-num">02</span>
+                <span class="pilot-step-text">We connect to your PACS and set up your desk.</span>
+              </div>
+              <div class="pilot-step-item">
+                <span class="pilot-step-num">03</span>
+                <span class="pilot-step-text">You go live with a named lead radiologist.</span>
+              </div>
+            </div>
+
+            <div class="pilot-legal-block">
+              <div class="pilot-company-name">Trust & Hope Rad Pvt. Ltd.</div>
+              <div class="pilot-address">#1035, 4th 'M' Block, Dr. Rajkumar Road, Rajajinagar, Bengaluru 560010</div>
+              <div class="pilot-contact-row">Call / WhatsApp: <a href="tel:+918123388860">+91 81233 88860</a></div>
+              <div class="pilot-contact-row">Email: <a href="mailto:contact@trustandhoperad.com">contact@trustandhoperad.com</a></div>
+            </div>
+          </div>
+
+          <!-- Right: White Form Panel -->
+          <div class="col-12 col-lg-7 pilot-form-panel">
+            <form id="pilot-request-form">
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom" for="pilot-name">Your name</label>
+                  <input type="text" id="pilot-name" class="form-control-custom" placeholder="Dr. Priya Sharma" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom" for="pilot-centre">Hospital / centre</label>
+                  <input type="text" id="pilot-centre" class="form-control-custom" placeholder="Centre name and city" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom" for="pilot-email">Work email</label>
+                  <input type="email" id="pilot-email" class="form-control-custom" placeholder="name@hospital.in" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom" for="pilot-phone">Phone</label>
+                  <input type="tel" id="pilot-phone" class="form-control-custom" placeholder="+91" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label-custom" for="pilot-volume">Studies per month</label>
+                  <select id="pilot-volume" class="form-control-custom">
+                    <option value="under-300">Under 300</option>
+                    <option value="300-1000" selected>300 – 1,000</option>
+                    <option value="1000-plus">1,000+</option>
+                  </select>
+                </div>
+
+                <!-- Modalities you need (Interactive chips) -->
+                <div class="col-12">
+                  <label class="form-label-custom">Modalities you need</label>
+                  <div class="modality-select-chips" id="modality-chips">
+                    <button type="button" class="mod-chip-btn active" data-mod="CT">CT</button>
+                    <button type="button" class="mod-chip-btn active" data-mod="MRI">MRI</button>
+                    <button type="button" class="mod-chip-btn" data-mod="X-Ray">X-Ray</button>
+                    <button type="button" class="mod-chip-btn" data-mod="PET-CT">PET-CT</button>
+                    <button type="button" class="mod-chip-btn" data-mod="Night cover">Night cover</button>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn-tah-primary w-100 py-3 mt-2" id="pilot-submit-btn">
+                    Request my pilot callback
+                  </button>
+                  <div class="pilot-form-assurance mt-2 text-center">
+                    No commitment. Your study data stays encrypted and is never shared.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Feedback Banner -->
+              <div id="pilot-form-feedback" class="pilot-feedback-banner mt-3" style="display: none;">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="check-icon">✓</span>
+                  <div>
+                    <strong>Pilot callback requested!</strong>
+                    <div>A TAHRAD clinical coordinator will call you back within one working hour.</div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
+<!-- FOOTER (Solid Brand Blue Feature Ground - Redesign Page 4) -->
+<footer class="footer-redesign">
   <div class="container">
-    <div class="row g-4 g-lg-5">
-      <div class="col-12 col-lg-4 pe-lg-4">
-        <a href="#hero" class="brand" aria-label="TAHRAD">
-          <img class="brand-logo brand-logo--primary" src="${logoPrimaryWhite}" alt="TAHRAD">
-          <img class="brand-logo brand-logo--icon" src="${logoIconWhite}" alt="TAHRAD">
+    <div class="row g-4 pb-5 border-bottom-blue">
+      <div class="col-12 col-lg-4">
+        <a href="#hero" class="brand footer-brand mb-3 d-inline-block" aria-label="TAHRAD">
+          <img class="brand-logo footer-logo" src="${logoPrimaryWhite}" alt="TAHRAD">
         </a>
-        <p data-stat-summary>Trust and Hope Rad Pvt. Ltd. | 24×7 teleradiology services serving 350+ centres, 1000+ new studies uploaded daily to PACS, 140+ radiologists across specialisations, 15+ states covered in India.</p>
+        <p class="footer-tagline">
+          Subspecialty teleradiology for hospitals and diagnostic centres across India. 24/7/365.
+        </p>
       </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <h5>Contact Us</h5>
-        <ul style="font-size: 13.5px;">
-          <li><strong>Call:</strong> <a href="tel:+918123388860">+91 81233 88860</a></li>
-          <li><strong>WhatsApp:</strong> <a href="https://wa.me/918123388860" target="_blank" rel="noopener noreferrer" style="color:#25D366;">+91 81233 88860</a></li>
-          <li><strong>Mail:</strong> <a href="mailto:admin@trustandhoperad.com" style="word-break:break-all;">admin@trustandhoperad.com</a></li>
-        </ul>
-        <div class="topbar-socials mt-3">
-          <a href="https://in.linkedin.com/company/trust-and-hope-rad?trk=public_post_feed-actor-name" target="_blank" rel="noopener noreferrer" class="topbar-social-link li-hover" title="LinkedIn" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-1.25.7-1.92 1.63-1.92.93 0 1.36.67 1.36 1.92v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-          </a>
-          <a href="https://wa.me/918123388860" target="_blank" rel="noopener noreferrer" class="topbar-social-link wa-hover" title="WhatsApp" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.76.459 3.474 1.33 4.987l-1.414 5.163 5.286-1.386a9.96 9.96 0 004.787 1.22h.005c5.507 0 9.99-4.478 9.99-9.985 0-2.667-1.039-5.176-2.924-7.062A9.923 9.923 0 0012.012 2zm5.82 14.161c-.247.692-1.22 1.326-1.996 1.492-.533.113-1.229.206-3.567-.763-2.989-1.237-4.908-4.275-5.059-4.474-.148-.198-1.218-1.621-1.218-3.092 0-1.47.767-2.196 1.041-2.495.274-.298.599-.373.799-.373.199 0 .399.002.573.01.185.008.435-.07.68.518.248.598.847 2.068.921 2.217.075.149.124.323.025.522-.099.198-.149.322-.298.497-.149.174-.313.389-.447.523-.148.149-.303.311-.13.609.174.298.774 1.277 1.662 2.067 1.14 1.015 2.102 1.33 2.399 1.478.298.149.472.124.646-.075.174-.199.746-.87.945-1.168.199-.298.398-.248.671-.149.274.099 1.742.82 2.04 1.043.298.224.497.348.572.473.075.124.075.72-.172 1.412z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-2">
-        <h5>Navigate</h5>
-        <ul>
-          <li><a href="#who-we-are">About Us</a></li>
-          <li><a href="/our-team">Our Team</a></li>
-          <li><a href="#where-we-work">Pan India Coverage</a></li>
-          <li><a href="#how-reporting-works">How It Works</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#why-us">Why Us</a></li>
-          <li><a href="#contact">Contact</a></li>
+
+      <div class="col-6 col-md-3 col-lg-2 offset-lg-2">
+        <h4 class="footer-col-title">SERVICES</h4>
+        <ul class="footer-nav-list">
+          <li><a href="/services/ct">CT reporting</a></li>
+          <li><a href="/services/mri">MRI reporting</a></li>
+          <li><a href="/services/x-ray">X-Ray & DR</a></li>
+          <li><a href="/services/nighthawk">Nighthawk & stat</a></li>
         </ul>
       </div>
-      <div class="col-6 col-md-3 col-lg-3">
-        <h5>Modalities</h5>
-        <ul>
-          <li><a href="#services">CT Reporting</a></li>
-          <li><a href="#services">MRI Reporting</a></li>
-          <li><a href="#services">X-Ray &amp; USG Reads</a></li>
-          <li><a href="#services">PET Oncology Scans</a></li>
-          <li><a href="#services">Nighthawk &amp; Stat Reads</a></li>
+
+      <div class="col-6 col-md-3 col-lg-2">
+        <h4 class="footer-col-title">COMPANY</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#coverage">Coverage</a></li>
+          <li><a href="/our-team">Join as radiologist</a></li>
+          <li><a href="#pilot">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-3 col-lg-2">
+        <h4 class="footer-col-title">CLIENTS</h4>
+        <ul class="footer-nav-list">
+          <li><a href="https://pacs.trustandhoperad.com/login" target="_blank" rel="noopener noreferrer">Hospital login</a></li>
+          <li><a href="#pilot">Request a pilot</a></li>
+          <li><a href="#reporting-desk">Reporting desk</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="foot-bottom">
-      <span>© ${new Date().getFullYear()} Trust and Hope Rad Pvt. Ltd. All rights reserved.</span>
-      <span>Read Right. Read Fast. 24/7.</span>
+    <div class="footer-bottom-bar pt-4 d-flex flex-wrap justify-content-between align-items-center">
+      <div class="footer-copy">
+        © 2026 Trust & Hope Rad Pvt. Ltd. All rights reserved.
+      </div>
+      <div class="footer-legal-links">
+        <a href="#hero">Privacy</a> · 
+        <a href="#hero">Terms</a> · 
+        <a href="#hero">Data security</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<button id="back-to-top" aria-label="Back to Top">↑</button>
-
+<!-- FLOATING ACTION BUTTONS -->
 <a href="https://wa.me/918123388860" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.76.459 3.474 1.33 4.987l-1.414 5.163 5.286-1.386a9.96 9.96 0 004.787 1.22h.005c5.507 0 9.99-4.478 9.99-9.985 0-2.667-1.039-5.176-2.924-7.062A9.923 9.923 0 0012.012 2zm5.82 14.161c-.247.692-1.22 1.326-1.996 1.492-.533.113-1.229.206-3.567-.763-2.989-1.237-4.908-4.275-5.059-4.474-.148-.198-1.218-1.621-1.218-3.092 0-1.47.767-2.196 1.041-2.495.274-.298.599-.373.799-.373.199 0 .399.002.573.01.185.008.435-.07.68.518.248.598.847 2.068.921 2.217.075.149.124.323.025.522-.099.198-.149.322-.298.497-.149.174-.313.389-.447.523-.148.149-.303.311-.13.609.174.298.774 1.277 1.662 2.067 1.14 1.015 2.102 1.33 2.399 1.478.298.149.472.124.646-.075.174-.199.746-.87.945-1.168.199-.298.398-.248.671-.149.274.099 1.742.82 2.04 1.043.298.224.497.348.572.473.075.124.075.72-.172 1.412z"/></svg>
   <span>Chat on WhatsApp</span>
 </a>
+
+<button id="back-to-top" class="tah-back-to-top" aria-label="Back to Top">↑</button>
+
+<!-- CITY COVERAGE CHECK MODAL -->
+<div class="city-modal-overlay" id="city-modal" style="display: none;">
+  <div class="city-modal-card">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="modal-city-title m-0">Check coverage for your city</h4>
+      <button class="modal-close-btn" id="modal-city-close" aria-label="Close modal">✕</button>
+    </div>
+    <p class="modal-city-sub">Enter your city, town, or PIN code to verify subspecialist radiologist and 24/7 stat coverage.</p>
+    <div class="d-flex gap-2 my-3">
+      <input type="text" id="city-input-search" class="form-control-custom" placeholder="e.g. Pune, Coimbatore, Jaipur, Hubballi...">
+      <button class="btn-tah-primary" id="city-search-go">Check</button>
+    </div>
+    <div id="city-result-box" class="city-result-display" style="display: none;">
+      <div class="d-flex align-items-center gap-2 text-success fw-bold mb-1">
+        <span>✓ 24/7 Pan-India Active Coverage</span>
+      </div>
+      <div id="city-result-text" class="small text-muted"></div>
+      <div class="mt-3">
+        <a href="#pilot" class="btn-tah-primary btn-sm w-100 text-center" id="city-book-pilot">Request a pilot in this city →</a>
+      </div>
+    </div>
+  </div>
+</div>
 `;

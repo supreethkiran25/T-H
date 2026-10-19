@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, ReactNode, MouseEventHandler, CSSProperties } from 'react';
-import { Renderer, Program, Mesh, Triangle, Color } from 'ogl';
-import './SpecularButton.css';
+import React, { useRef, useEffect, ReactNode, MouseEventHandler, CSSProperties } from "react";
+import { Renderer, Program, Mesh, Triangle, Color } from "ogl";
+import "./SpecularButton.css";
 
 const PAD = 20;
 
@@ -68,7 +68,7 @@ void main() {
 
 export interface SpecularButtonProps {
   children?: ReactNode;
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   radius?: number;
   tint?: string;
   tintOpacity?: number;
@@ -87,22 +87,22 @@ export interface SpecularButtonProps {
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   className?: string;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   style?: CSSProperties;
   asAnchor?: boolean;
   href?: string;
 }
 
 export const SpecularButton: React.FC<SpecularButtonProps> = ({
-  children = 'Get Started',
-  size = 'lg',
+  children = "Get Started",
+  size = "lg",
   radius = 18,
-  tint = '#ffffff',
+  tint = "#ffffff",
   tintOpacity = 0,
   blur = 0,
-  textColor = '#f5f5f5',
-  lineColor = '#ffffff',
-  baseColor = '#525252',
+  textColor = "#f5f5f5",
+  lineColor = "#ffffff",
+  baseColor = "#525252",
   intensity = 1,
   shineSize = 10,
   shineFade = 40,
@@ -113,8 +113,8 @@ export const SpecularButton: React.FC<SpecularButtonProps> = ({
   autoAnimate = false,
   disabled = false,
   onClick,
-  className = '',
-  type = 'button',
+  className = "",
+  type = "button",
   style = {},
   asAnchor = false,
   href,
@@ -135,7 +135,19 @@ export const SpecularButton: React.FC<SpecularButtonProps> = ({
     autoAnimate,
   });
 
-  propsRef.current = { radius, lineColor, baseColor, intensity, shineSize, shineFade, thickness, speed, followMouse, proximity, autoAnimate };
+  propsRef.current = {
+    radius,
+    lineColor,
+    baseColor,
+    intensity,
+    shineSize,
+    shineFade,
+    thickness,
+    speed,
+    followMouse,
+    proximity,
+    autoAnimate,
+  };
 
   useEffect(() => {
     const btn = btnRef.current;
@@ -150,7 +162,8 @@ export const SpecularButton: React.FC<SpecularButtonProps> = ({
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
 
     const geometry = new Triangle(gl);
-    if ((geometry.attributes as any).uv) delete (geometry.attributes as any).uv;
+    const attributes = geometry.attributes as Record<string, unknown>;
+    if (attributes.uv) delete attributes.uv;
 
     const program = new Program(gl, {
       vertex: VERT,
@@ -167,8 +180,8 @@ export const SpecularButton: React.FC<SpecularButtonProps> = ({
         uShineSize: { value: 0.17 },
         uShineFade: { value: 0.7 },
         uThickness: { value: 1 },
-        uBaseWidth: { value: dpr }
-      }
+        uBaseWidth: { value: dpr },
+      },
     });
 
     const mesh = new Mesh(gl, { geometry, program });
@@ -209,7 +222,7 @@ export const SpecularButton: React.FC<SpecularButtonProps> = ({
       const t = Math.max(0, 1 - dist / Math.max(propsRef.current.proximity, 1));
       proximityT = t * t * (3 - 2 * t);
     };
-    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener("pointermove", onPointerMove);
 
     let angle = 2.4;
     let idleAngle = 2.4;
@@ -252,20 +265,20 @@ export const SpecularButton: React.FC<SpecularButtonProps> = ({
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
-      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener("pointermove", onPointerMove);
       if (gl.canvas.parentNode === fx) fx.removeChild(gl.canvas);
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
   }, []);
 
   const elementProps = {
-    className: `specular-button specular-button--${size}${className ? ` ${className}` : ''}`,
+    className: `specular-button specular-button--${size}${className ? ` ${className}` : ""}`,
     style: {
-      '--sb-radius': `${radius}px`,
-      '--sb-tint': tint,
-      '--sb-tint-opacity': tintOpacity,
-      '--sb-blur': `${blur}px`,
-      '--sb-text-color': textColor,
+      "--sb-radius": `${radius}px`,
+      "--sb-tint": tint,
+      "--sb-tint-opacity": tintOpacity,
+      "--sb-blur": `${blur}px`,
+      "--sb-text-color": textColor,
       ...style,
     } as React.CSSProperties,
   };
@@ -281,7 +294,7 @@ export const SpecularButton: React.FC<SpecularButtonProps> = ({
     return (
       <a
         ref={btnRef as React.RefObject<HTMLAnchorElement>}
-        href={href || '#'}
+        href={href || "#"}
         onClick={onClick as unknown as MouseEventHandler<HTMLAnchorElement>}
         {...elementProps}
       >

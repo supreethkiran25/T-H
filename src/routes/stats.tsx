@@ -28,7 +28,7 @@ export const Route = createFileRoute("/stats")({
         rel: "stylesheet",
         href: BRAND_FONTS_HREF,
       },
-      { rel: "stylesheet", href: "/tah.css" },
+      { rel: "stylesheet", href: "/tah.css?v=20261019_v13" },
     ],
   }),
   component: StatsCMS,
@@ -73,7 +73,7 @@ function StatsCMS() {
       setIsAuthenticated(true);
       setLoginError("");
       toast.success("Welcome, Admin!", {
-        description: "Authenticated into TAH RAD Stats CMS.",
+        description: "Authenticated into TAHRAD Stats CMS.",
       });
     } else {
       setLoginError("Invalid username or password. Please try again.");
@@ -124,7 +124,8 @@ function StatsCMS() {
       <div
         style={{
           minHeight: "100vh",
-          background: "radial-gradient(1000px 500px at 50% 20%, rgba(43, 168, 183, 0.15), transparent 70%), #0028FA",
+          background:
+            "radial-gradient(1000px 500px at 50% 20%, rgba(43, 168, 183, 0.15), transparent 70%), #0028FA",
           color: "#E6EDF5",
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           display: "flex",
@@ -152,9 +153,20 @@ function StatsCMS() {
             <img
               src={logoUrl}
               alt="TAHRAD"
-              style={{ height: "clamp(48px, 8vw, 64px)", width: "auto", margin: "0 auto 16px auto" }}
+              style={{
+                height: "clamp(48px, 8vw, 64px)",
+                width: "auto",
+                margin: "0 auto 16px auto",
+              }}
             />
-            <h1 style={{ fontSize: "clamp(20px, 4.5vw, 24px)", fontWeight: 700, color: "#FFFFFF", marginBottom: "6px" }}>
+            <h1
+              style={{
+                fontSize: "clamp(20px, 4.5vw, 24px)",
+                fontWeight: 700,
+                color: "#FFFFFF",
+                marginBottom: "6px",
+              }}
+            >
               Stats CMS Admin Login
             </h1>
             <p style={{ fontSize: "13.5px", color: "#8DA5C4", margin: 0 }}>
@@ -183,7 +195,15 @@ function StatsCMS() {
             )}
 
             <div className="mb-3">
-              <label style={{ fontSize: "13px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
+              <label
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: "#0028FA",
+                  marginBottom: "6px",
+                  display: "block",
+                }}
+              >
                 Username / Email
               </label>
               <input
@@ -206,7 +226,15 @@ function StatsCMS() {
             </div>
 
             <div className="mb-4">
-              <label style={{ fontSize: "13px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
+              <label
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: "#0028FA",
+                  marginBottom: "6px",
+                  display: "block",
+                }}
+              >
                 Password
               </label>
               <div className="position-relative">
@@ -329,7 +357,7 @@ function StatsCMS() {
                     letterSpacing: "-0.01em",
                   }}
                 >
-                  TAH RAD
+                  TAHRAD
                 </span>
               </Link>
               <span
@@ -436,8 +464,16 @@ function StatsCMS() {
             >
               Manage Website Statistics
             </h1>
-            <p style={{ color: "#8DA5C4", fontSize: "clamp(14px, 2vw, 16px)", maxWidth: "680px", margin: "0 auto 0 0" }}>
-              Update key metric numbers here. Any saved changes will automatically reflect across all pages, hero banners, impact counters, and site footers.
+            <p
+              style={{
+                color: "#8DA5C4",
+                fontSize: "clamp(14px, 2vw, 16px)",
+                maxWidth: "680px",
+                margin: "0 auto 0 0",
+              }}
+            >
+              Update key metric numbers here. Any saved changes will automatically reflect across
+              all pages, hero banners, impact counters, and site footers.
             </p>
           </div>
 
@@ -455,11 +491,21 @@ function StatsCMS() {
               >
                 <form onSubmit={handleSave}>
                   <div className="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-secondary border-opacity-25">
-                    <h2 style={{ fontSize: "clamp(17px, 3vw, 20px)", fontWeight: 600, color: "#FFFFFF", margin: 0 }}>
+                    <h2
+                      style={{
+                        fontSize: "clamp(17px, 3vw, 20px)",
+                        fontWeight: 600,
+                        color: "#FFFFFF",
+                        margin: 0,
+                      }}
+                    >
                       Stats Data Inputs
                     </h2>
                     {isSaved && (
-                      <span className="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 px-2 py-1" style={{ fontSize: "11px" }}>
+                      <span
+                        className="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 px-2 py-1"
+                        style={{ fontSize: "11px" }}
+                      >
                         ✓ Saved
                       </span>
                     )}
@@ -467,7 +513,15 @@ function StatsCMS() {
 
                   {/* STAT 1: CENTRES SERVED */}
                   <div className="mb-4">
-                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
+                    <label
+                      style={{
+                        fontSize: "13.5px",
+                        fontWeight: 600,
+                        color: "#0028FA",
+                        marginBottom: "6px",
+                        display: "block",
+                      }}
+                    >
                       1. Centres Served
                     </label>
                     <div className="row g-2">
@@ -509,14 +563,29 @@ function StatsCMS() {
                         />
                       </div>
                     </div>
-                    <small style={{ color: "#7B96B5", fontSize: "12px", marginTop: "4px", display: "block" }}>
+                    <small
+                      style={{
+                        color: "#7B96B5",
+                        fontSize: "12px",
+                        marginTop: "4px",
+                        display: "block",
+                      }}
+                    >
                       Appears on Hero counter & why us ribbons (Default: 350+)
                     </small>
                   </div>
 
                   {/* STAT 2: NEW STUDIES DAILY */}
                   <div className="mb-4">
-                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
+                    <label
+                      style={{
+                        fontSize: "13.5px",
+                        fontWeight: 600,
+                        color: "#0028FA",
+                        marginBottom: "6px",
+                        display: "block",
+                      }}
+                    >
                       2. New Studies Uploaded Daily to PACS
                     </label>
                     <div className="row g-2">
@@ -558,14 +627,29 @@ function StatsCMS() {
                         />
                       </div>
                     </div>
-                    <small style={{ color: "#7B96B5", fontSize: "12px", marginTop: "4px", display: "block" }}>
+                    <small
+                      style={{
+                        color: "#7B96B5",
+                        fontSize: "12px",
+                        marginTop: "4px",
+                        display: "block",
+                      }}
+                    >
                       Appears on main counter grid & team page stats (Default: 1000+)
                     </small>
                   </div>
 
                   {/* STAT 3: RADIOLOGISTS */}
                   <div className="mb-4">
-                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
+                    <label
+                      style={{
+                        fontSize: "13.5px",
+                        fontWeight: 600,
+                        color: "#0028FA",
+                        marginBottom: "6px",
+                        display: "block",
+                      }}
+                    >
                       3. Radiologists Across Specialisations
                     </label>
                     <div className="row g-2">
@@ -607,14 +691,29 @@ function StatsCMS() {
                         />
                       </div>
                     </div>
-                    <small style={{ color: "#7B96B5", fontSize: "12px", marginTop: "4px", display: "block" }}>
+                    <small
+                      style={{
+                        color: "#7B96B5",
+                        fontSize: "12px",
+                        marginTop: "4px",
+                        display: "block",
+                      }}
+                    >
                       Appears on team page hero, quality tags & workflow sections (Default: 140+)
                     </small>
                   </div>
 
                   {/* STAT 4: STATES COVERED */}
                   <div className="mb-4">
-                    <label style={{ fontSize: "13.5px", fontWeight: 600, color: "#0028FA", marginBottom: "6px", display: "block" }}>
+                    <label
+                      style={{
+                        fontSize: "13.5px",
+                        fontWeight: 600,
+                        color: "#0028FA",
+                        marginBottom: "6px",
+                        display: "block",
+                      }}
+                    >
                       4. States Covered in India
                     </label>
                     <div className="row g-2">
@@ -656,7 +755,14 @@ function StatsCMS() {
                         />
                       </div>
                     </div>
-                    <small style={{ color: "#7B96B5", fontSize: "12px", marginTop: "4px", display: "block" }}>
+                    <small
+                      style={{
+                        color: "#7B96B5",
+                        fontSize: "12px",
+                        marginTop: "4px",
+                        display: "block",
+                      }}
+                    >
                       Appears on Pan-India coverage sections & footers (Default: 15+)
                     </small>
                   </div>
@@ -714,7 +820,14 @@ function StatsCMS() {
                 }}
               >
                 <div className="d-flex align-items-center justify-content-between mb-4">
-                  <h2 style={{ fontSize: "clamp(16px, 3vw, 18px)", fontWeight: 600, color: "#FFFFFF", margin: 0 }}>
+                  <h2
+                    style={{
+                      fontSize: "clamp(16px, 3vw, 18px)",
+                      fontWeight: 600,
+                      color: "#FFFFFF",
+                      margin: 0,
+                    }}
+                  >
                     Live Website Counter Preview
                   </h2>
                   <span
@@ -758,7 +871,15 @@ function StatsCMS() {
                         {formData.centres}
                         <span style={{ color: "#0028FA" }}>{formData.centresSuffix}</span>
                       </div>
-                      <div style={{ fontSize: "clamp(10.5px, 2.5vw, 11.5px)", color: "#8DA5C4", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
+                      <div
+                        style={{
+                          fontSize: "clamp(10.5px, 2.5vw, 11.5px)",
+                          color: "#8DA5C4",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          fontWeight: 600,
+                        }}
+                      >
                         Centres Served
                       </div>
                     </div>
@@ -788,7 +909,15 @@ function StatsCMS() {
                         {formData.studies}
                         <span style={{ color: "#0028FA" }}>{formData.studiesSuffix}</span>
                       </div>
-                      <div style={{ fontSize: "clamp(10.5px, 2.5vw, 11.5px)", color: "#8DA5C4", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
+                      <div
+                        style={{
+                          fontSize: "clamp(10.5px, 2.5vw, 11.5px)",
+                          color: "#8DA5C4",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          fontWeight: 600,
+                        }}
+                      >
                         New Studies Daily
                       </div>
                     </div>
@@ -818,7 +947,15 @@ function StatsCMS() {
                         {formData.radiologists}
                         <span style={{ color: "#0028FA" }}>{formData.radiologistsSuffix}</span>
                       </div>
-                      <div style={{ fontSize: "clamp(10.5px, 2.5vw, 11.5px)", color: "#8DA5C4", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
+                      <div
+                        style={{
+                          fontSize: "clamp(10.5px, 2.5vw, 11.5px)",
+                          color: "#8DA5C4",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          fontWeight: 600,
+                        }}
+                      >
                         Radiologists Panel
                       </div>
                     </div>
@@ -848,7 +985,15 @@ function StatsCMS() {
                         {formData.states}
                         <span style={{ color: "#0028FA" }}>{formData.statesSuffix}</span>
                       </div>
-                      <div style={{ fontSize: "clamp(10.5px, 2.5vw, 11.5px)", color: "#8DA5C4", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
+                      <div
+                        style={{
+                          fontSize: "clamp(10.5px, 2.5vw, 11.5px)",
+                          color: "#8DA5C4",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          fontWeight: 600,
+                        }}
+                      >
                         States Covered
                       </div>
                     </div>
@@ -865,7 +1010,14 @@ function StatsCMS() {
                   padding: "clamp(16px, 3vw, 24px)",
                 }}
               >
-                <div style={{ fontSize: "13px", fontWeight: 600, color: "#8DA5C4", marginBottom: "10px" }}>
+                <div
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: 600,
+                    color: "#8DA5C4",
+                    marginBottom: "10px",
+                  }}
+                >
                   Footer Summary Text Preview:
                 </div>
                 <div
@@ -881,10 +1033,26 @@ function StatsCMS() {
                   }}
                 >
                   Trust and Hope Rad Pvt. Ltd. | 24×7 teleradiology services serving{" "}
-                  <strong style={{ color: "#FFFFFF" }}>{formData.centres}{formData.centresSuffix}</strong> centres,{" "}
-                  <strong style={{ color: "#FFFFFF" }}>{formData.studies}{formData.studiesSuffix}</strong> new studies uploaded daily to PACS,{" "}
-                  <strong style={{ color: "#FFFFFF" }}>{formData.radiologists}{formData.radiologistsSuffix}</strong> radiologists across specialisations,{" "}
-                  <strong style={{ color: "#FFFFFF" }}>{formData.states}{formData.statesSuffix}</strong> states covered in India.
+                  <strong style={{ color: "#FFFFFF" }}>
+                    {formData.centres}
+                    {formData.centresSuffix}
+                  </strong>{" "}
+                  centres,{" "}
+                  <strong style={{ color: "#FFFFFF" }}>
+                    {formData.studies}
+                    {formData.studiesSuffix}
+                  </strong>{" "}
+                  new studies uploaded daily to PACS,{" "}
+                  <strong style={{ color: "#FFFFFF" }}>
+                    {formData.radiologists}
+                    {formData.radiologistsSuffix}
+                  </strong>{" "}
+                  radiologists across specialisations,{" "}
+                  <strong style={{ color: "#FFFFFF" }}>
+                    {formData.states}
+                    {formData.statesSuffix}
+                  </strong>{" "}
+                  states covered in India.
                 </div>
               </div>
 
@@ -901,13 +1069,24 @@ function StatsCMS() {
                   wordBreak: "break-word",
                 }}
               >
-                <div className="d-flex align-items-center gap-2 mb-1" style={{ color: "#0028FA", fontWeight: 600 }}>
+                <div
+                  className="d-flex align-items-center gap-2 mb-1"
+                  style={{ color: "#0028FA", fontWeight: 600 }}
+                >
                   🔒 Admin Security & SEO Status
                 </div>
                 <ul className="mb-0 ps-3 style-disc" style={{ lineHeight: 1.6 }}>
-                  <li>Route: <code style={{ fontSize: "11.5px" }}>https://trustandhoperad.com/stats</code></li>
-                  <li>Admin Session: Active (Authenticated as <code style={{ fontSize: "11.5px" }}>TAH@trustandhoperad.com</code>)</li>
-                  <li>Robots Meta: <code>noindex, nofollow</code> enabled</li>
+                  <li>
+                    Route:{" "}
+                    <code style={{ fontSize: "11.5px" }}>https://trustandhoperad.com/stats</code>
+                  </li>
+                  <li>
+                    Admin Session: Active (Authenticated as{" "}
+                    <code style={{ fontSize: "11.5px" }}>TAH@trustandhoperad.com</code>)
+                  </li>
+                  <li>
+                    Robots Meta: <code>noindex, nofollow</code> enabled
+                  </li>
                 </ul>
               </div>
             </div>

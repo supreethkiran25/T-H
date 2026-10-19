@@ -2,36 +2,51 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { tahMarkup } from "@/lib/tah-markup";
 import { BRAND_FONTS_HREF } from "@/lib/brand";
-import { ORGANIZATION_SCHEMA, getBreadcrumbSchema, getWebPageSchema, SITE_URL } from "@/lib/seo-schemas";
+import {
+  ORGANIZATION_SCHEMA,
+  getBreadcrumbSchema,
+  getWebPageSchema,
+  SITE_URL,
+} from "@/lib/seo-schemas";
 import { updateStatsInDOM, STATS_UPDATED_EVENT } from "@/lib/stats-store";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services India" },
+      { title: "TAHRAD | 24/7/365 Subspecialty Teleradiology" },
       {
         name: "description",
         content:
-          "India's premier 24x7 teleradiology reporting service for hospitals and diagnostic centres. High-accuracy CT, MRI, X-Ray & subspecialty reporting with 15-30 min emergency TAT.",
+          "Every scan read. Every report on the clock. Subspecialty radiologists for CT, MRI, X-ray & PET with a live reporting desk across India. 15–30 min emergency turnaround.",
       },
       {
         name: "keywords",
         content:
-          "teleradiology India, 24x7 teleradiology reporting, CT scan reporting, MRI reporting, X-Ray reporting, emergency radiologist, PACS teleradiology, subspecialty radiology, TAH RAD, Trust and Hope Rad, remote radiology",
+          "TAHRAD, teleradiology India, 24x7 teleradiology reporting, CT scan reporting, MRI reporting, X-Ray reporting, emergency radiologist, PACS teleradiology, subspecialty radiology, remote radiology desk",
       },
-      { property: "og:title", content: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services India" },
+      {
+        property: "og:title",
+        content: "TAHRAD | 24/7/365 Subspecialty Teleradiology",
+      },
       {
         property: "og:description",
         content:
-          "Fast, accurate, and secure 24x7 radiology reporting for hospitals across India. 140+ fellowship-trained radiologists and cloud PACS integration.",
+          "Subspecialty radiologists with a live reporting desk that shows where every study is, who is reading it, and when it will land in your PACS.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
-      { property: "og:site_name", content: "Trust and Hope Rad Pvt. Ltd." },
+      { property: "og:site_name", content: "TAHRAD" },
       { property: "og:image", content: `${SITE_URL}/tahrad-logo.png` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services" },
-      { name: "twitter:description", content: "24x7 remote radiology reporting for CT, MRI, X-Ray & emergency reads across India." },
+      {
+        name: "twitter:title",
+        content: "TAHRAD | 24/7/365 Subspecialty Teleradiology",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Subspecialty radiologists with a live reporting desk for CT, MRI, X-ray & PET across India.",
+      },
       { name: "twitter:image", content: `${SITE_URL}/tahrad-logo.png` },
       { name: "robots", content: "index, follow" },
     ],
@@ -47,7 +62,7 @@ export const Route = createFileRoute("/")({
         rel: "stylesheet",
         href: BRAND_FONTS_HREF,
       },
-      { rel: "stylesheet", href: "/tah.css" },
+      { rel: "stylesheet", href: "/tah.css?v=20261019_v13" },
     ],
     scripts: [
       {
@@ -58,11 +73,11 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify(
           getWebPageSchema({
-            name: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services India",
+            name: "TAHRAD | 24/7/365 Subspecialty Teleradiology",
             description:
-              "India's premier 24x7 teleradiology reporting service for hospitals and diagnostic centres. High-accuracy CT, MRI, X-Ray & subspecialty reporting with 15-30 min emergency TAT.",
+              "Every scan read. Every report on the clock. Subspecialty radiologists for CT, MRI, X-ray & PET with a live reporting desk across India. 15–30 min emergency turnaround.",
             path: "/",
-          })
+          }),
         ),
       },
       {
@@ -78,7 +93,7 @@ function Index() {
   useEffect(() => {
     const cleanups: Array<() => void> = [];
 
-    // Sync stats from localStorage to DOM on mount and live updates
+    // 1. Sync stats from localStorage to DOM on mount and live updates
     updateStatsInDOM();
     const handleStatsUpdated = () => {
       updateStatsInDOM();
@@ -90,15 +105,7 @@ function Index() {
       window.removeEventListener("storage", handleStatsUpdated);
     });
 
-    const form = document.getElementById("contact-form");
-    const onSubmit = (e: Event) => {
-      e.preventDefault();
-      const msg = document.getElementById("form-msg");
-      if (msg) msg.style.display = "block";
-    };
-    form?.addEventListener("submit", onSubmit);
-    cleanups.push(() => form?.removeEventListener("submit", onSubmit));
-
+    // 2. Mobile drawer navigation toggle
     const burger = document.getElementById("burger-btn");
     const drawer = document.getElementById("mobile-drawer");
     if (burger && drawer) {
@@ -118,7 +125,7 @@ function Index() {
       });
     }
 
-    // Dynamic Home button in nav: appears after scrolling past the hero section
+    // 3. Dynamic Home button in nav: appears after scrolling past hero
     const heroSection = document.getElementById("hero");
     const navHomeBtn = document.getElementById("nav-home-btn");
     const mobileHomeBtn = document.getElementById("mobile-home-btn");
@@ -154,7 +161,281 @@ function Index() {
       cleanups.push(() => mobileHomeBtn.removeEventListener("click", scrollToHeroTop));
     }
 
-    // ScrollExpand: Interactive scroll kinetics for Who We Are Left Image
+    // 4. Reporting Desk: Live Running Clocks on Active Studies
+    const clockElements = document.querySelectorAll<HTMLElement>(".live-tick-time");
+    const clockTimer = setInterval(() => {
+      clockElements.forEach((el) => {
+        const currentSeconds = parseInt(el.dataset.seconds ?? "0", 10);
+        const newSeconds = currentSeconds + 1;
+        el.dataset.seconds = String(newSeconds);
+
+        const mins = Math.floor(newSeconds / 60);
+        const secs = newSeconds % 60;
+        const formatted = `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+        el.textContent = formatted;
+
+        // If this study is currently selected in the drawer, sync the drawer elapsed timer
+        const activeRow = el.closest(".desk-row.active-selected");
+        if (activeRow) {
+          const drawerElapsed = document.getElementById("drawer-elapsed");
+          if (drawerElapsed) drawerElapsed.textContent = formatted;
+        }
+      });
+    }, 1000);
+    cleanups.push(() => clearInterval(clockTimer));
+
+    // 5. Reporting Desk: Filter Tabs Logic (All, Stat, Reading, QC review, Delivered)
+    const filterTabs = document.querySelectorAll<HTMLButtonElement>(".desk-filter-tab");
+    const deskRows = document.querySelectorAll<HTMLElement>(".desk-row");
+
+    filterTabs.forEach((tab) => {
+      const onTabClick = () => {
+        filterTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        const filter = tab.dataset.filter ?? "all";
+
+        deskRows.forEach((row) => {
+          const rowStatus = row.dataset.status ?? "";
+          if (filter === "all") {
+            row.style.display = "grid";
+          } else if (rowStatus.includes(filter)) {
+            row.style.display = "grid";
+          } else {
+            row.style.display = "none";
+          }
+        });
+      };
+      tab.addEventListener("click", onTabClick);
+      cleanups.push(() => tab.removeEventListener("click", onTabClick));
+    });
+
+    // 6. Reporting Desk: Row Selection & Case Drawer Updates
+    deskRows.forEach((row) => {
+      const onRowClick = () => {
+        deskRows.forEach((r) => r.classList.remove("active-selected"));
+        row.classList.add("active-selected");
+
+        const id = row.dataset.id ?? "PT-20418";
+        const mod = row.dataset.mod ?? "CT";
+        const title = row.dataset.title ?? "CT Head — Trauma";
+        const doc = row.dataset.doc ?? "Dr. R. Menon";
+        const sub = row.dataset.sub ?? "Neuroradiology";
+        const time = row.querySelector(".live-tick-time")?.textContent ?? "06:12";
+        const stage = row.dataset.stage ?? "Reading";
+
+        const drawerCode = document.getElementById("drawer-case-code");
+        const drawerTitle = document.getElementById("drawer-case-title");
+        const drawerElapsed = document.getElementById("drawer-elapsed");
+        const drawerDocName = document.getElementById("drawer-doc-name");
+        const drawerDocInitials = document.getElementById("drawer-doc-initials");
+        const drawerDocSub = document.getElementById("drawer-doc-sub");
+
+        if (drawerCode) drawerCode.textContent = `${id} · ${mod}`;
+        if (drawerTitle) drawerTitle.textContent = title.replace(" STAT", "");
+        if (drawerElapsed) drawerElapsed.textContent = time;
+        if (drawerDocName) drawerDocName.textContent = doc;
+        if (drawerDocSub) drawerDocSub.textContent = `${sub} · ${stage}`;
+
+        if (drawerDocInitials) {
+          const parts = doc.replace("Dr. ", "").split(" ");
+          const initials = parts.map((p) => p[0]).join("");
+          drawerDocInitials.textContent = initials || "DR";
+        }
+
+        // Update 5-stage stepper inside drawer
+        const stepReading = document.getElementById("drawer-step-reading");
+        const stepQc = document.getElementById("drawer-step-qc");
+        const stepPacs = document.getElementById("drawer-step-pacs");
+        const readingLabel = document.getElementById("drawer-reading-label");
+
+        if (stage === "Delivered") {
+          stepReading?.classList.add("completed");
+          stepReading?.classList.remove("active");
+          stepQc?.classList.add("completed");
+          stepQc?.classList.remove("active");
+          stepPacs?.classList.add("completed");
+          stepPacs?.classList.add("active");
+          if (readingLabel) readingLabel.textContent = "Radiologist read completed";
+        } else if (stage === "QC review") {
+          stepReading?.classList.add("completed");
+          stepReading?.classList.remove("active");
+          stepQc?.classList.add("active");
+          stepPacs?.classList.remove("completed");
+          stepPacs?.classList.remove("active");
+          if (readingLabel) readingLabel.textContent = "Radiologist read completed";
+        } else {
+          stepReading?.classList.remove("completed");
+          stepReading?.classList.add("active");
+          stepQc?.classList.remove("completed");
+          stepQc?.classList.remove("active");
+          stepPacs?.classList.remove("completed");
+          stepPacs?.classList.remove("active");
+          if (readingLabel) readingLabel.textContent = "Radiologist reading now";
+        }
+      };
+
+      row.addEventListener("click", onRowClick);
+      cleanups.push(() => row.removeEventListener("click", onRowClick));
+    });
+
+    // 7. Modality multi-select chips on Pilot Form
+    const modChips = document.querySelectorAll<HTMLButtonElement>(".mod-chip-btn");
+    modChips.forEach((chip) => {
+      const onChipClick = (e: Event) => {
+        e.preventDefault();
+        chip.classList.toggle("active");
+      };
+      chip.addEventListener("click", onChipClick);
+      cleanups.push(() => chip.removeEventListener("click", onChipClick));
+    });
+
+    // 8. Service Modality Cards "Request a pilot for [Modality]" click triggers
+    const modalityPilotLinks = document.querySelectorAll<HTMLAnchorElement>(".modality-pilot-link");
+    modalityPilotLinks.forEach((link) => {
+      const onModLinkClick = () => {
+        const modTarget = link.dataset.modality;
+        if (!modTarget) return;
+
+        // Activate the matching chip in the pilot form
+        modChips.forEach((chip) => {
+          if (chip.dataset.mod === modTarget) {
+            chip.classList.add("active");
+          }
+        });
+
+        // Focus the name field
+        const nameInput = document.getElementById("pilot-name");
+        nameInput?.focus();
+      };
+      link.addEventListener("click", onModLinkClick);
+      cleanups.push(() => link.removeEventListener("click", onModLinkClick));
+    });
+
+    // 9. City Coverage Modal
+    const cityModal = document.getElementById("city-modal");
+    const checkCityBtn = document.getElementById("check-city-coverage-btn");
+    const cityCloseBtn = document.getElementById("modal-city-close");
+    const citySearchBtn = document.getElementById("city-search-go");
+    const cityInput = document.getElementById("city-input-search") as HTMLInputElement | null;
+    const cityResultBox = document.getElementById("city-result-box");
+    const cityResultText = document.getElementById("city-result-text");
+
+    if (cityModal && checkCityBtn) {
+      const openModal = () => {
+        cityModal.style.display = "flex";
+        cityInput?.focus();
+      };
+      const closeModal = () => {
+        cityModal.style.display = "none";
+      };
+
+      checkCityBtn.addEventListener("click", openModal);
+      cleanups.push(() => checkCityBtn.removeEventListener("click", openModal));
+
+      cityCloseBtn?.addEventListener("click", closeModal);
+      cleanups.push(() => cityCloseBtn?.removeEventListener("click", closeModal));
+
+      cityModal.addEventListener("click", (e) => {
+        if (e.target === cityModal) closeModal();
+      });
+
+      const handleSearch = () => {
+        const query = cityInput?.value.trim() || "Your city";
+        if (cityResultBox && cityResultText) {
+          cityResultBox.style.display = "block";
+          cityResultText.textContent = `Active 24/7 coverage verified for "${query}". Subspecialty CT, MRI, and X-Ray emergency reads available with 15–30 min TAT.`;
+        }
+      };
+
+      citySearchBtn?.addEventListener("click", handleSearch);
+      cityInput?.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          handleSearch();
+        }
+      });
+
+      // Quick CTA from city modal
+      const bookPilotBtn = document.getElementById("city-book-pilot");
+      bookPilotBtn?.addEventListener("click", () => {
+        closeModal();
+      });
+    }
+
+    // 10. Pilot Form Submission Handler
+    const pilotForm = document.getElementById("pilot-request-form") as HTMLFormElement | null;
+    if (pilotForm) {
+      const onPilotSubmit = (e: Event) => {
+        e.preventDefault();
+        const nameInput = document.getElementById("pilot-name") as HTMLInputElement | null;
+        const centreInput = document.getElementById("pilot-centre") as HTMLInputElement | null;
+        const emailInput = document.getElementById("pilot-email") as HTMLInputElement | null;
+        const phoneInput = document.getElementById("pilot-phone") as HTMLInputElement | null;
+        const volumeSelect = document.getElementById("pilot-volume") as HTMLSelectElement | null;
+        const submitBtn = document.getElementById("pilot-submit-btn") as HTMLButtonElement | null;
+        const feedback = document.getElementById("pilot-form-feedback");
+
+        if (!nameInput?.value.trim()) {
+          nameInput?.focus();
+          return;
+        }
+        if (!centreInput?.value.trim()) {
+          centreInput?.focus();
+          return;
+        }
+        if (!emailInput?.value.trim() || !emailInput.value.includes("@")) {
+          emailInput?.focus();
+          return;
+        }
+        if (!phoneInput?.value.trim() || phoneInput.value.trim().length < 8) {
+          phoneInput?.focus();
+          return;
+        }
+
+        const selectedMods: string[] = [];
+        document.querySelectorAll<HTMLButtonElement>(".mod-chip-btn.active").forEach((b) => {
+          if (b.dataset.mod) selectedMods.push(b.dataset.mod);
+        });
+
+        const leadData = {
+          name: nameInput.value.trim(),
+          centre: centreInput.value.trim(),
+          email: emailInput.value.trim(),
+          phone: phoneInput.value.trim(),
+          volume: volumeSelect?.value || "100-500",
+          modalities: selectedMods,
+          submittedAt: new Date().toISOString(),
+        };
+
+        if (submitBtn) {
+          submitBtn.textContent = "Connecting to desk…";
+          submitBtn.disabled = true;
+        }
+
+        setTimeout(() => {
+          try {
+            const raw = localStorage.getItem("tahrad_pilot_leads");
+            const leads = raw ? JSON.parse(raw) : [];
+            leads.push(leadData);
+            localStorage.setItem("tahrad_pilot_leads", JSON.stringify(leads));
+          } catch {
+            // ignore storage errors
+          }
+
+          if (feedback) {
+            feedback.style.display = "block";
+            feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+          if (submitBtn) {
+            submitBtn.textContent = "Callback requested ✓";
+          }
+        }, 500);
+      };
+      pilotForm.addEventListener("submit", onPilotSubmit);
+      cleanups.push(() => pilotForm.removeEventListener("submit", onPilotSubmit));
+    }
+
+    // 11. ScrollExpand: Interactive scroll kinetics for Who We Are Image Card
     const whoCard = document.getElementById("who-image-card");
     const whoFrame = document.getElementById("who-image-frame");
     const whoMedia = document.getElementById("who-image-media");
@@ -174,21 +455,14 @@ function Index() {
         const progress = clampVal((winH - rect.top) / (winH + rect.height * 0.5), 0, 1);
         const e = smoothStepVal(0.12, 0.85, progress);
 
-        const iy = (1 - e) * 7;
-        const ix = (1 - e) * 6;
-        const r = 20;
-        whoFrame.style.clipPath = `inset(${iy}% ${ix}% ${iy}% ${ix}% round ${r}px)`;
+        // Keep frame clean without artificial inset clipping into the photo
+        whoFrame.style.clipPath = "none";
 
-        const scale = 1.18 - 0.18 * e;
+        const scale = 1.08 - 0.08 * e;
         whoMedia.style.transform = `scale(${scale})`;
 
-        if (whoScrim) whoScrim.style.opacity = `${0.35 + 0.35 * e}`;
-
-        if (whoOverlay) {
-          const inn = smoothStepVal(0.25, 0.85, progress);
-          whoOverlay.style.opacity = `${0.7 + 0.3 * inn}`;
-          whoOverlay.style.transform = `translate3d(0, ${10 * (1 - inn)}px, 0)`;
-        }
+        if (whoScrim) whoScrim.style.opacity = `${0.25 + 0.15 * e}`;
+        if (whoOverlay) whoOverlay.style.opacity = "1";
       };
 
       window.addEventListener("scroll", onWhoScroll, { passive: true });
@@ -196,17 +470,51 @@ function Index() {
       cleanups.push(() => window.removeEventListener("scroll", onWhoScroll));
     }
 
+    // 11b. Interactive Flip Cards (Turnover Transition on Hover/Click)
+    const flipCards = document.querySelectorAll<HTMLElement>(".step-flip-card");
+    flipCards.forEach((card) => {
+      const onCardClick = () => {
+        card.classList.toggle("is-flipped");
+      };
+      card.addEventListener("click", onCardClick);
+      cleanups.push(() => card.removeEventListener("click", onCardClick));
+    });
+
+    // 12. Floating Back-to-Top Button
+    const backToTopBtn = document.getElementById("back-to-top");
+    if (backToTopBtn) {
+      const onWindowScroll = () => {
+        if (window.scrollY > 400) {
+          backToTopBtn.classList.add("show");
+        } else {
+          backToTopBtn.classList.remove("show");
+        }
+      };
+      window.addEventListener("scroll", onWindowScroll, { passive: true });
+      onWindowScroll();
+      const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+      backToTopBtn.addEventListener("click", scrollToTop);
+      cleanups.push(() => {
+        window.removeEventListener("scroll", onWindowScroll);
+        backToTopBtn.removeEventListener("click", scrollToTop);
+      });
+    }
+
+    // 13. Intersection Observer for Reveal Staggers and Animated Numbers
     const revealEls = document.querySelectorAll(".reveal, .reveal-stagger");
     const counters = document.querySelectorAll<HTMLElement>(".counter");
 
     const runCounter = (el: HTMLElement) => {
       const target = parseInt(el.dataset.target ?? "0", 10);
-      const duration = 1400;
+      if (!target || isNaN(target)) return;
+      el.textContent = "0";
+      const duration = 1600;
       const start = performance.now();
       const tick = (now: number) => {
         const p = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = String(Math.round(eased * target));
+        const currentVal = Math.round(eased * target);
+        el.textContent = currentVal.toLocaleString("en-US");
         if (p < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
@@ -222,9 +530,16 @@ function Index() {
             }
           });
         },
-        { threshold: 0.15 },
+        { threshold: 0.12 },
       );
-      revealEls.forEach((el) => revealObserver.observe(el));
+      revealEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("in-view");
+        } else {
+          revealObserver.observe(el);
+        }
+      });
 
       const counterObserver = new IntersectionObserver(
         (entries) => {
@@ -235,9 +550,10 @@ function Index() {
             }
           });
         },
-        { threshold: 0.4 },
+        { threshold: 0.35 },
       );
       counters.forEach((el) => counterObserver.observe(el));
+
       cleanups.push(() => {
         revealObserver.disconnect();
         counterObserver.disconnect();
@@ -246,75 +562,6 @@ function Index() {
       revealEls.forEach((el) => el.classList.add("in-view"));
       counters.forEach((el) => runCounter(el));
     }
-
-    // Services Split-Panel Explorer Logic
-    const svcPills = document.querySelectorAll<HTMLButtonElement>(".svc-pill");
-    const svcPanels = document.querySelectorAll<HTMLElement>(".svc-panel");
-
-    svcPills.forEach((pill) => {
-      const onPillClick = () => {
-        const target = pill.dataset.svc;
-        // Update active pill
-        svcPills.forEach((p) => p.classList.remove("active"));
-        pill.classList.add("active");
-        // Show matching panel
-        svcPanels.forEach((panel) => {
-          if (panel.id === `svc-${target}`) {
-            panel.classList.add("active");
-          } else {
-            panel.classList.remove("active");
-          }
-        });
-      };
-      pill.addEventListener("click", onPillClick);
-      cleanups.push(() => pill.removeEventListener("click", onPillClick));
-    });
-
-    // Hero PACS Video Playlist Logic (Sequential Playback)
-    const videos = [
-      document.getElementById("hero-bg-video") as HTMLVideoElement | null,
-      document.getElementById("hero-scan-video") as HTMLVideoElement | null,
-    ].filter(Boolean) as HTMLVideoElement[];
-
-    videos.forEach((video) => {
-      video.play().catch(() => {});
-
-      const video1 = video.getAttribute("src") || "";
-      const video2 = video.dataset.nextSrc || "";
-      const playlist = [video1, video2].filter(Boolean);
-
-      if (playlist.length <= 1) return;
-
-      let currentIdx = 0;
-
-      const playNext = () => {
-        currentIdx = (currentIdx + 1) % playlist.length;
-        video.src = playlist[currentIdx];
-        video.load();
-        video.play().catch(() => {});
-      };
-
-      video.addEventListener("ended", playNext);
-      video.addEventListener("error", playNext);
-      cleanups.push(() => {
-        video.removeEventListener("ended", playNext);
-        video.removeEventListener("error", playNext);
-      });
-    });
-
-    // Accordion flip toggle behavior on tap/click for step cards (only 1 open at a time)
-    const stepCards = document.querySelectorAll(".step-flip-card");
-    stepCards.forEach((card) => {
-      const handler = (e: Event) => {
-        const isAlreadyFlipped = card.classList.contains("is-flipped");
-        stepCards.forEach((c) => c.classList.remove("is-flipped"));
-        if (!isAlreadyFlipped) {
-          card.classList.add("is-flipped");
-        }
-      };
-      card.addEventListener("click", handler);
-      cleanups.push(() => card.removeEventListener("click", handler));
-    });
 
     return () => cleanups.forEach((fn) => fn());
   }, []);

@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { BRAND_FONTS_HREF } from "@/lib/brand";
 
 function NotFoundComponent() {
   return (
@@ -73,15 +74,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Trust and Hope Rad Pvt. Ltd." },
-      { name: "description", content: "Trust and Hope Rad Pvt. Ltd. | Teleradiology, Read Right." },
-      { name: "author", content: "Trust and Hope Rad Pvt. Ltd." },
-      { property: "og:title", content: "Trust and Hope Rad Pvt. Ltd." },
-      { property: "og:description", content: "Trust and Hope Rad Pvt. Ltd. | Teleradiology, Read Right." },
+      { title: "TAHRAD | 24/7/365 Subspecialty Teleradiology" },
+      {
+        name: "description",
+        content:
+          "Every scan read. Every report on the clock. Subspecialty radiologists for CT, MRI, X-ray & PET with a live reporting desk across India.",
+      },
+      { name: "author", content: "TAHRAD" },
+      { property: "og:title", content: "TAHRAD | 24/7/365 Subspecialty Teleradiology" },
+      {
+        property: "og:description",
+        content:
+          "Every scan read. Every report on the clock. Subspecialty radiologists for CT, MRI, X-ray & PET with a live reporting desk across India.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
+      },
+      {
+        rel: "stylesheet",
+        href: BRAND_FONTS_HREF,
+      },
+      {
+        rel: "stylesheet",
+        href: "/tah.css?v=20261019_v13",
+      },
       {
         rel: "stylesheet",
         href: appCss,
