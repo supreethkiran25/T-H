@@ -1,5 +1,4 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -279,527 +278,15 @@
 }
 
 /* ========================================================
-   3D TURNOVER CARDS & CLINICAL FLOW STAGE (WHITE -> BLUE)
-   ======================================================== */
-.hero-study-flow-wrap {
-  position: relative;
-  background: transparent;
-  width: 100%;
-}
-
-.hero-flow-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  padding: 0 4px;
-}
-
-.hero-flow-title {
-  font-family: var(--font-heading);
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--brand-blue);
-  letter-spacing: -0.01em;
-}
-
-.hero-flow-badge {
-  font-size: 10px;
-  font-weight: 700;
-  color: #16a34a;
-  background: rgba(92, 217, 74, 0.12);
-  border: 1px solid rgba(92, 217, 74, 0.35);
-  padding: 3px 10px;
-  border-radius: 9999px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.hero-flow-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.flow-mod-tab {
-  border: 1.5px solid rgba(0, 40, 250, 0.18);
-  background: #ffffff;
-  color: var(--brand-blue);
-  font-family: var(--font-heading);
-  font-size: 11.5px;
-  font-weight: 700;
-  padding: 5px 14px;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.flow-mod-tab:hover {
-  background: rgba(0, 40, 250, 0.06);
-  border-color: var(--brand-blue);
-  transform: translateY(-1px);
-}
-
-.flow-mod-tab.active {
-  background: var(--brand-blue) !important;
-  color: #ffffff !important;
-  border-color: var(--brand-blue) !important;
-  box-shadow: 0 4px 14px rgba(0, 40, 250, 0.28) !important;
-}
-
-/* 3D Turnover Stack */
-.hero-turnover-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  perspective: 1200px;
-}
-
-.hero-turnover-card {
-  position: relative;
-  height: 102px;
-  perspective: 1200px;
-  cursor: pointer;
-  transition: transform 0.25s ease;
-}
-
-.turnover-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: left;
-  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
-  transform-style: preserve-3d;
-  border-radius: 16px;
-}
-
-/* Flip on hover (desktop) or when active/clicked (touch) */
-.hero-turnover-card:hover .turnover-card-inner,
-.hero-turnover-card.is-flipped .turnover-card-inner {
-  transform: rotateY(180deg);
-}
-
-.turnover-card-face {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 16px;
-  padding: 12px 18px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-/* FRONT FACE: PURE CLEAN WHITE */
-.turnover-card-front {
-  background: #ffffff;
-  border: 1.5px solid rgba(0, 40, 250, 0.14);
-  box-shadow: 0 4px 18px rgba(0, 40, 250, 0.05);
-  color: var(--brand-blue);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hero-turnover-card:hover .turnover-card-front {
-  border-color: var(--brand-blue);
-  box-shadow: 0 6px 22px rgba(0, 40, 250, 0.12);
-}
-
-.hero-turnover-card.active-turnover .turnover-card-front {
-  border-color: rgba(0, 40, 250, 0.32);
-  box-shadow: 0 4px 20px rgba(0, 40, 250, 0.08);
-}
-
-.turnover-face-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.turnover-study-title {
-  font-family: var(--font-heading);
-  font-size: 14.5px;
-  font-weight: 700;
-  color: var(--brand-blue);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.turnover-study-sub {
-  font-size: 12px;
-  color: var(--brand-gray);
-  line-height: 1.35;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.turnover-face-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.turnover-meta-tat {
-  font-size: 11px;
-  font-weight: 600;
-  color: #16a34a;
-}
-
-.live-mono-timer-blue,
-.live-clock-active {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--brand-blue) !important;
-  letter-spacing: 0.02em;
-}
-
-.turnover-flip-hint {
-  position: absolute;
-  right: 14px;
-  top: 13px;
-  font-size: 10px;
-  font-weight: 600;
-  color: rgba(0, 40, 250, 0.35);
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-}
-
-.hero-turnover-card:hover .turnover-flip-hint {
-  opacity: 1;
-}
-
-/* BACK FACE: DEEP CLINICAL BRAND BLUE TURNOVER */
-.turnover-card-back {
-  background: linear-gradient(135deg, #0028FA 0%, #0018b8 100%);
-  color: #ffffff;
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 12px 32px rgba(0, 40, 250, 0.32);
-  transform: rotateY(180deg);
-}
-
-.turnover-doctor-badge {
-  display: flex;
-  flex-direction: column;
-}
-
-.doctor-name {
-  font-family: var(--font-heading);
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.doctor-spec {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 1px;
-}
-
-.turnover-back-features {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.back-feat-chip {
-  font-size: 10px;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.16);
-  color: #ffffff;
-  padding: 2px 8px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.pill-back-verified {
-  background: var(--brand-green);
-  color: #021a59;
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 9999px;
-}
-
-.badge-stat {
-  font-family: var(--font-sans);
-  font-size: 9.5px;
-  font-weight: 800;
-  background: var(--brand-yellow) !important;
-  color: var(--brand-blue) !important;
-  padding: 2px 6px;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-  display: inline-block;
-  margin-left: 6px;
-  line-height: 1.1;
-}
-
-.turnover-card-front .pill-reading-minimal {
-  background: rgba(0, 40, 250, 0.08) !important;
-  color: var(--brand-blue) !important;
-  border: 1.5px solid rgba(0, 40, 250, 0.22) !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  padding: 3px 12px !important;
-  border-radius: 9999px !important;
-}
-
-.turnover-card-front .pill-assigned-minimal {
-  background: rgba(67, 80, 88, 0.08) !important;
-  color: var(--brand-gray) !important;
-  border: 1.5px solid rgba(67, 80, 88, 0.22) !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  padding: 3px 12px !important;
-  border-radius: 9999px !important;
-}
-
-.turnover-card-front .pill-delivered-minimal {
-  background: rgba(92, 217, 74, 0.16) !important;
-  color: #15803d !important;
-  border: 1.5px solid rgba(92, 217, 74, 0.45) !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  padding: 3px 12px !important;
-  border-radius: 9999px !important;
-}
-
-.turnover-card-back .pill-reading-minimal,
-.turnover-card-back .pill-delivered-minimal {
-  background: var(--brand-green) !important;
-  color: #021a59 !important;
-  border: none !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  padding: 3px 10px !important;
-  border-radius: 9999px !important;
-}
-
-/* SLEEK FLOW FOOTER DOCK */
-.hero-flow-footer-dock {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background: rgba(0, 40, 250, 0.035);
-  border: 1px solid rgba(0, 40, 250, 0.1);
-  border-radius: 12px;
-  padding: 8px 16px;
-  margin-top: 12px;
-}
-
-.flow-kpi-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.flow-kpi-val {
-  font-family: var(--font-heading);
-  font-size: 14.5px;
-  font-weight: 800;
-  color: var(--brand-blue);
-  line-height: 1.1;
-}
-
-.flow-kpi-lbl {
-  font-size: 9.5px;
-  font-weight: 600;
-  color: var(--brand-gray);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 2px;
-}
-
-.flow-kpi-sep {
-  width: 1px;
-  height: 20px;
-  background: rgba(0, 40, 250, 0.14);
-}
-
-/* ========================================================
-   MOBILE EDGE-TO-EDGE & RESPONSIVE POLISH (< 991px)
-   ======================================================== */
-@media (max-width: 991px) {
-  header.nav {
-    height: 60px !important;
-    padding: 0 !important;
-    background: #ffffff !important;
-    border-bottom: 1px solid rgba(0, 40, 250, 0.1) !important;
-  }
-
-  body {
-    padding-top: 60px !important;
-  }
-
-  .nav-wrap {
-    height: 60px !important;
-  }
-
-  .hero-redesign {
-    padding: 16px 0 24px 0 !important;
-  }
-
-  .hero-eyebrow-badge {
-    padding: 4px 10px !important;
-    margin-bottom: 10px !important;
-  }
-
-  .hero-eyebrow-text {
-    font-size: 9.5px !important;
-    letter-spacing: 0.08em !important;
-  }
-
-  .hero-redesign-title {
-    font-size: clamp(24px, 7vw, 32px) !important;
-    line-height: 1.14 !important;
-    margin-bottom: 12px !important;
-    letter-spacing: -0.02em !important;
-  }
-
-  .hero-redesign-lead {
-    font-size: 13.5px !important;
-    line-height: 1.45 !important;
-    margin-bottom: 14px !important;
-  }
-
-  .hero-proof-pills {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 6px !important;
-    margin-bottom: 16px !important;
-  }
-
-  .hero-proof-pill {
-    padding: 4px 9px !important;
-    font-size: 11px !important;
-    gap: 5px !important;
-  }
-
-  .hero-cta-group {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 8px !important;
-    width: 100% !important;
-    margin-bottom: 8px !important;
-  }
-
-  .hero-cta-group .btn-tah-primary,
-  .hero-cta-group .btn-tah-secondary {
-    flex: 1 1 0% !important;
-    width: auto !important;
-    min-width: 0 !important;
-    padding: 10px 12px !important;
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    border-radius: 9999px !important;
-    text-align: center !important;
-    justify-content: center !important;
-    white-space: nowrap !important;
-  }
-
-  .hero-trial-note {
-    font-size: 11px !important;
-    margin-bottom: 16px !important;
-    justify-content: center !important;
-    text-align: center !important;
-    line-height: 1.4 !important;
-  }
-
-  .hero-study-flow-wrap {
-    margin-top: 4px !important;
-  }
-
-  .hero-flow-header {
-    margin-bottom: 8px !important;
-  }
-
-  .hero-flow-tabs {
-    gap: 6px !important;
-    margin-bottom: 10px !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-
-  .flow-mod-tab {
-    padding: 3px 10px !important;
-    font-size: 10.5px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .hero-turnover-stack {
-    gap: 8px !important;
-  }
-
-  .hero-turnover-card {
-    height: 94px !important;
-  }
-
-  .turnover-card-face {
-    padding: 10px 14px !important;
-    border-radius: 12px !important;
-  }
-
-  .turnover-study-title {
-    font-size: 13px !important;
-  }
-
-  .turnover-study-sub {
-    font-size: 11px !important;
-  }
-
-  .pill-reading-minimal,
-  .pill-assigned-minimal,
-  .pill-delivered-minimal {
-    font-size: 11px !important;
-    padding: 3px 10px !important;
-  }
-
-  .live-mono-timer-blue,
-  .live-clock-active {
-    font-size: 11.5px !important;
-  }
-
-  .turnover-flip-hint {
-    display: none !important;
-  }
-
-  .hero-flow-footer-dock {
-    padding: 6px 12px !important;
-    margin-top: 8px !important;
-  }
-
-  .flow-kpi-val {
-    font-size: 13px !important;
-  }
-
-  .flow-kpi-lbl {
-    font-size: 8.5px !important;
-  }
-}
-
-
-
-
-/* ========================================================
    MASTERPIECE CLINICAL DIAGNOSTIC COCKPIT & 3D TURNOVER
    ======================================================== */
 .hero-cockpit-wrap {
   background: #ffffff;
   border: 1.5px solid rgba(0, 40, 250, 0.16);
   border-radius: 20px;
-  box-shadow: 0 12px 36px rgba(0, 40, 250, 0.08), 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0 12px 36px rgba(0, 40, 250, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.03);
   padding: 16px;
   position: relative;
   width: 100%;
@@ -962,14 +449,22 @@
   width: 100%;
   height: 2px;
   background: linear-gradient(90deg, transparent, #00e5ff 35%, #5cd94a 65%, transparent);
-  box-shadow: 0 0 12px #00e5ff, 0 0 4px #5cd94a;
+  box-shadow:
+    0 0 12px #00e5ff,
+    0 0 4px #5cd94a;
   animation: scanSweep 3.2s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
 @keyframes scanSweep {
-  0% { top: 0%; opacity: 0.7; }
-  100% { top: 96%; opacity: 1; }
+  0% {
+    top: 0%;
+    opacity: 0.7;
+  }
+  100% {
+    top: 96%;
+    opacity: 1;
+  }
 }
 
 .dicom-hud-top {
@@ -1102,8 +597,15 @@
 }
 
 @keyframes dotPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
 }
 
 .stage-arr {
@@ -1139,7 +641,7 @@
 
 /* BACK FACE: DEEP TAHRAD BRAND BLUE TURNOVER */
 .cockpit-face-back {
-  background: linear-gradient(135deg, #0028FA 0%, #00169c 100%);
+  background: linear-gradient(135deg, #0028fa 0%, #00169c 100%);
   color: #ffffff;
   border: 1.5px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 16px 40px rgba(0, 40, 250, 0.35);
@@ -1347,65 +849,25 @@
   background: #eab308;
 }
 
-/* MOBILE COCKPIT POLISH (< 991px) */
+/* ========================================================
+   MOBILE EDGE-TO-EDGE & RESPONSIVE POLISH (< 991px)
+   ======================================================== */
 @media (max-width: 991px) {
-  .hero-cockpit-wrap {
-    padding: 10px !important;
-    border-radius: 16px !important;
-    margin-top: 8px !important;
+  header.nav {
+    height: 60px !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(0, 40, 250, 0.1) !important;
   }
 
-  .cockpit-card-inner {
-    min-height: 420px !important;
+  body {
+    padding-top: 60px !important;
   }
 
-  .cockpit-face {
-    padding: 12px !important;
+  .nav-wrap {
+    height: 60px !important;
   }
 
-  .cockpit-dicom-viewport {
-    height: 135px !important;
-  }
-
-  .cockpit-report-box {
-    padding: 10px !important;
-  }
-
-  .report-box-text {
-    font-size: 11px !important;
-    line-height: 1.45 !important;
-  }
-
-  .cockpit-sync-grid {
-    gap: 6px !important;
-  }
-
-  .sync-grid-item {
-    padding: 5px 8px !important;
-  }
-
-  .sync-title {
-    font-size: 10px !important;
-  }
-
-  .sync-desc {
-    font-size: 8px !important;
-  }
-
-  .cockpit-queue-dock {
-    padding: 6px 8px !important;
-    gap: 4px !important;
-  }
-
-  .queue-dock-chip {
-    font-size: 9.5px !important;
-    padding: 3px 7px !important;
-  }
-}
-
-
-/* Ultra-compact, edge-to-edge mobile hero rhythm */
-@media (max-width: 991px) {
   .hero-redesign {
     padding: 12px 0 20px 0 !important;
   }
@@ -1436,13 +898,22 @@
 
   .hero-proof-pills {
     display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 5px !important;
-    margin-bottom: 12px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 6px !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 2px !important;
+  }
+
+  .hero-proof-pills::-webkit-scrollbar {
+    display: none !important;
   }
 
   .hero-proof-pill {
-    padding: 3px 8px !important;
+    flex-shrink: 0 !important;
+    padding: 4px 10px !important;
     font-size: 10.5px !important;
     gap: 4px !important;
     white-space: nowrap !important;
@@ -1478,10 +949,12 @@
     line-height: 1.35 !important;
   }
 
+  /* COCKPIT MOBILE */
   .hero-cockpit-wrap {
     padding: 10px !important;
     border-radius: 14px !important;
     margin-top: 4px !important;
+    width: 100% !important;
   }
 
   .cockpit-card-inner {
@@ -1571,6 +1044,14 @@
     padding: 4px 8px !important;
   }
 
+  .sync-title {
+    font-size: 10px !important;
+  }
+
+  .sync-desc {
+    font-size: 8px !important;
+  }
+
   .cockpit-back-footer {
     padding-top: 8px !important;
   }
@@ -1594,26 +1075,5 @@
   .queue-dock-chip {
     font-size: 9px !important;
     padding: 3px 6px !important;
-  }
-}
-
-@media (max-width: 991px) {
-  .hero-proof-pills {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    gap: 6px !important;
-    margin-bottom: 10px !important;
-    padding-bottom: 2px !important;
-  }
-  .hero-proof-pills::-webkit-scrollbar {
-    display: none !important;
-  }
-  .hero-proof-pill {
-    flex-shrink: 0 !important;
-    padding: 4px 10px !important;
-    font-size: 10.5px !important;
   }
 }

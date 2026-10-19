@@ -126,7 +126,7 @@ function Index() {
     }
 
     // 2b. Hero Clinical Diagnostic Cockpit Logic: Live countdown, Case Switching & 3D Turnover
-    let clockEl = document.getElementById("hero-clock-display");
+    const clockEl = document.getElementById("hero-clock-display");
     let seconds = 11 * 60 + 42;
     const updateClock = () => {
       if (clockEl) {
@@ -145,23 +145,26 @@ function Index() {
       cleanups.push(() => clearInterval(timerInterval));
     }
 
-    const cockpitCases: Record<string, {
-      title: string;
-      badge: string;
-      sub: string;
-      status: string;
-      scan: string;
-      hudLeft: string;
-      hudRight: string;
-      docAvatar: string;
-      docName: string;
-      docRole: string;
-      caseId: string;
-      backTat: string;
-      impression: string;
-      backDoc: string;
-      backLic: string;
-    }> = {
+    const cockpitCases: Record<
+      string,
+      {
+        title: string;
+        badge: string;
+        sub: string;
+        status: string;
+        scan: string;
+        hudLeft: string;
+        hudRight: string;
+        docAvatar: string;
+        docName: string;
+        docRole: string;
+        caseId: string;
+        backTat: string;
+        impression: string;
+        backDoc: string;
+        backLic: string;
+      }
+    > = {
       ct: {
         title: "CT Brain Plain",
         badge: "STAT 15m",
@@ -175,7 +178,8 @@ function Index() {
         docRole: "Senior Neuroradiologist (AIIMS) · 14 yrs exp",
         caseId: "CASE #PT-20418",
         backTat: "⚡ 16m 40s TAT (14m ahead of SLA)",
-        impression: '"No acute intracranial hemorrhage or territorial infarction. Grey-white matter differentiation is preserved. Basal ganglia and internal capsules intact. Ventricles and sulci symmetric and within normal limits for age. Midline shift: None."',
+        impression:
+          '"No acute intracranial hemorrhage or territorial infarction. Grey-white matter differentiation is preserved. Basal ganglia and internal capsules intact. Ventricles and sulci symmetric and within normal limits for age. Midline shift: None."',
         backDoc: "Dr. Rahul Menon, MD, FRCR",
         backLic: "Lic. #KMC-48291 · Verified AIIMS Radiologist",
       },
@@ -192,7 +196,8 @@ function Index() {
         docRole: "Spine & Musculoskeletal Radiologist · 11 yrs exp",
         caseId: "CASE #PT-20402",
         backTat: "⚡ 24m 10s TAT (Standard SLA)",
-        impression: '"L4-L5 broad-based posterior disc protrusion with mild bilateral neural foraminal narrowing. No central canal stenosis. The conus medullaris terminates normally at L1 level. No cauda equina compression."',
+        impression:
+          '"L4-L5 broad-based posterior disc protrusion with mild bilateral neural foraminal narrowing. No central canal stenosis. The conus medullaris terminates normally at L1 level. No cauda equina compression."',
         backDoc: "Dr. Sanjay Iyer, DNB, MSK Fellow",
         backLic: "Lic. #TMC-78104 · MSK Specialist",
       },
@@ -209,7 +214,8 @@ function Index() {
         docRole: "Thoracic & Emergency Imaging Specialist · 9 yrs exp",
         caseId: "CASE #PT-20399",
         backTat: "⚡ 08m 15s TAT (ICU Rapid Read)",
-        impression: '"Lungs are clear without focal consolidation, pneumothorax, or pleural effusion. Cardiothoracic ratio is normal. Mediastinal and hilar contours unremarkable. Visualized osseous structures intact."',
+        impression:
+          '"Lungs are clear without focal consolidation, pneumothorax, or pleural effusion. Cardiothoracic ratio is normal. Mediastinal and hilar contours unremarkable. Visualized osseous structures intact."',
         backDoc: "Dr. Altaf Khan, MD",
         backLic: "Lic. #DMC-61920 · Chest Radiology Lead",
       },
@@ -261,7 +267,7 @@ function Index() {
 
     const switchCockpitCase = (key: string) => {
       const data = cockpitCases[key] || cockpitCases.ct;
-      
+
       const titleEl = document.getElementById("cockpit-study-title");
       if (titleEl) {
         titleEl.innerHTML = `${data.title} <span class="badge-stat" id="cockpit-stat-badge">${data.badge}</span>`;
@@ -307,16 +313,16 @@ function Index() {
 
       if (flipperEl) flipperEl.classList.remove("is-flipped");
 
-      document.querySelectorAll<HTMLButtonElement>("#hero-cockpit-tabs button").forEach(b => {
+      document.querySelectorAll<HTMLButtonElement>("#hero-cockpit-tabs button").forEach((b) => {
         b.classList.toggle("active", b.getAttribute("data-case") === key);
       });
-      document.querySelectorAll<HTMLButtonElement>(".queue-dock-chip").forEach(c => {
+      document.querySelectorAll<HTMLButtonElement>(".queue-dock-chip").forEach((c) => {
         c.classList.toggle("active", c.getAttribute("data-queue") === key);
       });
     };
 
     const cockpitTabs = document.querySelectorAll<HTMLButtonElement>("#hero-cockpit-tabs button");
-    cockpitTabs.forEach(tab => {
+    cockpitTabs.forEach((tab) => {
       const handler = () => {
         const k = tab.getAttribute("data-case") ?? "ct";
         switchCockpitCase(k);
@@ -326,7 +332,7 @@ function Index() {
     });
 
     const queueChips = document.querySelectorAll<HTMLButtonElement>(".queue-dock-chip");
-    queueChips.forEach(chip => {
+    queueChips.forEach((chip) => {
       const handler = () => {
         const k = chip.getAttribute("data-queue") ?? "ct";
         switchCockpitCase(k);
