@@ -125,9 +125,9 @@ function Index() {
       });
     }
 
-    // 2b. Hero Live Ops Deck: Ticking clock & interactive modality tabs
+    // 2b. Hero Clinical Diagnostic Cockpit Logic: Live countdown, Case Switching & 3D Turnover
     let clockEl = document.getElementById("hero-clock-display");
-    let seconds = 12 * 60 + 34;
+    let seconds = 11 * 60 + 42;
     const updateClock = () => {
       if (clockEl) {
         const mins = Math.floor(seconds / 60);
@@ -145,74 +145,194 @@ function Index() {
       cleanups.push(() => clearInterval(timerInterval));
     }
 
-    const modalityData: Record<string, Array<{ name: string; stat?: boolean; sub: string; status: string; pillClass: string; val: string; isTimer?: boolean }>> = {
-      ct: [
-        { name: "CT Brain", stat: true, sub: "Acute Stroke · Dr. R. Menon (Neuro)", status: "Reading", pillClass: "pill-reading-minimal", val: "12:34", isTimer: true },
-        { name: "MRI Lumbar Spine", stat: false, sub: "Spine Protocol · Dr. S. Iyer (MSK)", status: "Assigned", pillClass: "pill-assigned-minimal", val: "24:18", isTimer: true },
-        { name: "CT Angio Neck", stat: false, sub: "Carotid Protocol · Dr. P. Nair (Body)", status: "Delivered", pillClass: "pill-delivered-minimal", val: "19m TAT", isTimer: false },
-      ],
-      mri: [
-        { name: "MRI Knee 3T", stat: true, sub: "ACL / Meniscal Protocol · Dr. S. Iyer (MSK)", status: "Reading", pillClass: "pill-reading-minimal", val: "09:12", isTimer: true },
-        { name: "MRI Brain Stroke", stat: false, sub: "Diffusion / Perfusion · Dr. R. Menon (Neuro)", status: "Assigned", pillClass: "pill-assigned-minimal", val: "18:45", isTimer: true },
-        { name: "MRI Cervical Spine", stat: false, sub: "Cord Compression · Dr. K. Sharma (MSK)", status: "Delivered", pillClass: "pill-delivered-minimal", val: "27m TAT", isTimer: false },
-      ],
-      xr: [
-        { name: "Chest PA View", stat: true, sub: "Tension Pneumothorax · Dr. A. Verma (Chest)", status: "Reading", pillClass: "pill-reading-minimal", val: "04:18", isTimer: true },
-        { name: "Abdomen Erect", stat: false, sub: "Acute Abdomen · Dr. P. Nair (Body)", status: "Assigned", pillClass: "pill-assigned-minimal", val: "08:50", isTimer: true },
-        { name: "Pelvis / Hip Trauma", stat: false, sub: "Orthopedic Protocol · Dr. S. Iyer (MSK)", status: "Delivered", pillClass: "pill-delivered-minimal", val: "11m TAT", isTimer: false },
-      ],
-      pet: [
-        { name: "Whole Body 18F-FDG", stat: true, sub: "Lymphoma Restaging · Dr. M. Kulkarni (Nuclear)", status: "Reading", pillClass: "pill-reading-minimal", val: "15:20", isTimer: true },
-        { name: "PSMA PET-CT", stat: false, sub: "Prostate Evaluation · Dr. V. Rao (Onco)", status: "Assigned", pillClass: "pill-assigned-minimal", val: "29:40", isTimer: true },
-        { name: "DOTA-TOC PET", stat: false, sub: "Neuroendocrine Protocol · Dr. M. Kulkarni (Nuclear)", status: "Delivered", pillClass: "pill-delivered-minimal", val: "38m TAT", isTimer: false },
-      ],
+    const cockpitCases: Record<string, {
+      title: string;
+      badge: string;
+      sub: string;
+      status: string;
+      scan: string;
+      hudLeft: string;
+      hudRight: string;
+      docAvatar: string;
+      docName: string;
+      docRole: string;
+      caseId: string;
+      backTat: string;
+      impression: string;
+      backDoc: string;
+      backLic: string;
+    }> = {
+      ct: {
+        title: "CT Brain Plain",
+        badge: "STAT 15m",
+        sub: "Acute Stroke Protocol · Trauma Center Gateway #1",
+        status: "● Reading Now",
+        scan: "/hero/ct_scan.jpg",
+        hudLeft: "SL: 0.5mm · 120kVp · WW: 80 WL: 40",
+        hudRight: "Series 04/12 · Synced",
+        docAvatar: "RM",
+        docName: "Dr. Rahul Menon, MD, FRCR",
+        docRole: "Senior Neuroradiologist (AIIMS) · 14 yrs exp",
+        caseId: "CASE #PT-20418",
+        backTat: "⚡ 16m 40s TAT (14m ahead of SLA)",
+        impression: '"No acute intracranial hemorrhage or territorial infarction. Grey-white matter differentiation is preserved. Basal ganglia and internal capsules intact. Ventricles and sulci symmetric and within normal limits for age. Midline shift: None."',
+        backDoc: "Dr. Rahul Menon, MD, FRCR",
+        backLic: "Lic. #KMC-48291 · Verified AIIMS Radiologist",
+      },
+      mri: {
+        title: "MRI Lumbar Spine 3T",
+        badge: "SUB-SPECIALTY",
+        sub: "Radiculopathy & Spine Protocol · Centre 0188",
+        status: "● Assigned to Specialist",
+        scan: "/hero/mri_scan.jpg",
+        hudLeft: "T2 FSE · TR: 4000 TE: 102 · SL: 4mm",
+        hudRight: "Series 02/08 · Synced",
+        docAvatar: "SI",
+        docName: "Dr. Sanjay Iyer, DNB, Fellowship MSK",
+        docRole: "Spine & Musculoskeletal Radiologist · 11 yrs exp",
+        caseId: "CASE #PT-20402",
+        backTat: "⚡ 24m 10s TAT (Standard SLA)",
+        impression: '"L4-L5 broad-based posterior disc protrusion with mild bilateral neural foraminal narrowing. No central canal stenosis. The conus medullaris terminates normally at L1 level. No cauda equina compression."',
+        backDoc: "Dr. Sanjay Iyer, DNB, MSK Fellow",
+        backLic: "Lic. #TMC-78104 · MSK Specialist",
+      },
+      xr: {
+        title: "Chest X-Ray PA View",
+        badge: "EMERGENCY ICU",
+        sub: "Acute Respiratory Distress · Emergency Unit 0931",
+        status: "● QC Audit Passed",
+        scan: "/hero/xray_scan.jpg",
+        hudLeft: "CXR PA · 95kV · 3.2mAs · W/L: 1400/350",
+        hudRight: "Series 01/01 · Synced",
+        docAvatar: "AK",
+        docName: "Dr. Altaf Khan, MD (Radiodiagnosis)",
+        docRole: "Thoracic & Emergency Imaging Specialist · 9 yrs exp",
+        caseId: "CASE #PT-20399",
+        backTat: "⚡ 08m 15s TAT (ICU Rapid Read)",
+        impression: '"Lungs are clear without focal consolidation, pneumothorax, or pleural effusion. Cardiothoracic ratio is normal. Mediastinal and hilar contours unremarkable. Visualized osseous structures intact."',
+        backDoc: "Dr. Altaf Khan, MD",
+        backLic: "Lic. #DMC-61920 · Chest Radiology Lead",
+      },
     };
 
-    const modTabs = document.querySelectorAll<HTMLButtonElement>(".hero-mod-tab");
-    const studyListContainer = document.getElementById("hero-live-study-list");
+    const flipperEl = document.getElementById("cockpit-flipper");
+    const flipFrontBtn = document.getElementById("cockpit-trigger-flip-front");
+    const flipBackBtn = document.getElementById("cockpit-trigger-flip-back");
 
-    const renderModality = (modKey: string) => {
-      const items = modalityData[modKey] || modalityData.ct;
-      if (!studyListContainer) return;
-
-      studyListContainer.innerHTML = items
-        .map(
-          (item, idx) => `
-        <div class="hero-live-row card-row-turning ${idx === 0 ? "hero-live-row--active" : ""}" style="animation-delay: ${idx * 0.06}s;">
-          <div class="hero-live-row-info">
-            <div class="hero-live-name">
-              ${item.name} ${item.stat ? '<span class="badge-stat">STAT</span>' : ""}
-            </div>
-            <div class="hero-live-sub">${item.sub}</div>
-          </div>
-          <div class="hero-live-status-pill">
-            <span class="pill-badge ${item.pillClass}">${item.status}</span>
-            ${
-              item.isTimer
-                ? idx === 0
-                  ? `<span class="live-mono-timer" id="hero-clock-display">12:34</span>`
-                  : `<span class="live-mono-timer">${item.val}</span>`
-                : `<span class="live-tat-badge">${item.val}</span>`
-            }
-          </div>
-        </div>
-      `,
-        )
-        .join("");
-
-      clockEl = document.getElementById("hero-clock-display");
-      updateClock();
+    const toggleFlip = (forceState?: boolean) => {
+      if (!flipperEl) return;
+      if (typeof forceState === "boolean") {
+        flipperEl.classList.toggle("is-flipped", forceState);
+      } else {
+        flipperEl.classList.toggle("is-flipped");
+      }
     };
 
-    modTabs.forEach((tab) => {
-      const clickHandler = () => {
-        modTabs.forEach((t) => t.classList.remove("active"));
-        tab.classList.add("active");
-        const targetMod = tab.getAttribute("data-mod") ?? "ct";
-        renderModality(targetMod);
+    if (flipFrontBtn) {
+      const handleFlipFront = (e: Event) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleFlip(true);
       };
-      tab.addEventListener("click", clickHandler);
-      cleanups.push(() => tab.removeEventListener("click", clickHandler));
+      flipFrontBtn.addEventListener("click", handleFlipFront);
+      cleanups.push(() => flipFrontBtn.removeEventListener("click", handleFlipFront));
+    }
+    if (flipBackBtn) {
+      const handleFlipBack = (e: Event) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleFlip(false);
+      };
+      flipBackBtn.addEventListener("click", handleFlipBack);
+      cleanups.push(() => flipBackBtn.removeEventListener("click", handleFlipBack));
+    }
+
+    if (flipperEl) {
+      const handleCardTouch = (e: Event) => {
+        const target = e.target as HTMLElement;
+        if (target.closest("button") || target.closest("a")) return;
+        if (window.innerWidth <= 991) {
+          toggleFlip();
+        }
+      };
+      flipperEl.addEventListener("click", handleCardTouch);
+      cleanups.push(() => flipperEl.removeEventListener("click", handleCardTouch));
+    }
+
+    const switchCockpitCase = (key: string) => {
+      const data = cockpitCases[key] || cockpitCases.ct;
+      
+      const titleEl = document.getElementById("cockpit-study-title");
+      if (titleEl) {
+        titleEl.innerHTML = `${data.title} <span class="badge-stat" id="cockpit-stat-badge">${data.badge}</span>`;
+      }
+      const subEl = document.getElementById("cockpit-study-sub");
+      if (subEl) subEl.textContent = data.sub;
+
+      const pillEl = document.getElementById("cockpit-status-pill");
+      if (pillEl) pillEl.textContent = data.status;
+
+      const scanImg = document.getElementById("cockpit-scan-img") as HTMLImageElement;
+      if (scanImg) scanImg.src = data.scan;
+
+      const hudLeft = document.getElementById("cockpit-hud-left");
+      if (hudLeft) hudLeft.textContent = data.hudLeft;
+
+      const hudRight = document.getElementById("cockpit-hud-right");
+      if (hudRight) hudRight.textContent = data.hudRight;
+
+      const docAvatar = document.getElementById("cockpit-doc-avatar");
+      if (docAvatar) docAvatar.textContent = data.docAvatar;
+
+      const docName = document.getElementById("cockpit-doc-name");
+      if (docName) docName.textContent = data.docName;
+
+      const docRole = document.getElementById("cockpit-doc-role");
+      if (docRole) docRole.textContent = data.docRole;
+
+      const backCaseId = document.getElementById("cockpit-back-case-id");
+      if (backCaseId) backCaseId.textContent = data.caseId;
+
+      const backTat = document.getElementById("cockpit-back-tat");
+      if (backTat) backTat.textContent = data.backTat;
+
+      const backImpression = document.getElementById("cockpit-back-impression");
+      if (backImpression) backImpression.textContent = data.impression;
+
+      const backDoc = document.getElementById("cockpit-back-doc");
+      if (backDoc) backDoc.textContent = data.backDoc;
+
+      const backLic = document.getElementById("cockpit-back-lic");
+      if (backLic) backLic.textContent = data.backLic;
+
+      if (flipperEl) flipperEl.classList.remove("is-flipped");
+
+      document.querySelectorAll<HTMLButtonElement>("#hero-cockpit-tabs button").forEach(b => {
+        b.classList.toggle("active", b.getAttribute("data-case") === key);
+      });
+      document.querySelectorAll<HTMLButtonElement>(".queue-dock-chip").forEach(c => {
+        c.classList.toggle("active", c.getAttribute("data-queue") === key);
+      });
+    };
+
+    const cockpitTabs = document.querySelectorAll<HTMLButtonElement>("#hero-cockpit-tabs button");
+    cockpitTabs.forEach(tab => {
+      const handler = () => {
+        const k = tab.getAttribute("data-case") ?? "ct";
+        switchCockpitCase(k);
+      };
+      tab.addEventListener("click", handler);
+      cleanups.push(() => tab.removeEventListener("click", handler));
+    });
+
+    const queueChips = document.querySelectorAll<HTMLButtonElement>(".queue-dock-chip");
+    queueChips.forEach(chip => {
+      const handler = () => {
+        const k = chip.getAttribute("data-queue") ?? "ct";
+        switchCockpitCase(k);
+      };
+      chip.addEventListener("click", handler);
+      cleanups.push(() => chip.removeEventListener("click", handler));
     });
 
     // 3. Dynamic Home button in nav: appears after scrolling past hero

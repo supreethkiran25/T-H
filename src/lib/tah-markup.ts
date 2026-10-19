@@ -55,13 +55,13 @@ export const tahMarkup = `
   <!-- 01 HERO SECTION: Creative, Minimal & High-Impact Clinical Ops Deck -->
   <section class="hero-redesign" id="hero">
     <div class="container">
-      <div class="row align-items-center g-3 g-lg-5">
+      <div class="row align-items-center g-4 g-xl-5">
         
         <!-- HERO LEFT: Strong Punchy Content & Value Proof -->
-        <div class="col-12 col-lg-7">
+        <div class="col-12 col-lg-6">
           <div class="hero-eyebrow-badge mb-2 mb-md-3">
             <span class="live-pulse-dot" style="background: var(--brand-green);"></span>
-            <span class="hero-eyebrow-text">LIVE CLINICAL DESK · 24/7/365 · PAN-INDIA</span>
+            <span class="hero-eyebrow-text">LIVE CLINICAL DESK · 24/7/365 · ALL MODALITIES</span>
           </div>
           
           <h1 class="hero-redesign-title">
@@ -69,22 +69,22 @@ export const tahMarkup = `
           </h1>
           
           <p class="hero-redesign-lead">
-            Subspecialty teleradiology for hospitals & diagnostic centres across India. 140+ fellowship-trained radiologists delivering emergency reads in 15–30 minutes, 24/7/365.
+            Subspecialty radiologists for CT, MRI, X-ray and PET. Emergency reads in 15–30 minutes, 24/7/365 — with a live reporting desk that tracks every study.
           </p>
 
-          <!-- Sleek Horizontal Telemetry Proof Strip -->
+          <!-- Minimal High-Impact Value Strip -->
           <div class="hero-proof-pills mb-3 mb-md-4">
             <div class="hero-proof-pill">
               <span class="proof-icon">⚡</span>
-              <span class="proof-text"><strong>15–30 min</strong> Emergency TAT</span>
+              <span class="proof-text"><strong>15–30 min</strong> Emergency SLA</span>
             </div>
             <div class="hero-proof-pill">
-              <span class="proof-icon">🔬</span>
-              <span class="proof-text"><strong>140+</strong> Subspecialists</span>
+              <span class="proof-icon">👨‍⚕️</span>
+              <span class="proof-text"><strong>140+</strong> Fellowship Specialists</span>
             </div>
             <div class="hero-proof-pill">
-              <span class="proof-icon">⏱️</span>
-              <span class="proof-text"><strong>Live Clock</strong> on Every Scan</span>
+              <span class="proof-icon">📞</span>
+              <span class="proof-text"><strong>Direct Line</strong> to Radiologist</span>
             </div>
           </div>
 
@@ -94,92 +94,168 @@ export const tahMarkup = `
           </div>
 
           <div class="hero-trial-note">
-            <span class="trial-check-icon">✓</span> Free 14-day clinical pilot · Zero IT friction · Direct radiologist phone access
+            <span>✓ 14-day clinical trial · Zero IT friction · Direct PACS DICOM integration</span>
           </div>
         </div>
 
-        <!-- HERO RIGHT: Creative Minimal Interactive Live Ops Card -->
-        <div class="col-12 col-lg-5">
-          <div class="hero-live-card hero-live-card--creative" id="hero-live-cockpit">
+        <!-- HERO RIGHT: Masterpiece 3D Turnover Clinical Diagnostic Console -->
+        <div class="col-12 col-lg-6">
+          <div class="hero-cockpit-wrap" id="hero-cockpit">
             
-            <!-- Card Header with Live Indicator -->
-            <div class="hero-live-card-header">
+            <!-- Cockpit Top Status Bar -->
+            <div class="cockpit-header">
               <div class="d-flex align-items-center gap-2">
                 <span class="live-pulse-dot" style="background: var(--brand-green);"></span>
-                <span class="hero-live-card-title">How your study moves</span>
+                <span class="cockpit-title">Live Reporting Desk</span>
+                <span class="cockpit-badge-pill">ACTIVE SLA</span>
               </div>
-              <span class="hero-live-badge-stat">24/7 STAT Active</span>
-            </div>
-
-            <!-- Modality Filter / Switcher Pills -->
-            <div class="hero-modality-tabs" id="hero-modality-tabs">
-              <button type="button" class="hero-mod-tab active" data-mod="ct">CT</button>
-              <button type="button" class="hero-mod-tab" data-mod="mri">MRI</button>
-              <button type="button" class="hero-mod-tab" data-mod="xr">X-Ray</button>
-              <button type="button" class="hero-mod-tab" data-mod="pet">PET-CT</button>
-            </div>
-
-            <!-- Live Studies Rows (Dynamic 3D perspective flip container) -->
-            <div class="hero-live-card-body" id="hero-live-study-list">
-              <!-- Item 1: STAT (Reading) -->
-              <div class="hero-live-row hero-live-row--active" data-mod-row="ct">
-                <div class="hero-live-row-info">
-                  <div class="hero-live-name">
-                    CT Brain <span class="badge-stat">STAT</span>
-                  </div>
-                  <div class="hero-live-sub">Acute Stroke · Dr. R. Menon (Neuro)</div>
-                </div>
-                <div class="hero-live-status-pill">
-                  <span class="pill-badge pill-reading-minimal">Reading</span>
-                  <span class="live-mono-timer" id="hero-clock-display">12:34</span>
-                </div>
-              </div>
-
-              <!-- Item 2: Routine (Assigned) -->
-              <div class="hero-live-row" data-mod-row="mri">
-                <div class="hero-live-row-info">
-                  <div class="hero-live-name">
-                    MRI Lumbar Spine
-                  </div>
-                  <div class="hero-live-sub">Spine Protocol · Dr. S. Iyer (MSK)</div>
-                </div>
-                <div class="hero-live-status-pill">
-                  <span class="pill-badge pill-assigned-minimal">Assigned</span>
-                  <span class="live-mono-timer">24:18</span>
-                </div>
-              </div>
-
-              <!-- Item 3: STAT (Delivered) -->
-              <div class="hero-live-row" data-mod-row="xr">
-                <div class="hero-live-row-info">
-                  <div class="hero-live-name">
-                    CT Angio Neck
-                  </div>
-                  <div class="hero-live-sub">Carotid Protocol · Dr. P. Nair (Body)</div>
-                </div>
-                <div class="hero-live-status-pill">
-                  <span class="pill-badge pill-delivered-minimal">Delivered</span>
-                  <span class="live-tat-badge">19m TAT</span>
-                </div>
+              <!-- Modality Filter Buttons -->
+              <div class="cockpit-tabs" id="hero-cockpit-tabs">
+                <button type="button" class="cockpit-tab-btn active" data-case="ct">CT STAT</button>
+                <button type="button" class="cockpit-tab-btn" data-case="mri">MRI Neuro</button>
+                <button type="button" class="cockpit-tab-btn" data-case="xr">X-Ray ICU</button>
               </div>
             </div>
 
-            <!-- Footer: Live Clinical Ops SLA bar -->
-            <div class="hero-live-card-footer">
-              <div class="hero-live-kpi">
-                <span class="hero-live-kpi-val">18m</span>
-                <span class="hero-live-kpi-lbl">Avg STAT</span>
+            <!-- 3D Turnover Diagnostic Stage Card -->
+            <div class="cockpit-card-container" id="cockpit-flipper">
+              <div class="cockpit-card-inner">
+                
+                <!-- FRONT: Live Reading Stage (Clean White Ground & Medical Telemetry) -->
+                <div class="cockpit-face cockpit-face-front">
+                  
+                  <!-- Study Meta Header -->
+                  <div class="cockpit-study-meta">
+                    <div>
+                      <div class="cockpit-case-title" id="cockpit-study-title">
+                        CT Brain Plain <span class="badge-stat" id="cockpit-stat-badge">STAT 15m</span>
+                      </div>
+                      <div class="cockpit-case-sub" id="cockpit-study-sub">
+                        Acute Stroke Protocol · Trauma Center Gateway #1
+                      </div>
+                    </div>
+                    <div class="text-end">
+                      <span class="pill-badge pill-reading-minimal" id="cockpit-status-pill">● Reading Now</span>
+                      <div class="cockpit-countdown-clock" id="hero-clock-display">11:42</div>
+                    </div>
+                  </div>
+
+                  <!-- DICOM Scan Viewer Window -->
+                  <div class="cockpit-dicom-viewport">
+                    <img src="/hero/ct_scan.jpg" alt="Live Diagnostic DICOM Scan" class="cockpit-scan-img" id="cockpit-scan-img" />
+                    <!-- Animated Medical Scanning Beam -->
+                    <div class="cockpit-scan-beam"></div>
+                    <!-- Live HUD Overlays -->
+                    <div class="dicom-hud-top">
+                      <span class="hud-mono" id="cockpit-hud-left">SL: 0.5mm · 120kVp · WW: 80 WL: 40</span>
+                      <span class="hud-mono" id="cockpit-hud-right">Series 04/12 · Synced</span>
+                    </div>
+                    <div class="dicom-hud-bottom">
+                      <span class="hud-priority-tag">🚨 Emergency Queue #1</span>
+                      <span class="hud-mono">Encrypted TLS 1.3</span>
+                    </div>
+                  </div>
+
+                  <!-- Doctor Specialist Bar -->
+                  <div class="cockpit-specialist-bar">
+                    <div class="specialist-avatar" id="cockpit-doc-avatar">RM</div>
+                    <div class="specialist-info">
+                      <div class="specialist-name" id="cockpit-doc-name">Dr. Rahul Menon, MD, FRCR</div>
+                      <div class="specialist-role" id="cockpit-doc-role">Senior Neuroradiologist (AIIMS) · 14 yrs exp</div>
+                    </div>
+                    <div class="specialist-action">
+                      <span class="specialist-hotline-badge">📞 ER Line Open</span>
+                    </div>
+                  </div>
+
+                  <!-- 5-Stage Visual Workflow Strip -->
+                  <div class="cockpit-stages-strip">
+                    <div class="stage-step done"><span class="step-dot">✓</span> Acquired</div>
+                    <span class="stage-arr">→</span>
+                    <div class="stage-step done"><span class="step-dot">✓</span> Transmit</div>
+                    <span class="stage-arr">→</span>
+                    <div class="stage-step current"><span class="step-dot pulse">●</span> Reading</div>
+                    <span class="stage-arr">→</span>
+                    <div class="stage-step"><span class="step-dot">○</span> QC Review</div>
+                    <span class="stage-arr">→</span>
+                    <div class="stage-step"><span class="step-dot">○</span> Deliver</div>
+                  </div>
+
+                  <!-- Flip Trigger Hint Button -->
+                  <button type="button" class="cockpit-flip-btn" id="cockpit-trigger-flip-front">
+                    <span>↻ Flip to Inspect Verified Report & Findings →</span>
+                  </button>
+
+                </div>
+
+                <!-- BACK: Delivered Signed Report (Deep TAHRAD Brand Blue #0028FA) -->
+                <div class="cockpit-face cockpit-face-back">
+                  
+                  <div class="cockpit-back-header">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="pill-badge pill-back-verified">✓ Signed in PACS</span>
+                      <span class="text-white-50 text-xs font-mono" id="cockpit-back-case-id">CASE #PT-20418</span>
+                    </div>
+                    <span class="back-tat-record" id="cockpit-back-tat">⚡ 16m 40s TAT (14m ahead of SLA)</span>
+                  </div>
+
+                  <!-- Report Body Preview -->
+                  <div class="cockpit-report-box">
+                    <div class="report-box-label">VERIFIED DIAGNOSTIC FINDINGS & IMPRESSION</div>
+                    <p class="report-box-text" id="cockpit-back-impression">
+                      "No acute intracranial hemorrhage or territorial infarction. Grey-white matter differentiation is preserved. Basal ganglia and internal capsules intact. Ventricles and sulci symmetric and within normal limits for age. Midline shift: None."
+                    </p>
+                  </div>
+
+                  <!-- Hospital PACS Sync Badges -->
+                  <div class="cockpit-sync-grid">
+                    <div class="sync-grid-item">
+                      <span class="sync-icon">🛡️</span>
+                      <div>
+                        <div class="sync-title">Hospital PACS Synced</div>
+                        <div class="sync-desc">Direct DICOM push completed</div>
+                      </div>
+                    </div>
+                    <div class="sync-grid-item">
+                      <span class="sync-icon">📲</span>
+                      <div>
+                        <div class="sync-title">Duty Doctor Alerted</div>
+                        <div class="sync-desc">Report dispatched via SMS/WhatsApp</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Radiologist Signature & Actions -->
+                  <div class="cockpit-back-footer">
+                    <div class="back-doc-sign">
+                      <div class="sign-name" id="cockpit-back-doc">Dr. Rahul Menon, MD, FRCR</div>
+                      <div class="sign-meta" id="cockpit-back-lic">Lic. #KMC-48291 · Verified AIIMS Radiologist</div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <a href="#pilot" class="btn-cockpit-call">📞 Call Radiologist</a>
+                      <button type="button" class="btn-cockpit-flip-back" id="cockpit-trigger-flip-back">
+                        ↻ Back to scan
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+
               </div>
-              <div class="hero-live-kpi-divider"></div>
-              <div class="hero-live-kpi">
-                <span class="hero-live-kpi-val">99.4%</span>
-                <span class="hero-live-kpi-lbl">On-Time SLA</span>
-              </div>
-              <div class="hero-live-kpi-divider"></div>
-              <div class="hero-live-kpi">
-                <span class="hero-live-kpi-val">140+</span>
-                <span class="hero-live-kpi-lbl">Specialists</span>
-              </div>
+            </div>
+
+            <!-- Mini Active Queue Navigator Strip -->
+            <div class="cockpit-queue-dock">
+              <span class="queue-dock-label">HOSPITAL QUEUE:</span>
+              <button type="button" class="queue-dock-chip active" data-queue="ct">
+                <span class="chip-status-dot reading"></span> CT Brain (11:42)
+              </button>
+              <button type="button" class="queue-dock-chip" data-queue="mri">
+                <span class="chip-status-dot assigned"></span> MRI Spine (Assigned)
+              </button>
+              <button type="button" class="queue-dock-chip" data-queue="xr">
+                <span class="chip-status-dot qc"></span> X-Ray Chest (QC Review)
+              </button>
             </div>
 
           </div>
