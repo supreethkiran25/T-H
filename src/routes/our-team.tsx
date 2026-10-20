@@ -44,7 +44,7 @@ export const Route = createFileRoute("/our-team")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "Our Radiologist Panel & Leadership Team | Trust and Hope Rad Pvt. Ltd.",
+        content: "Our Radiologist Panel & Leadership Team | TAHRAD",
       },
       {
         name: "twitter:description",
@@ -77,9 +77,9 @@ export const Route = createFileRoute("/our-team")({
         type: "application/ld+json",
         children: JSON.stringify(
           getWebPageSchema({
-            name: "Our Radiologist Panel & Leadership Team | Trust and Hope Rad Pvt. Ltd.",
+            name: "Our Radiologist Panel & Leadership Team | TAHRAD",
             description:
-              "Meet the clinical leadership and 140+ fellowship-trained radiologists at Trust and Hope Rad Pvt. Ltd. Subspecialty expertise across CT, MRI, Neuro, MSK & Cardiac radiology.",
+              "Meet the clinical leadership and 140+ fellowship-trained radiologists at TAHRAD. Subspecialty expertise across CT, MRI, Neuro, MSK & Cardiac radiology.",
             path: "/our-team",
             type: "AboutPage",
           }),
@@ -303,7 +303,7 @@ function OurTeam() {
                 <div className="team-photo-showcase">
                   <img
                     src={teamImgUrl}
-                    alt="Trust and Hope Radiologists and Healthcare Team"
+                    alt="TAHRAD Radiologists and Healthcare Team"
                     className="team-photo-img"
                   />
                 </div>
@@ -327,7 +327,7 @@ function OurTeam() {
                 <img className="brand-logo brand-logo--icon" src={logoIconWhite} alt="TAHRAD" />
               </Link>
               <p data-stat-summary>
-                Trust and Hope Rad Pvt. Ltd. | 24×7 teleradiology services serving {stats.centres}
+                TAHRAD | 24×7 subspecialty teleradiology services serving {stats.centres}
                 {stats.centresSuffix} centres, {stats.studies}
                 {stats.studiesSuffix} new studies uploaded daily to PACS, {stats.radiologists}
                 {stats.radiologistsSuffix} radiologists across specialisations, {stats.states}

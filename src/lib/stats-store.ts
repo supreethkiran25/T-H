@@ -149,6 +149,6 @@ export function updateStatsInDOM(currentStats?: StatsData): void {
 
   // Update footer summary text elements
   document.querySelectorAll<HTMLElement>("[data-stat-summary]").forEach((el) => {
-    el.textContent = `Trust and Hope Rad Pvt. Ltd. | 24×7 teleradiology services serving ${stats.centres}${stats.centresSuffix} centres, ${stats.studies}${stats.studiesSuffix} new studies uploaded daily to PACS, ${stats.radiologists}${stats.radiologistsSuffix} radiologists across specialisations, ${stats.states}${stats.statesSuffix} states covered in India.`;
+    el.textContent = `TAHRAD | 24×7 subspecialty teleradiology services serving ${stats.centres}${stats.centresSuffix} centres, ${stats.studies}${stats.studiesSuffix} new studies uploaded daily to PACS, ${stats.radiologists}${stats.radiologistsSuffix} radiologists across specialisations, ${stats.states}${stats.statesSuffix} states covered in India.`;
   });
 }

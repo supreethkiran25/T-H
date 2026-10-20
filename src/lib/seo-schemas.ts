@@ -9,17 +9,18 @@ export const ORGANIZATION_SCHEMA = {
     {
       "@type": ["MedicalBusiness", "Organization", "DiagnosticLab", "LocalBusiness"],
       "@id": `${SITE_URL}/#organization`,
-      name: "Trust and Hope Rad Pvt. Ltd.",
-      alternateName: ["TAHRAD", "TAH RAD", "Trust & Hope Rad"],
+      name: "TAHRAD",
+      legalName: "Trust and Hope Rad Pvt. Ltd.",
+      alternateName: ["TAHRAD Teleradiology", "Trust and Hope Rad Pvt. Ltd."],
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
         url: LOGO_URL,
-        caption: "TAHRAD — Trust and Hope Rad Pvt. Ltd.",
+        caption: "TAHRAD",
       },
       image: LOGO_URL,
       description:
-        "Trust and Hope Rad Pvt. Ltd. (TAHRAD) is a 24x7 teleradiology reporting provider serving hospitals and diagnostic centres across India with CT, MRI, X-Ray, PET, ultrasound, and subspecialty reads.",
+        "TAHRAD (Trust and Hope Rad Pvt. Ltd.) is a 24x7 teleradiology reporting provider serving hospitals and diagnostic centres across India with CT, MRI, X-Ray, PET, ultrasound, and subspecialty reads.",
       email: "admin@trustandhoperad.com",
       telephone: "+918123388860",
       sameAs: [
@@ -119,7 +120,7 @@ export const ORGANIZATION_SCHEMA = {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services",
+      name: "TAHRAD | 24x7 Teleradiology Services",
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "en-IN",
     },

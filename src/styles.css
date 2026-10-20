@@ -278,6 +278,138 @@
 }
 
 /* ========================================================
+   STUDY MOVES CARD (TAHRAD Review 01 Hero Spec)
+   ======================================================== */
+.study-moves-card {
+  background: var(--brand-blue);
+  border-radius: 20px;
+  padding: 28px 30px;
+  color: #ffffff;
+  box-shadow: 0 16px 40px rgba(0, 40, 250, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+
+.study-moves-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.study-moves-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.study-moves-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.study-move-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.study-move-row:hover,
+.study-move-row.active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateX(3px);
+}
+
+.study-move-name {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+.study-badge-reading {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.study-badge-assigned {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.study-badge-delivered {
+  background: var(--brand-green);
+  border: 1.5px solid var(--brand-green);
+  color: #031b54;
+  border-radius: 9999px;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.study-moves-subtext {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Strikethrough style for comparison cards (Review 04) */
+.compare-del {
+  text-decoration: line-through;
+  color: #ef4444;
+  opacity: 0.85;
+}
+
+/* Coverage Stat Huge (Review 05) */
+.coverage-stat-huge {
+  margin-bottom: 8px;
+}
+
+.coverage-stat-huge mark {
+  background: var(--brand-yellow) !important;
+  color: var(--brand-blue) !important;
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 5.2vw, 64px);
+  font-weight: 800;
+  line-height: 1.05;
+  padding: 2px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  letter-spacing: -0.02em;
+}
+
+.coverage-stat-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--brand-gray);
+  margin-top: 6px;
+}
+
+/* ========================================================
    MASTERPIECE CLINICAL DIAGNOSTIC COCKPIT & 3D TURNOVER
    ======================================================== */
 .hero-cockpit-wrap {
@@ -947,6 +1079,26 @@
     justify-content: center !important;
     text-align: center !important;
     line-height: 1.35 !important;
+  }
+
+  .study-moves-card {
+    padding: 20px 16px !important;
+    margin-top: 10px !important;
+  }
+
+  .study-move-row {
+    padding: 12px 12px !important;
+  }
+
+  .study-move-name {
+    font-size: 13.5px !important;
+  }
+
+  .study-badge-reading,
+  .study-badge-assigned,
+  .study-badge-delivered {
+    padding: 3px 10px !important;
+    font-size: 10.5px !important;
   }
 
   /* COCKPIT MOBILE */

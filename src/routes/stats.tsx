@@ -9,7 +9,7 @@ const logoUrl = brandLogos.primary.white;
 export const Route = createFileRoute("/stats")({
   head: () => ({
     meta: [
-      { title: "Stats CMS Admin Login | Trust and Hope Rad Pvt. Ltd." },
+      { title: "Stats CMS Admin Login | TAHRAD" },
       { name: "robots", content: "noindex, nofollow" },
       { name: "googlebot", content: "noindex, nofollow" },
       {
@@ -170,7 +170,7 @@ function StatsCMS() {
               Stats CMS Admin Login
             </h1>
             <p style={{ fontSize: "13.5px", color: "#8DA5C4", margin: 0 }}>
-              Trust and Hope Rad Pvt. Ltd.
+              TAHRAD
             </p>
           </div>
 
@@ -1032,7 +1032,7 @@ function StatsCMS() {
                     wordBreak: "break-word",
                   }}
                 >
-                  Trust and Hope Rad Pvt. Ltd. | 24×7 teleradiology services serving{" "}
+                  TAHRAD | 24×7 subspecialty teleradiology serving{" "}
                   <strong style={{ color: "#FFFFFF" }}>
                     {formData.centres}
                     {formData.centresSuffix}

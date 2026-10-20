@@ -1,5 +1,3 @@
-import { brandLogos } from "@/lib/brand";
-import whoWeAreImgUrl from "../assets/image.webp";
 
 const logoPrimaryBlue = "/brand/tahrad-logo-primary-blue.png";
 const logoPrimaryWhite = "/brand/tahrad-logo-primary-white.png";
@@ -14,16 +12,13 @@ export const tahMarkup = `
         <img class="brand-logo brand-logo--primary" src="${logoPrimaryBlue}" alt="TAHRAD" style="height: 28px; width: auto; max-width: 120px; object-fit: contain;">
       </a>
       <nav class="links">
-        <a href="#hero" class="nav-home-btn" id="nav-home-btn">Home</a>
         <a href="#services">Services</a>
         <a href="#how-it-works">How it works</a>
-        <a href="#reporting-desk">Reporting desk</a>
         <a href="#coverage">Coverage</a>
         <a href="#for-radiologists">For radiologists</a>
       </nav>
       <div class="nav-actions">
-        <a href="https://pacs.trustandhoperad.com/login" target="_blank" rel="noopener noreferrer" class="nav-login-link d-none d-lg-inline-flex">Hospital login</a>
-        <a href="#pilot" class="btn-tah-primary btn-nav-pilot"><span class="d-none d-sm-inline">Request a&nbsp;</span>pilot →</a>
+        <a href="#pilot" class="btn-tah-primary btn-nav-pilot">Request a pilot</a>
         <button class="burger d-inline-flex d-lg-none" id="burger-btn" aria-label="Toggle navigation menu" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 38px; height: 38px; padding: 6px; background: transparent; border: none; cursor: pointer;">
           <span style="display: block; width: 20px; height: 2.2px; background: #0028FA; margin: 2.5px 0; border-radius: 2px;"></span>
           <span style="display: block; width: 20px; height: 2.2px; background: #0028FA; margin: 2.5px 0; border-radius: 2px;"></span>
@@ -37,15 +32,12 @@ export const tahMarkup = `
 <!-- MOBILE DRAWER -->
 <div class="mobile-drawer" id="mobile-drawer">
   <div class="mobile-drawer-inner">
-    <a href="#hero" class="mobile-home-btn" id="mobile-home-btn">Home</a>
     <a href="#services">Services</a>
     <a href="#how-it-works">How it works</a>
-    <a href="#reporting-desk">Reporting desk</a>
     <a href="#coverage">Coverage</a>
     <a href="#for-radiologists">For radiologists</a>
     <a href="/our-team">Our Team</a>
     <div class="mobile-drawer-cta mt-3 pt-2">
-      <a href="https://pacs.trustandhoperad.com/login" target="_blank" rel="noopener noreferrer" class="btn-tah-secondary w-100 mb-2 text-center">Hospital login</a>
       <a href="#pilot" class="btn-tah-primary w-100 text-center">Request a pilot →</a>
     </div>
   </div>
@@ -98,166 +90,47 @@ export const tahMarkup = `
           </div>
         </div>
 
-        <!-- HERO RIGHT: Masterpiece 3D Turnover Clinical Diagnostic Console -->
+        <!-- HERO RIGHT: "How your study moves" Card (TAHRAD Review 01 Spec) -->
         <div class="col-12 col-lg-6">
-          <div class="hero-cockpit-wrap" id="hero-cockpit">
+          <div class="study-moves-card">
+            <div class="study-moves-header">
+              <span class="live-pulse-dot" style="background: var(--brand-green);"></span>
+              <span class="study-moves-title">How your study moves</span>
+            </div>
             
-            <!-- Cockpit Top Status Bar -->
-            <div class="cockpit-header">
-              <div class="d-flex align-items-center gap-2">
-                <span class="live-pulse-dot" style="background: var(--brand-green);"></span>
-                <span class="cockpit-title">Live Reporting Desk</span>
-                <span class="cockpit-badge-pill">ACTIVE SLA</span>
-              </div>
-              <!-- Modality Filter Buttons -->
-              <div class="cockpit-tabs" id="hero-cockpit-tabs">
-                <button type="button" class="cockpit-tab-btn active" data-case="ct">CT STAT</button>
-                <button type="button" class="cockpit-tab-btn" data-case="mri">MRI Neuro</button>
-                <button type="button" class="cockpit-tab-btn" data-case="xr">X-Ray ICU</button>
-              </div>
-            </div>
-
-            <!-- 3D Turnover Diagnostic Stage Card -->
-            <div class="cockpit-card-container" id="cockpit-flipper">
-              <div class="cockpit-card-inner">
-                
-                <!-- FRONT: Live Reading Stage (Clean White Ground & Medical Telemetry) -->
-                <div class="cockpit-face cockpit-face-front">
-                  
-                  <!-- Study Meta Header -->
-                  <div class="cockpit-study-meta">
-                    <div>
-                      <div class="cockpit-case-title" id="cockpit-study-title">
-                        CT Brain Plain <span class="badge-stat" id="cockpit-stat-badge">STAT 15m</span>
-                      </div>
-                      <div class="cockpit-case-sub" id="cockpit-study-sub">
-                        Acute Stroke Protocol · Trauma Center Gateway #1
-                      </div>
-                    </div>
-                    <div class="text-end">
-                      <span class="pill-badge pill-reading-minimal" id="cockpit-status-pill">● Reading Now</span>
-                      <div class="cockpit-countdown-clock" id="hero-clock-display">11:42</div>
-                    </div>
-                  </div>
-
-                  <!-- DICOM Scan Viewer Window -->
-                  <div class="cockpit-dicom-viewport">
-                    <img src="/hero/ct_scan.jpg" alt="Live Diagnostic DICOM Scan" class="cockpit-scan-img" id="cockpit-scan-img" />
-                    <!-- Animated Medical Scanning Beam -->
-                    <div class="cockpit-scan-beam"></div>
-                    <!-- Live HUD Overlays -->
-                    <div class="dicom-hud-top">
-                      <span class="hud-mono" id="cockpit-hud-left">SL: 0.5mm · 120kVp · WW: 80 WL: 40</span>
-                      <span class="hud-mono" id="cockpit-hud-right">Series 04/12 · Synced</span>
-                    </div>
-                    <div class="dicom-hud-bottom">
-                      <span class="hud-priority-tag">🚨 Emergency Queue #1</span>
-                      <span class="hud-mono">Encrypted TLS 1.3</span>
-                    </div>
-                  </div>
-
-                  <!-- Doctor Specialist Bar -->
-                  <div class="cockpit-specialist-bar">
-                    <div class="specialist-avatar" id="cockpit-doc-avatar">RM</div>
-                    <div class="specialist-info">
-                      <div class="specialist-name" id="cockpit-doc-name">Dr. Rahul Menon, MD, FRCR</div>
-                      <div class="specialist-role" id="cockpit-doc-role">Senior Neuroradiologist (AIIMS) · 14 yrs exp</div>
-                    </div>
-                    <div class="specialist-action">
-                      <span class="specialist-hotline-badge">📞 ER Line Open</span>
-                    </div>
-                  </div>
-
-                  <!-- 5-Stage Visual Workflow Strip -->
-                  <div class="cockpit-stages-strip">
-                    <div class="stage-step done"><span class="step-dot">✓</span> Acquired</div>
-                    <span class="stage-arr">→</span>
-                    <div class="stage-step done"><span class="step-dot">✓</span> Transmit</div>
-                    <span class="stage-arr">→</span>
-                    <div class="stage-step current"><span class="step-dot pulse">●</span> Reading</div>
-                    <span class="stage-arr">→</span>
-                    <div class="stage-step"><span class="step-dot">○</span> QC Review</div>
-                    <span class="stage-arr">→</span>
-                    <div class="stage-step"><span class="step-dot">○</span> Deliver</div>
-                  </div>
-
-                  <!-- Flip Trigger Hint Button -->
-                  <button type="button" class="cockpit-flip-btn" id="cockpit-trigger-flip-front">
-                    <span>↻ Flip to Inspect Verified Report & Findings →</span>
-                  </button>
-
+            <div class="study-moves-list" id="hero-study-moves-list">
+              <!-- Row 1: CT Brain · STAT -->
+              <div class="study-move-row" data-case="ct">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="live-pulse-dot" style="background: var(--brand-yellow); width: 8px; height: 8px;"></span>
+                  <span class="study-move-name">CT Brain · STAT</span>
                 </div>
+                <span class="study-badge-reading">Reading</span>
+              </div>
 
-                <!-- BACK: Delivered Signed Report (Deep TAHRAD Brand Blue #0028FA) -->
-                <div class="cockpit-face cockpit-face-back">
-                  
-                  <div class="cockpit-back-header">
-                    <div class="d-flex align-items-center gap-2">
-                      <span class="pill-badge pill-back-verified">✓ Signed in PACS</span>
-                      <span class="text-white-50 text-xs font-mono" id="cockpit-back-case-id">CASE #PT-20418</span>
-                    </div>
-                    <span class="back-tat-record" id="cockpit-back-tat">⚡ 16m 40s TAT (14m ahead of SLA)</span>
-                  </div>
-
-                  <!-- Report Body Preview -->
-                  <div class="cockpit-report-box">
-                    <div class="report-box-label">VERIFIED DIAGNOSTIC FINDINGS & IMPRESSION</div>
-                    <p class="report-box-text" id="cockpit-back-impression">
-                      "No acute intracranial hemorrhage or territorial infarction. Grey-white matter differentiation is preserved. Basal ganglia and internal capsules intact. Ventricles and sulci symmetric and within normal limits for age. Midline shift: None."
-                    </p>
-                  </div>
-
-                  <!-- Hospital PACS Sync Badges -->
-                  <div class="cockpit-sync-grid">
-                    <div class="sync-grid-item">
-                      <span class="sync-icon">🛡️</span>
-                      <div>
-                        <div class="sync-title">Hospital PACS Synced</div>
-                        <div class="sync-desc">Direct DICOM push completed</div>
-                      </div>
-                    </div>
-                    <div class="sync-grid-item">
-                      <span class="sync-icon">📲</span>
-                      <div>
-                        <div class="sync-title">Duty Doctor Alerted</div>
-                        <div class="sync-desc">Report dispatched via SMS/WhatsApp</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Radiologist Signature & Actions -->
-                  <div class="cockpit-back-footer">
-                    <div class="back-doc-sign">
-                      <div class="sign-name" id="cockpit-back-doc">Dr. Rahul Menon, MD, FRCR</div>
-                      <div class="sign-meta" id="cockpit-back-lic">Lic. #KMC-48291 · Verified AIIMS Radiologist</div>
-                    </div>
-                    <div class="d-flex align-items-center gap-2">
-                      <a href="#pilot" class="btn-cockpit-call">📞 Call Radiologist</a>
-                      <button type="button" class="btn-cockpit-flip-back" id="cockpit-trigger-flip-back">
-                        ↻ Back to scan
-                      </button>
-                    </div>
-                  </div>
-
+              <!-- Row 2: MRI Lumbar Spine -->
+              <div class="study-move-row" data-case="mri">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="live-pulse-dot" style="background: rgba(255,255,255,0.6); width: 8px; height: 8px;"></span>
+                  <span class="study-move-name">MRI Lumbar Spine</span>
                 </div>
+                <span class="study-badge-assigned">Assigned</span>
+              </div>
 
+              <!-- Row 3: CT Angio Neck -->
+              <div class="study-move-row" data-case="angio">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="live-pulse-dot" style="background: var(--brand-green); width: 8px; height: 8px;"></span>
+                  <span class="study-move-name">CT Angio Neck</span>
+                </div>
+                <span class="study-badge-delivered">Delivered</span>
               </div>
             </div>
 
-            <!-- Mini Active Queue Navigator Strip -->
-            <div class="cockpit-queue-dock">
-              <span class="queue-dock-label">HOSPITAL QUEUE:</span>
-              <button type="button" class="queue-dock-chip active" data-queue="ct">
-                <span class="chip-status-dot reading"></span> CT Brain (11:42)
-              </button>
-              <button type="button" class="queue-dock-chip" data-queue="mri">
-                <span class="chip-status-dot assigned"></span> MRI Spine (Assigned)
-              </button>
-              <button type="button" class="queue-dock-chip" data-queue="xr">
-                <span class="chip-status-dot qc"></span> X-Ray Chest (QC Review)
-              </button>
+            <div class="study-moves-footer mt-4 pt-3 d-flex justify-content-between align-items-center" style="border-top: 1px solid rgba(255, 255, 255, 0.18);">
+              <span class="study-moves-subtext">⚡ 15–30 min emergency SLA · 24/7/365</span>
+              <a href="#reporting-desk" class="text-white text-xs fw-bold text-decoration-none" style="font-size: 13px;">Inspect live desk →</a>
             </div>
-
           </div>
         </div>
 
@@ -358,10 +231,11 @@ export const tahMarkup = `
     </div>
   </section>
 
-  <!-- 02 WHO WE ARE (Direct Radiologist Access Promise - Review Page 3) -->
+  <!-- 02 WHO WE ARE (Direct Radiologist Access Promise - TAHRAD Review 02 Spec) -->
   <section class="who-we-are-redesign" id="who-we-are">
     <div class="container">
-      <div class="row g-5 align-items-center">
+      <div class="row g-4 g-lg-5 align-items-center">
+        <!-- Left Column: Content & Direct Promise -->
         <div class="col-12 col-lg-6 reveal">
           <span class="eyebrow">WHO WE ARE</span>
           <h2 class="section-h2 mb-3">
@@ -372,10 +246,19 @@ export const tahMarkup = `
             Every study has a patient waiting on it. So every TAHRAD client gets a named radiologist, a direct line, and turnaround times we're accountable to.
           </p>
 
-          <div class="who-cards-stack mb-4">
+          <div>
+            <a href="/our-team" class="btn-tah-primary">Meet the radiologists →</a>
+          </div>
+        </div>
+
+        <!-- Right Column: 3 Clean Proof Cards (Page 3 Spec) -->
+        <div class="col-12 col-lg-6 reveal">
+          <div class="who-cards-stack">
             <!-- Card 1 -->
             <div class="who-proof-card">
-              <div class="who-proof-icon-tile">👤</div>
+              <div class="who-proof-icon-tile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
               <div>
                 <h4 class="who-proof-card-title">A named lead radiologist</h4>
                 <p class="who-proof-card-desc">Not a ticket queue or a shared inbox.</p>
@@ -384,7 +267,9 @@ export const tahMarkup = `
 
             <!-- Card 2 -->
             <div class="who-proof-card">
-              <div class="who-proof-icon-tile">💬</div>
+              <div class="who-proof-icon-tile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
               <div>
                 <h4 class="who-proof-card-title">Direct line and WhatsApp</h4>
                 <p class="who-proof-card-desc">Questions before, during and after the report.</p>
@@ -393,27 +278,12 @@ export const tahMarkup = `
 
             <!-- Card 3 -->
             <div class="who-proof-card">
-              <div class="who-proof-icon-tile">⚡</div>
+              <div class="who-proof-icon-tile">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
               <div>
                 <h4 class="who-proof-card-title">Critical findings phoned in</h4>
                 <p class="who-proof-card-desc">A clear escalation path, written down.</p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <a href="/our-team" class="btn-tah-primary">Meet the radiologists →</a>
-          </div>
-        </div>
-
-        <div class="col-12 col-lg-6 reveal">
-          <div class="who-we-are-image-card scroll-expand scroll-expand--who" id="who-image-card">
-            <div class="scroll-expand__frame who-image-frame" id="who-image-frame">
-              <img src="${whoWeAreImgUrl}" alt="TAHRAD Board-Certified Fellowship Radiologists" class="who-we-are-img scroll-expand__media" id="who-image-media">
-              <div class="scroll-expand__scrim who-image-scrim" id="who-image-scrim"></div>
-              <div class="who-we-are-img-overlay scroll-expand__overlay" id="who-image-overlay">
-                <span class="badge-tag">🔬 Fellowship Trained Panel</span>
-                <p class="overlay-caption">Accessible before, during and after the report</p>
               </div>
             </div>
           </div>
@@ -590,16 +460,16 @@ export const tahMarkup = `
     </div>
   </section>
 
-  <!-- 04 SERVICES (Full-Spectrum Reporting, All 8 Modalities Visible as Cards - Redesign Page 2) -->
+  <!-- 04 SERVICES (Full-Spectrum Reporting, All 8 Modalities Visible at Once - TAHRAD Review 03 Spec) -->
   <section class="services-redesign" id="services">
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 reveal">
         <div>
           <span class="eyebrow">FULL-SPECTRUM REPORTING</span>
-          <h2 class="section-h2 mb-1">Every modality. One reporting partner.</h2>
+          <h2 class="section-h2 mb-1">Every modality, all visible at once.</h2>
         </div>
         <div class="mt-2 mt-md-0">
-          <a href="#pilot" class="link-styled-action">Ask for a modality we don't list →</a>
+          <a href="/services" class="link-styled-action">Each card opens its own page →</a>
         </div>
       </div>
 
@@ -613,8 +483,7 @@ export const tahMarkup = `
                 <span class="modality-arrow">↗</span>
               </div>
               <h3 class="modality-title">CT reporting</h3>
-              <p class="modality-desc">Trauma, stroke, oncology and routine CT, including angiography.</p>
-              <div class="modality-tags">Emergency · Angio · Oncology</div>
+              <p class="modality-desc">Trauma, stroke, angio and routine CT.</p>
             </div>
           </a>
         </div>
@@ -628,8 +497,7 @@ export const tahMarkup = `
                 <span class="modality-arrow">↗</span>
               </div>
               <h3 class="modality-title">MRI reporting</h3>
-              <p class="modality-desc">Neuro, MSK, spine, body and cardiac MRI by subspecialists.</p>
-              <div class="modality-tags">Neuro · MSK · Body</div>
+              <p class="modality-desc">Neuro, MSK, spine and body MRI.</p>
             </div>
           </a>
         </div>
@@ -642,9 +510,8 @@ export const tahMarkup = `
                 <span class="modality-abbr">XR</span>
                 <span class="modality-arrow">↗</span>
               </div>
-              <h3 class="modality-title">X-Ray & DR</h3>
-              <p class="modality-desc">High-volume chest and skeletal reads with fast turnaround.</p>
-              <div class="modality-tags">Chest · Skeletal · Paeds</div>
+              <h3 class="modality-title">X-Ray reporting</h3>
+              <p class="modality-desc">High-volume chest and skeletal reads.</p>
             </div>
           </a>
         </div>
@@ -657,9 +524,22 @@ export const tahMarkup = `
                 <span class="modality-abbr">PET</span>
                 <span class="modality-arrow">↗</span>
               </div>
-              <h3 class="modality-title">PET-CT reporting</h3>
-              <p class="modality-desc">Oncology staging and response reads by nuclear medicine experts.</p>
-              <div class="modality-tags">Oncology · Nuclear</div>
+              <h3 class="modality-title">PET reporting</h3>
+              <p class="modality-desc">Oncology staging and response.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- USG -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="/services/ultrasound" class="modality-card-link">
+            <div class="modality-card">
+              <div class="modality-card-top">
+                <span class="modality-abbr">USG</span>
+                <span class="modality-arrow">↗</span>
+              </div>
+              <h3 class="modality-title">USG reporting</h3>
+              <p class="modality-desc">Ultrasound reads and second looks.</p>
             </div>
           </a>
         </div>
@@ -673,8 +553,7 @@ export const tahMarkup = `
                 <span class="modality-arrow">↗</span>
               </div>
               <h3 class="modality-title">Subspecialty reads</h3>
-              <p class="modality-desc">Neuro, MSK, cardiac, paediatric and women’s imaging.</p>
-              <div class="modality-tags">Matched by case</div>
+              <p class="modality-desc">Neuro, MSK, cardiac, paediatric.</p>
             </div>
           </a>
         </div>
@@ -688,8 +567,7 @@ export const tahMarkup = `
                 <span class="modality-arrow">↗</span>
               </div>
               <h3 class="modality-title">Nighthawk & stat</h3>
-              <p class="modality-desc">Overnight and weekend cover with stat escalation for emergencies.</p>
-              <div class="modality-tags">Night · Weekend · Stat</div>
+              <p class="modality-desc">Night, weekend and emergency cover.</p>
             </div>
           </a>
         </div>
@@ -702,24 +580,8 @@ export const tahMarkup = `
                 <span class="modality-abbr">2nd</span>
                 <span class="modality-arrow">↗</span>
               </div>
-              <h3 class="modality-title">Second opinion</h3>
-              <p class="modality-desc">Independent review for complex or disputed cases.</p>
-              <div class="modality-tags">Complex cases</div>
-            </div>
-          </a>
-        </div>
-
-        <!-- MMG -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <a href="/services/mammography" class="modality-card-link">
-            <div class="modality-card">
-              <div class="modality-card-top">
-                <span class="modality-abbr">MMG</span>
-                <span class="modality-arrow">↗</span>
-              </div>
-              <h3 class="modality-title">Mammography</h3>
-              <p class="modality-desc">Screening and diagnostic mammography by breast imaging specialists.</p>
-              <div class="modality-tags">Screening · Diagnostic</div>
+              <h3 class="modality-title">Second opinions</h3>
+              <p class="modality-desc">Independent review of complex cases.</p>
             </div>
           </a>
         </div>
@@ -882,13 +744,12 @@ export const tahMarkup = `
           <div class="compare-card">
             <div class="compare-before">
               <span class="compare-tag-before">BEFORE</span>
-              <p class="compare-text-before">Upload and hope. No idea who has the study or when it will come back.</p>
+              <p class="compare-text-before"><del class="compare-del">Upload and hope.</del></p>
             </div>
             <div class="compare-divider"></div>
             <div class="compare-after">
-              <span class="compare-tag-after">WITH TAHRAD</span>
-              <h4 class="compare-title-after">A live clock on every study</h4>
-              <p class="compare-text-after">See the stage, the radiologist and the time elapsed — for every scan, from any device.</p>
+              <h4 class="compare-title-after">Turnaround stated up front</h4>
+              <p class="compare-text-after">You know when each report will land, per modality.</p>
             </div>
           </div>
         </div>
@@ -898,13 +759,12 @@ export const tahMarkup = `
           <div class="compare-card">
             <div class="compare-before">
               <span class="compare-tag-before">BEFORE</span>
-              <p class="compare-text-before">Queue roulette. Whoever is free reads your neuro case.</p>
+              <p class="compare-text-before"><del class="compare-del">Whoever is free reads your case.</del></p>
             </div>
             <div class="compare-divider"></div>
             <div class="compare-after">
-              <span class="compare-tag-after">WITH TAHRAD</span>
-              <h4 class="compare-title-after">Subspecialists, not whoever is free</h4>
-              <p class="compare-text-after">Cases are routed by modality and body region to the right radiologist, every time.</p>
+              <h4 class="compare-title-after">Subspecialists, matched by case</h4>
+              <p class="compare-text-after">Routed by modality and body region every time.</p>
             </div>
           </div>
         </div>
@@ -914,13 +774,12 @@ export const tahMarkup = `
           <div class="compare-card">
             <div class="compare-before">
               <span class="compare-tag-before">BEFORE</span>
-              <p class="compare-text-before">Calls that go to voicemail when your ER needs answers.</p>
+              <p class="compare-text-before"><del class="compare-del">Calls that go to voicemail.</del></p>
             </div>
             <div class="compare-divider"></div>
             <div class="compare-after">
-              <span class="compare-tag-after">WITH TAHRAD</span>
               <h4 class="compare-title-after">A radiologist who picks up</h4>
-              <p class="compare-text-after">Direct line and in-case chat to the reading radiologist, with escalation built in.</p>
+              <p class="compare-text-after">Direct line and WhatsApp, with escalation built in.</p>
             </div>
           </div>
         </div>
@@ -941,45 +800,131 @@ export const tahMarkup = `
     </div>
   </section>
 
-  <!-- 07 PAN-INDIA COVERAGE (Redesign Page 4) -->
-  <section class="coverage-redesign" id="coverage">
+  <!-- 05 PAN-INDIA COVERAGE & PILOT (TAHRAD Review 05 Spec) -->
+  <section class="coverage-pilot-unified" id="coverage" style="padding: 80px 0; background: #ffffff;">
     <div class="container">
-      <div class="row g-5 align-items-center">
-        <div class="col-12 col-lg-6 reveal">
+      <div class="row g-4 g-xl-5 align-items-start">
+        
+        <!-- Left Column: Pan-India Coverage -->
+        <div class="col-12 col-lg-5 reveal">
           <span class="eyebrow">PAN-INDIA COVERAGE</span>
-          <h2 class="section-h2 mb-3">From metro trauma centres to district diagnostic labs.</h2>
-          <p class="section-lead-text mb-4">
-            Radiologists across 15+ states, reading in shifts so your night is someone's morning.
+          
+          <div class="coverage-stat-huge my-3">
+            <mark class="tah-highlight-yellow">15–30 min</mark>
+            <span class="coverage-stat-label">emergency turnaround, 24/7/365</span>
+          </div>
+
+          <p class="section-lead-text mb-4" style="color: var(--brand-gray); font-size: 15px; line-height: 1.6;">
+            Subspecialty radiologists across India, reading in shifts so your night is someone's morning.
           </p>
 
-          <div class="coverage-tat-box mb-4">
-            <div class="coverage-tat-number">
-              <mark class="tah-highlight-yellow">15–30 min</mark>
-            </div>
-            <div class="coverage-tat-sub">emergency turnaround, 24/7/365</div>
-          </div>
-
-          <div>
-            <button class="btn-tah-secondary" id="check-city-coverage-btn">Check coverage for your city →</button>
-          </div>
-        </div>
-
-        <!-- Static State Chips (Right column) -->
-        <div class="col-12 col-lg-6 reveal">
-          <div class="state-chips-cloud">
+          <!-- Static State Chips (Pill Chips) -->
+          <div class="state-chips-cloud mb-4">
             <span class="state-chip">Karnataka</span>
             <span class="state-chip">Tamil Nadu</span>
             <span class="state-chip">Kerala</span>
-            <span class="state-chip">Andhra Pradesh</span>
-            <span class="state-chip">Telangana</span>
             <span class="state-chip">Gujarat</span>
             <span class="state-chip">Rajasthan</span>
-            <span class="state-chip">Madhya Pradesh</span>
             <span class="state-chip">West Bengal</span>
-            <span class="state-chip">Odisha</span>
-            <span class="state-chip">Bihar</span>
-            <span class="state-chip">Punjab</span>
-            <span class="state-chip highlight-chip">+ more states</span>
+            <span class="state-chip">Telangana</span>
+            <span class="state-chip highlight-chip">+ 8 more</span>
+          </div>
+
+          <div>
+            <button type="button" class="btn-tah-secondary" id="check-city-coverage-btn">Check coverage for your city →</button>
+          </div>
+        </div>
+
+        <!-- Right Column: What Happens After You Submit & Pilot Callback Form -->
+        <div class="col-12 col-lg-7 reveal" id="pilot">
+          <div class="pilot-blue-panel" style="border-radius: 20px; box-shadow: 0 16px 40px rgba(0, 40, 250, 0.16); padding: 36px 32px; background: var(--brand-blue); color: #ffffff;">
+            <span class="eyebrow" style="color: rgba(255, 255, 255, 0.85);">WHAT HAPPENS AFTER YOU SUBMIT</span>
+            
+            <!-- 3 Clear Steps -->
+            <div class="pilot-steps-list my-3">
+              <div class="pilot-step-item">
+                <span class="pilot-step-num" style="color: var(--brand-yellow);">01</span>
+                <span class="pilot-step-text">We call you back within 15 minutes.</span>
+              </div>
+              <div class="pilot-step-item">
+                <span class="pilot-step-num" style="color: var(--brand-yellow);">02</span>
+                <span class="pilot-step-text">We connect to your PACS and set up your desk.</span>
+              </div>
+              <div class="pilot-step-item">
+                <span class="pilot-step-num" style="color: var(--brand-yellow);">03</span>
+                <span class="pilot-step-text">You go live with a named lead radiologist.</span>
+              </div>
+            </div>
+
+            <!-- Embedded Callback Form -->
+            <form id="pilot-request-form" class="mt-4 pt-3 border-top" style="border-color: rgba(255,255,255,0.2) !important;">
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label class="form-label text-white text-xs fw-bold mb-1" for="pilot-name">Your name</label>
+                  <input type="text" id="pilot-name" class="form-control-custom bg-white text-dark" placeholder="Dr. Priya Sharma" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label text-white text-xs fw-bold mb-1" for="pilot-centre">Hospital / centre</label>
+                  <input type="text" id="pilot-centre" class="form-control-custom bg-white text-dark" placeholder="Centre name and city" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label text-white text-xs fw-bold mb-1" for="pilot-email">Work email</label>
+                  <input type="email" id="pilot-email" class="form-control-custom bg-white text-dark" placeholder="doctor@hospital.in" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label text-white text-xs fw-bold mb-1" for="pilot-phone">Phone / WhatsApp</label>
+                  <input type="tel" id="pilot-phone" class="form-control-custom bg-white text-dark" placeholder="+91" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label text-white text-xs fw-bold mb-1" for="pilot-volume">Studies per month</label>
+                  <select id="pilot-volume" class="form-control-custom bg-white text-dark">
+                    <option value="under-300">Under 300 studies</option>
+                    <option value="300-1000" selected>300 – 1,000 studies</option>
+                    <option value="1000-plus">1,000+ studies</option>
+                  </select>
+                </div>
+
+                <!-- Modalities Needed -->
+                <div class="col-12">
+                  <label class="form-label text-white text-xs fw-bold mb-1">Modalities you need</label>
+                  <div class="modality-select-chips" id="modality-chips">
+                    <button type="button" class="mod-chip-btn active" data-mod="CT">CT</button>
+                    <button type="button" class="mod-chip-btn active" data-mod="MRI">MRI</button>
+                    <button type="button" class="mod-chip-btn" data-mod="X-Ray">X-Ray</button>
+                    <button type="button" class="mod-chip-btn" data-mod="PET-CT">PET-CT</button>
+                    <button type="button" class="mod-chip-btn" data-mod="USG">USG</button>
+                    <button type="button" class="mod-chip-btn" data-mod="Night cover">Night cover</button>
+                  </div>
+                </div>
+
+                <!-- High-contrast White Pill Submit Button (PDF Review 05 Spec) -->
+                <div class="col-12 mt-3">
+                  <button type="submit" class="w-100 py-3 fw-bold rounded-pill text-uppercase border-0 shadow-sm" style="background: #ffffff; color: var(--brand-blue); font-family: var(--font-heading); font-size: 14.5px; letter-spacing: 0.04em; cursor: pointer; transition: transform 0.2s ease;" id="pilot-submit-btn">
+                    Request my pilot callback →
+                  </button>
+                  <div class="mt-2 text-center text-white-50 text-xs">
+                    🔒 No lock-in. Encrypted DICOM TLS 1.3 transfer.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Feedback Banner -->
+              <div id="pilot-form-feedback" class="pilot-feedback-banner mt-3 p-3 bg-white text-dark rounded-3" style="display: none;">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="text-success fw-bold fs-5">✓</span>
+                  <div>
+                    <strong class="text-primary">Pilot callback requested!</strong>
+                    <div class="small text-muted">A TAHRAD clinical coordinator will call you back within 15 minutes.</div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <!-- Contact info shown once next to form -->
+            <div class="mt-4 pt-3 border-top d-flex flex-wrap justify-content-between align-items-center gap-2 text-white-50 text-xs" style="border-color: rgba(255,255,255,0.18) !important;">
+              <div>Direct ER line / WhatsApp: <a href="tel:+918123388860" class="text-white fw-bold text-decoration-none">+91 81233 88860</a></div>
+              <div><a href="mailto:contact@trustandhoperad.com" class="text-white text-decoration-none">contact@trustandhoperad.com</a></div>
+            </div>
           </div>
         </div>
       </div>
@@ -998,108 +943,7 @@ export const tahMarkup = `
           </div>
         </div>
         <div class="rad-recruit-right">
-          <a href="#pilot" class="btn-tah-secondary btn-join-panel">Join the panel</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 08 START WITH A PILOT (Unified Split Card - Redesign Page 4) -->
-  <section class="pilot-section" id="pilot">
-    <div class="container">
-      <div class="pilot-split-card reveal">
-        <div class="row g-0">
-          <!-- Left: Solid Brand Blue Panel -->
-          <div class="col-12 col-lg-5 pilot-blue-panel">
-            <span class="eyebrow" style="color: rgba(255, 255, 255, 0.75);">START WITH A PILOT</span>
-            <h2 class="pilot-heading-white">Send us your next batch of studies. Judge us on the reports.</h2>
-
-            <div class="pilot-steps-list">
-              <div class="pilot-step-item">
-                <span class="pilot-step-num">01</span>
-                <span class="pilot-step-text">We call you back within one working hour.</span>
-              </div>
-              <div class="pilot-step-item">
-                <span class="pilot-step-num">02</span>
-                <span class="pilot-step-text">We connect to your PACS and set up your desk.</span>
-              </div>
-              <div class="pilot-step-item">
-                <span class="pilot-step-num">03</span>
-                <span class="pilot-step-text">You go live with a named lead radiologist.</span>
-              </div>
-            </div>
-
-            <div class="pilot-legal-block">
-              <div class="pilot-company-name">Trust & Hope Rad Pvt. Ltd.</div>
-              <div class="pilot-address">#1035, 4th 'M' Block, Dr. Rajkumar Road, Rajajinagar, Bengaluru 560010</div>
-              <div class="pilot-contact-row">Call / WhatsApp: <a href="tel:+918123388860">+91 81233 88860</a></div>
-              <div class="pilot-contact-row">Email: <a href="mailto:contact@trustandhoperad.com">contact@trustandhoperad.com</a></div>
-            </div>
-          </div>
-
-          <!-- Right: White Form Panel -->
-          <div class="col-12 col-lg-7 pilot-form-panel">
-            <form id="pilot-request-form">
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <label class="form-label-custom" for="pilot-name">Your name</label>
-                  <input type="text" id="pilot-name" class="form-control-custom" placeholder="Dr. Priya Sharma" required>
-                </div>
-                <div class="col-12 col-md-6">
-                  <label class="form-label-custom" for="pilot-centre">Hospital / centre</label>
-                  <input type="text" id="pilot-centre" class="form-control-custom" placeholder="Centre name and city" required>
-                </div>
-                <div class="col-12 col-md-6">
-                  <label class="form-label-custom" for="pilot-email">Work email</label>
-                  <input type="email" id="pilot-email" class="form-control-custom" placeholder="name@hospital.in" required>
-                </div>
-                <div class="col-12 col-md-6">
-                  <label class="form-label-custom" for="pilot-phone">Phone</label>
-                  <input type="tel" id="pilot-phone" class="form-control-custom" placeholder="+91" required>
-                </div>
-                <div class="col-12">
-                  <label class="form-label-custom" for="pilot-volume">Studies per month</label>
-                  <select id="pilot-volume" class="form-control-custom">
-                    <option value="under-300">Under 300</option>
-                    <option value="300-1000" selected>300 – 1,000</option>
-                    <option value="1000-plus">1,000+</option>
-                  </select>
-                </div>
-
-                <!-- Modalities you need (Interactive chips) -->
-                <div class="col-12">
-                  <label class="form-label-custom">Modalities you need</label>
-                  <div class="modality-select-chips" id="modality-chips">
-                    <button type="button" class="mod-chip-btn active" data-mod="CT">CT</button>
-                    <button type="button" class="mod-chip-btn active" data-mod="MRI">MRI</button>
-                    <button type="button" class="mod-chip-btn" data-mod="X-Ray">X-Ray</button>
-                    <button type="button" class="mod-chip-btn" data-mod="PET-CT">PET-CT</button>
-                    <button type="button" class="mod-chip-btn" data-mod="Night cover">Night cover</button>
-                  </div>
-                </div>
-
-                <div class="col-12">
-                  <button type="submit" class="btn-tah-primary w-100 py-3 mt-2" id="pilot-submit-btn">
-                    Request my pilot callback
-                  </button>
-                  <div class="pilot-form-assurance mt-2 text-center">
-                    No commitment. Your study data stays encrypted and is never shared.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Feedback Banner -->
-              <div id="pilot-form-feedback" class="pilot-feedback-banner mt-3" style="display: none;">
-                <div class="d-flex align-items-center gap-2">
-                  <span class="check-icon">✓</span>
-                  <div>
-                    <strong>Pilot callback requested!</strong>
-                    <div>A TAHRAD clinical coordinator will call you back within one working hour.</div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+          <a href="/our-team" class="btn-tah-secondary btn-join-panel">Join the panel</a>
         </div>
       </div>
     </div>
@@ -1151,7 +995,7 @@ export const tahMarkup = `
 
     <div class="footer-bottom-bar pt-4 d-flex flex-wrap justify-content-between align-items-center">
       <div class="footer-copy">
-        © 2026 Trust & Hope Rad Pvt. Ltd. All rights reserved.
+        © 2026 Trust and Hope Rad Pvt. Ltd. All rights reserved.
       </div>
       <div class="footer-legal-links">
         <a href="#hero">Privacy</a> · 
